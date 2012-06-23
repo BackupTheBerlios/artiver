@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id = "vBoxOffer" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.Offer">
+        <styleClass>
+            <String fx:value = "vBox-Offer"/>
+        </styleClass>
+    <children>
+        <VBox fx:id = "vBoxCustomer">
+            <children>
+                
+                <Label fx:id = "lblOfferCustomer" text = "Kunde" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225"/>
+                
+                <ChoiceBox id = "cbxOfferCustomer" minHeight = "30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "cbxOfferCustomer"/>
+              
+            </children>
+        </VBox>
+
+        <Label fx:id = "lblOfferEmpty1" text = "" minWidth = "1" prefWidth = "1" minHeight = "40" prefHeight = "40"/>
+        
+        <HBox fx:id = "hBoxTables" >
+            <children>
+                
+                <ListView fx:id = "lstOffer" minWidth = "300" minHeight = "200" prefHeight = "200" prefWidth = "300"/>
+                
+                
+                <HBox fx:id = "hBoxControlls">
+                <children>
+                    
+                    <Label fx:id = "lblEmpty3" text = "" minWidth = "40" prefWidth = "40" minHeight = "1" prefHeight = "1"/>
+                    
+                <VBox fx:id = "vBoxArrows" alignment = "center">
+                    <children>
+                        
+                        <ImageView fx:id = "arrowGreen" onMousePressed = "#imgActionArrowGreen">
+                            <image>
+                                <Image url = "@pfeil_gruen_small_invoice.png"/>
+                            </image>
+                        </ImageView>
+                        
+                                
+                                
+                                
+                                                                <Label fx:id = "lblOfferAmount" text = "Anzahl" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
+                                                                <TextField fx:id = "txtOfferAmount" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
+                      
+                                                                <Label fx:id = "lblOfferPrice" text = "Preis" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
+                                                                <TextField fx:id = "txtOfferPrice" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
+                      
+                                
+                                
+                                
+                         
+                        <ImageView fx:id = "arrowRed" onMousePressed = "#imgActionArrowRed">
+                            <image>
+                                <Image url = "@pfeil_rot_small_invoice.png"/>
+                            </image>
+                        </ImageView>
+                        
+                      
+                    </children>
+                </VBox>
+                
+                    <Label fx:id = "lblEmpty4" text = "" minWidth = "40" prefWidth = "40" minHeight = "1" prefHeight = "1"/>
+                
+                </children>
+                </HBox>
+                
+                <VBox fx:id = "vBoxArticles" minWidth = "300" prefWidth = "300" minHeight = "200" prefHeight = "200"/> 
+                
+            </children>
+        </HBox>
+        
+        
+        <Label fx:id = "lblOfferEmpty2" text = "" minWidth = "1" prefWidth =  "1" minHeight = "40" prefHeight = "40"/>        
+        
+        
+        <HBox fx:id = "hBoxButton" >
+            <children>
+                <Button fx:id = "btnOfferRoger" text = "Bestätigen" onAction = "#btnActionOfferRoger" />
+                
+                <Label fx:id = "lblOfferPrice" text = "" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>

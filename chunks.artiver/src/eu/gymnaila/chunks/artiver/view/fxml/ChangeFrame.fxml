@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<GridPane fx:id = "gridPaneChangeFrame" alignment = "center" hgap = "20" vgap = "20" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.ChangeFrame">
+        <styleClass>
+            <String fx:value = "grid-paneInsert"/>
+        </styleClass>
+    <children>
+        <Label id = "lblGridPaneChangeNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "0"  minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelnummer" fx:id = "lblGridPaneChangeNumber"/>
+        <TextField id = "txtGridPaneChangeNumber" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangeNumber"/>
+        
+        <Label id = "lblGridPaneChangeName" GridPane.columnIndex = "0" GridPane.rowIndex = "1"  minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelname" fx:id = "lblGridPaneChangeName"/>
+        <TextField id = "txtGridPaneChangeName" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangeName"/>
+        
+        <Label id = "lblGridPaneChangeTyp" GridPane.columnIndex = "0" GridPane.rowIndex = "2" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikeltyp" fx:id = "lblGridPaneChangeTyp"/>
+        <TextField id = "txtGridPaneChangeTyp" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangeTyp"/>
+        
+        <Label id = "lblGridPaneChangeCategory" GridPane.columnIndex = "0" GridPane.rowIndex = "3" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelkategorie" fx:id = "lbl"/>
+        <TextField id = "txtGridPaneChangeCategory" GridPane.columnIndex = "1" GridPane.rowIndex = "3" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225" fx:id = "txtGridPaneChangeCategory"/>
+        
+        <Label id = "lblGridPaneChangePlace" GridPane.columnIndex = "0" GridPane.rowIndex = "4" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Lagerort" fx:id = "lblGridPaneChangePlace"/>
+        <TextField id = "txtGridPaneChangePlace" GridPane.columnIndex = "1" GridPane.rowIndex = "4" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangePlace"/>
+        
+        <Label id = "lblGridPaneChangePropertysNonEdit" GridPane.columnIndex = "0" GridPane.rowIndex = "5" minWidth = "150" minHeight = "60" prefWidth = "150" prefHeight = "60" text ="Eigenschaften" fx:id = "lblGridPaneChangePropertysNonEdit"/>
+        
+        <ScrollPane fx:id="scrollbarHBoxChangeFrame" GridPane.columnIndex = "1" GridPane.rowIndex = "5">
+            <content>
+                <TextArea id = "txtGridPaneChangePropertysNonEdit" minHeight = "120" minWidth="225" prefHeight = "120" prefWidth="225" fx:id = "txtGridPaneChangePropertysNonEdit"/>
+            </content>
+        </ScrollPane>
+        
+        <HBox fx:id = "hBoxChangeFrame" prefWidth="225"  prefHeight="30" minWidth="225" minHeight="30" GridPane.columnIndex = "1" GridPane.rowIndex = "6"  >
+            <children>
+        
+        <!--HBox fx:id = "hBoxChangeFrame" prefWidth="225"  prefHeight="30" minWidth="225" minHeight="30"  >
+            <children>-->
+                <ImageView fx:id = "arrowGreen" onMousePressed = "#imgActionArrowGreen">
+                    <image>
+                        <Image url = "@pfeil_gruen_small.png"/>
+                    </image>
+                </ImageView>
+                
+                <Label id = "lblChangeFrameEmpty" text = "" prefWidth="160"  prefHeight="1" minWidth="160" minHeight="1" fx:id = "lblChangeFrameEmpty" />
+                
+                
+                <ImageView fx:id = "arrowRed" onMousePressed = "#imgActionArrowRed" >
+                    <image>
+                        <Image url = "@pfeil_rot_small.png"/>
+                    </image>
+                </ImageView>
+         
+        
+        
+        
+        </children>
+        </HBox>
+        
+        <TextField id = "txtGridPaneChangePropertys" GridPane.columnIndex = "1" GridPane.rowIndex = "7" minHeight = "30" minWidth="150" prefHeight = "30" prefWidth="150" fx:id = "txtGridPaneChangePropertys"/>
+        
+        <Button id="btnChangeFrameRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "8" text="Bestätigen" onAction="#btnActionChangeFrameRoger" fx:id="btnChangeFrameRoger"/>
+
+    </children>
+</GridPane>

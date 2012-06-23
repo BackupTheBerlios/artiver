@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id = "vBoxCheckOut" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.CheckOut"> 
+    <children>
+        
+        <VBox fx:id = "vBoxCheckOutArticlelist" />
+
+            <GridPane fx:id = "gridPaneCheckOut" alignment = "center" hgap = "50" vgap = "50" >
+                    <styleClass>
+                        <String fx:value = "grid-paneCheckIn"/>
+                    </styleClass>
+                <children>
+                    <Button id = "btnCheckOutRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "2" text = "Bestätigen" onAction = "#btnActionCheckOutRoger" fx:id = "btnCheckOutRoger" />
+                    <TextField id = "txtCheckOutNummer" GridPane.columnIndex = "1" GridPane.rowIndex = "1" fx:id = "txtCheckOutNummer" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" />
+                    <TextField id = "txtCheckOutArticle" GridPane.columnIndex = "1" GridPane.rowIndex = "0" fx:id = "txtCheckOutArticle" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" />
+                    <Label id = "lblCheckOutNummer" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Anzahl" fx:id = "lblCheckOutNummer" minHeight="20" minWidth="150" prefHeight="20" prefWidth="150"/>
+                    <Label id = "lblCheckOutArticle" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Artikel" fx:id = "lblCheckOutArticle" minHeight="20" minWidth="150" prefHeight="20" prefWidth="150" />
+                </children>
+            </GridPane>
+    </children>
+</VBox>

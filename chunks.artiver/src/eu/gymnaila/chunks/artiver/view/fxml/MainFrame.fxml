@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id = "borderPaneMainFrame" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.MainFrame">
+    <styleClass>
+        <String fx:value = "border-pane"/>
+    </styleClass>
+    <top>
+        <HBox id = "hBoxMainFrame">
+            <styleClass>
+                    <String fx:value = "hBox-mainFrame"/>
+                </styleClass>
+            <children>
+                <StackPane alignment="center_left">
+            <children>
+                 <!--style="-fx-scale-x: 0.75;-fx-scale-y: 0.75;">-->
+               <ImageView  fx:id="img1">
+                    <image>
+                        <Image url="@logokiste_transparent.png"/>
+                    </image>
+                </ImageView>
+                </children>
+                </StackPane>
+               <Label id="lblMainFrameTitleLabel" styleClass = "titleLabel" text = ""  minHeight="30" minWidth="300" prefHeight="30" prefWidth="300" fx:id="lblMainFrameTitleLabel">
+                    <!--<styleClass>
+                        <String fx:value = "titleLabel"/>
+                    </styleClass>-->
+              </Label>
+           </children>
+       </HBox> 
+    </top>
+    <left>
+   <VBox fx:id = "accVBoxMainFrame">
+        <styleClass>
+            <String fx:value = "vBox-mainFrame"/>
+        </styleClass>
+        <children>
+    <Accordion fx:id = "accMainFrame">
+        <panes>
+            <TitledPane fx:id = "tPaneMainFrame" text = "Artikelverwaltung">
+                    <styleClass>
+                        <String fx:value = "titled-pane"/>
+                    </styleClass>
+                <content>
+                    <VBox fx:id = "vBoxAccArticle">
+                        <styleClass>
+                            <String fx:value = "vBox-accordion"/>
+                        </styleClass>
+                        <children>
+                            <Button fx:id="btnAccMainFrameCheckIn" text = "Check In" onAction = "#btnActionAccMainFrameCheckIn" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                <styleClass>
+                                    <String fx:value = "accordion-button"/>
+                                </styleClass>
+                            </Button>
+                            <Button fx:id = "btnAccMainFrameCheckOut" text = "Check Out" onAction = "#btnActionAccMainFrameCheckOut" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" >
+                                <styleClass>
+                                    <String fx:value = "accordion-button"/>
+                                </styleClass>
+                            </Button>
+                            <Button fx:id = "btnAccMainFrameInsert" text = "Artikel erstellen" onAction = "#btnActionAccMainFrameInsert" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" >
+                                <styleClass>
+                                    <String fx:value = "accordion-button"/>
+                                </styleClass>
+                            </Button>
+                            <Button fx:id = "btnAccMainFrameList" text = "Artikelliste" onAction = "#btnActionAccMainFrameList" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" >   
+                                <styleClass>
+                                    <String fx:value = "accordion-button"/>
+                                </styleClass>
+                            </Button>
+                        </children>
+                    </VBox>
+                </content> 
+            </TitledPane>
+            <TitledPane fx:id = "tPaneMainFrameDaBa" text = "Stammdatenverwaltung">
+                <styleClass>
+                    <String fx:value = "titled-pane"/>
+                </styleClass>
+                    <content>
+                        <VBox fx:id = "vBoxAccArticleDaBa">
+                            <styleClass>
+                                <String fx:value = "vBox-accordion"/>
+                            </styleClass>
+                                <children>
+                                    <Button fx:id="btnAccMainFrameStock" text = "Lagerort editieren" onAction = "#btnActionAccMainFrameStock" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnAccMainFrameState" text = "Status editieren" onAction = "#btnActionAccMainFrameState" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnAccMainFrameCategory" text = "Kategorie editieren" onAction = "#btnActionAccMainFrameCategory" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnAccMainFrameSettings" text = "Einstellungen" onAction = "#btnActionAccMainFrameSettings" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                </children>
+                            </VBox>
+                        </content>
+            </TitledPane>
+            <TitledPane fx:id = "tPaneMainFrameRights" text = "Rechteverwaltung">
+                    <styleClass>
+                        <String fx:value = "titled-pane"/>
+                    </styleClass>
+                <content>
+                    <VBox fx:id = "vBoxAccRights">
+                            <styleClass>
+                                <String fx:value = "vBox-accordion"/>
+                            </styleClass>
+                        <children>
+                            <Button fx:id="btnAccMainFrameGiveRights" text = "Gruppe editieren" onAction = "#btnActionAccMainFrameGiveRights" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                <styleClass>
+                                    <String fx:value = "accordion-button"/>
+                                </styleClass>
+                            </Button>
+                            <Button fx:id="btnAccMainFrameUsers" text = "Nutzer editieren" onAction = "#btnActionAccMainFrameMakeUsers" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                <styleClass>
+                                    <String fx:value = "accordion-button"/>
+                                </styleClass>
+                            </Button>
+                        </children>
+                    </VBox>
+                </content>
+            </TitledPane>
+            <TitledPane fx:id = "tPaneMainFrameOffer" text = "Auftragsverwaltung">
+                <styleClass>
+                    <String fx:value = "titled-pane"/>
+                </styleClass>
+                    <content>
+                        <VBox fx:id = "vBoxAccOffers">
+                            <styleClass>
+                                <String fx:value = "vBox-accordion"/>
+                            </styleClass>
+                                <children>
+                                    <Button fx:id="btnAccMainFrameInvoice" text = "Rechnung" onAction = "#btnActionAccMainFrameInvoice" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnAccMainFrameOffer" text = "Angebot" onAction = "#btnActionAccMainFrameOffer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnAccMainFrameDelivery" text = "Lieferschein" onAction = "#btnActionAccMainFrameDelivery" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnAccMainFrameCustomer" text = "Kunden" onAction = "#btnActionAccMainFrameCustomer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                        <styleClass>
+                                            <String fx:value = "accordion-button"/>
+                                        </styleClass>
+                                    </Button>
+                                </children>
+                        </VBox>
+                    </content>
+            </TitledPane>
+        </panes>
+    </Accordion>
+    </children>
+    </VBox>
+    </left>
+    <center>
+        <!--<GridPane fx:id = "gridPaneMainFrameScroll" alignment = "center">
+                <styleClass>
+                    <String fx:value = "grid-pane-scroll"/>
+                </styleClass>
+            <children>
+                <ScrollPane fx:id = "scrMainFrame" fitToHeight = "true" fitToWidth = "true" GridPane.columnIndex = "0" GridPane.rowIndex = "0"  minHeight = "550" prefHeight = "550" minWidth = "800" prefWidth = "800">
+                        <styleClass>
+                            <String fx:value = "scroll-pane-main"/>
+                        </styleClass>
+                    <content>-->
+                        
+                        <VBox fx:id = "vBoxMain"/>
+                    
+                   <!-- </content>
+                </ScrollPane>
+            </children>
+        </GridPane>-->
+    </center>
+ </BorderPane>
+ 

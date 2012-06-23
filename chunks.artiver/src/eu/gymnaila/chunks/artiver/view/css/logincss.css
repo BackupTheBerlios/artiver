@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+/* 
+    Document   : LogInCSS
+    Created on : 09.02.2012, 20:24:52
+    Author     : Thunderbolt
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+.grid-pane
+{
+    -fx-padding: 0 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.grid-paneRFID
+{
+    -fx-padding: 100 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.border-pane
+{
+    -fx-padding: 0 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.hBox
+{
+    -fx-padding: 40 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.vBox
+{
+    -fx-padding: 20 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.button
+{
+    -fx-font: bold 14pt Arial;
+    
+    -fx-background-color: #4F81BD;
+    
+    -fx-cursor: hand;
+    
+/*    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );*/
+    
+    
+}
+
+.label
+{
+    -fx-font: normal 16pt Arial;
+    -fx-wrap-text: true;
+}
+
+.titleLabel
+{
+    -fx-font: normal 28pt Arial;
+    -fx-skin: "com.sun.javafx.scene.control.skin.LabelSkin";
+}
+
+.text-field
+{
+    -fx-font: normal 16pt Arial;
+    
+    -fx-cursor: text;
+}

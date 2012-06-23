@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox fx:id = "vBoxInvoice" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.InvoiceFrame">
+        <styleClass>
+            <String fx:value = "vBox-Invoice"/>
+        </styleClass>
+    <children>
+        <VBox fx:id = "vBoxInvoiceCustomer">
+            <children>
+                
+                <Label fx:id = "lblInvoiceCustomer" text = "Kunde" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225"/>
+                
+                <ChoiceBox id = "cbxInvoiceCustomer" minHeight = "30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "cbxInvoiceCustomer"/>
+              
+            </children>
+        </VBox>
+
+        <Label fx:id = "lblInvoiceEmpty1" text = "" minWidth = "1" prefWidth = "1" minHeight = "40" prefHeight = "40"/>
+        
+        <HBox fx:id = "hBoxTables" >
+            <children>
+                
+                <ListView fx:id = "lstInvoice" minWidth = "300" minHeight = "200" prefHeight = "200" prefWidth = "300"/>
+                
+                
+                <HBox fx:id = "hBoxControlls">
+                <children>
+                    
+                    <Label fx:id = "lblEmpty3" text = "" minWidth = "40" prefWidth = "40" minHeight = "1" prefHeight = "1"/>
+                    
+                <VBox fx:id = "vBoxArrows" alignment = "center">
+                    <children>
+                        
+                        <ImageView fx:id = "arrowGreen" onMousePressed = "#imgActionArrowGreen">
+                                <styleClass>
+                                    <String fx:value = "image-View"/>
+                                </styleClass>
+                            <image>
+                                <Image url = "@pfeil_gruen_small_invoice.png"/>
+                            </image>
+                        </ImageView>
+                        
+                                
+                                
+                                
+                                                                <Label fx:id = "lblInvoiceAmount" text = "Anzahl" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
+                                                                <TextField fx:id = "txtInvoiceAmount" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
+                      
+                                                                <Label fx:id = "lblInvoicePrice" text = "Preis" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
+                                                                <TextField fx:id = "txtInvoicePrice" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
+                      
+                                
+                                
+                                
+                         
+                        <ImageView fx:id = "arrowRed" onMousePressed = "#imgActionArrowRed">
+                                <styleClass>
+                                    <String fx:value = "image-View"/>
+                                </styleClass>
+                            <image>
+                                <Image url = "@pfeil_rot_small_invoice.png"/>
+                            </image>
+                        </ImageView>
+                        
+                      
+                    </children>
+                </VBox>
+                
+                    <Label fx:id = "lblEmpty4" text = "" minWidth = "40" prefWidth = "40" minHeight = "1" prefHeight = "1"/>
+                
+                </children>
+                </HBox>
+                
+                <VBox fx:id = "vBoxArticles" minWidth = "300" prefWidth = "300" minHeight = "200" prefHeight = "200"/> 
+                
+            </children>
+        </HBox>
+        
+        
+        <Label fx:id = "lblInvoiceEmpty2" text = "" minWidth = "1" prefWidth =  "1" minHeight = "40" prefHeight = "40"/>        
+        
+        
+        <HBox fx:id = "hBoxButton" >
+            <children>
+                <Button fx:id = "btnInvoiceRoger" text = "Bestätigen" onAction = "#btnActionInvoiceRoger" />
+                
+                <Label fx:id = "lblInvoiceEmpty5" text = "" minWidth = "300" prefWidth = "300" minHeight = "1" prefHeight = "1"/>
+                
+                <GridPane fx:id = "gridPaneInvoicePrices" alignment = "center" hgap = "20" vgap = "20">
+                    <children>
+                        <Label fx:id = "lblInvoicePriceNoMwSt" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Preis ohne MwSt" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
+                        <TextField fx:id = "txtInvoicePriceNoMwSt" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
+                        
+                        <Label fx:id = "lblInvoiceTotal" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Preis mit MwSt" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
+                        <TextField fx:id = "txtInvoiceTotal" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+    </children>
+</VBox>

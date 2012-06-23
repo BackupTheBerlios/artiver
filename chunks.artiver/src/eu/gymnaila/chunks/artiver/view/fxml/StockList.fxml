@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id = "vBoxStock" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.StockList">
+        <styleClass>
+            <String fx:value = "vbox-stammdaten"/>
+        </styleClass>
+    <children>
+    <GridPane alignment = "center" fx:id = "gridPaneStockList" hgap = "10" vgap = "10">
+            <styleClass>
+                <String fx:value =  "grid-pane"/>
+            </styleClass>
+        <children>
+       
+            <VBox fx:id = "vBoxStockListList" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "500" minHeight = "200" prefWidth = "500" prefHeight = "200"  />
+        
+            <Button id="btnStockListErease" text="Entfernen" GridPane.columnIndex = "2" GridPane.rowIndex = "1" onAction="#btnActionStockListErease" fx:id="btnStockListErease"/>
+            <Button id="btnStockListChange" text="Ändern" GridPane.columnIndex = "0" GridPane.rowIndex = "1" onAction="#btnActionStockListChange" fx:id="btnStockListChange"/>
+        
+        </children>
+    </GridPane>
+    
+    <GridPane fx:id = "gridPaneStockInsert" alignment = "center" hgap = "20" vgap = "20">
+        <styleClass>
+            <String fx:value = "grid-paneStockInsert"/>
+        </styleClass>
+            <children>
+                <Label fx:id = "lblInsertStockName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <TextField fx:id = "txtInsertStockName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
+    
+                <Label fx:id = "lblInsertStockCountry" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Land" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <TextField fx:id = "txtInsertStockCountry" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
+                
+                <Label fx:id = "lblInsertStockAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <TextField fx:id = "txtInsertStockAddress" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
+    
+                <Button fx:id = "btnInsertStockRoger" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Bestätigen" onAction = "#btnActionInsertStockRoger"/>
+        </children>
+    </GridPane>
+    </children>
+</VBox>

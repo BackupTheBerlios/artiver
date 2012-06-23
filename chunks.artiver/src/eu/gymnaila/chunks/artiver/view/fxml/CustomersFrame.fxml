@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<GridPane fx:id = "gridPaneCustomers" hgap = "20" vgap = "20" alignment = "center" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.CustomersFrame" >
+    <styleClass>
+        <String fx:value = "grid-paneCustomers"/>
+    </styleClass>
+<children>    
+<VBox fx:id="vBoxCustomersFrame" GridPane.columnIndex = "0" GridPane.rowIndex = "0" >
+        <styleClass>
+            <String fx:value = "vBox-UsersFrame"/>
+        </styleClass>
+    <children>
+        
+        <GridPane alignment = "center" fx:id = "gridPaneCustomersFrameList" hgap = "20" vgap = "20">
+            <children>
+                
+                        <VBox fx:id = "vBoxCustomersFrameList" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "500" prefWidth = "500" minHeight = "150" prefHeight = "150"/>
+                            <styleClass>
+                                <String fx:value = "vBox-UsersList"/>
+                            </styleClass>
+                
+                    
+                    <Button fx:id = "btnCustomersFrameChange" text = "Ändern" GridPane.columnIndex = "0" GridPane.rowIndex = "1" onAction = "#btnActionCustomersFrameChange"/>
+                    <Button fx:id = "btnCustomersFrameErease" text = "Löschen" GridPane.columnIndex = "2" GridPane.rowIndex = "1" onAction = "#btnActionCustomersFrameErease"/>
+            
+            </children>
+        </GridPane>
+        
+        <Label fx:id = "lblCustomersFrameEmpty" text = "" minWidth = "20" prefWidth = "20" minHeight = "100" prefHeight = "100"/>      
+      
+        <HBox fx:id = "hBoxCustomersFrame">
+            <children>
+                
+                <HBox fx:id = "hBoxCustomersFrame2">
+                    <children>
+                        
+                        
+                        <GridPane fx:id = "gridPaneCustomersFrame" alignment = "center" hgap = "20" vgap = "20">
+                                <styleClass>
+                                    <String fx:value = "grid-paneCustomer"/>
+                                </styleClass>
+                            <children>
+                                <Label fx:id = "lblCustomersFrameCustomer" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                                <TextField fx:id = "txtCustomersFrameCustomer" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
+                               
+                                <Label fx:id = "lblCustomersFrameCustomerID" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nummer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
+                                <TextField fx:id = "txtCustomersFrameCustomerID" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />          
+                                
+                                <Label fx:id = "lblCustomersFrameAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
+                                <TextField fx:id = "txtCustomersFrameAddress" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
+                                
+                                
+                                <!--<Label fx:id = "lblCustomersFramePW" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Passwort" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                                <PasswordField fx:id = "pwfCustomersFramePW" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
+                                
+                                <Label fx:id = "lblCustomersFramePWconf" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Passwort wiederholen" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                                <PasswordField fx:id = "pwfCustomersFramePWconf" GridPane.columnIndex = "1" GridPane.rowIndex = "3" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
+                                
+                                <Label fx:id = "lblCustomersFrameRFID" GridPane.columnIndex = "0" GridPane.rowIndex = "4" text = "RFID" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                               -->
+                                <Button fx:id = "btnCustomersFrameRoger" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Bestätigen" onAction = "#btnActionCustomersFrameRoger"/>
+                                
+                            </children>
+                        </GridPane>
+                                                <!--<Label fx:id = "lblCustomersFrameEmpty" text = "" minWidth = "20" minHeight = "1" prefWidth = "20" prefHeight = "1"/>
+                        -->
+                        <!--<ScrollPane fx:id = "scrCustomersFrameListView" minWidth = "300" minHeight = "150" prefWidth = "300" prefHeight = "150">
+                            <content>
+                                <ListView fx:id = "lstCustomersFrame" minHeight = "300" minWidth="500" prefHeight = "300" prefWidth="500"/>
+                                    <styleClass>
+                                        <String fx:value = "list-view"/>
+                                    </styleClass>
+                            </content>
+                        </ScrollPane>-->
+
+                  </children>
+               </HBox>
+            </children>
+        </HBox>
+        
+        
+        
+    </children>
+</VBox>
+</children>
+</GridPane>

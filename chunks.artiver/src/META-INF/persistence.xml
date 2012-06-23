@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="ArtiVerPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>eu.gymnaila.chunks.artiver.entity.Stock</class>
+    <class>eu.gymnaila.chunks.artiver.entity.State</class>
+    <class>eu.gymnaila.chunks.artiver.entity.Groups</class>
+    <class>eu.gymnaila.chunks.artiver.entity.Category</class>
+    <class>eu.gymnaila.chunks.artiver.entity.Customer</class>
+    <class>eu.gymnaila.chunks.artiver.entity.Article</class>
+    <class>eu.gymnaila.chunks.artiver.entity.User</class>
+    <class>eu.gymnaila.chunks.artiver.entity.Invoice</class>
+    <class>eu.gymnaila.chunks.artiver.entity.DeliveryNote</class>
+    <class>eu.gymnaila.chunks.artiver.entity.Offer</class>
+    <class>eu.gymnaila.chunks.artiver.entity.DepictionArticle</class>
+    <class>eu.gymnaila.chunks.artiver.entity.MasterData</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test"/>
+      <property name="javax.persistence.jdbc.password" value="0wn3d_y0u"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="dennis"/>
+      <property name="eclipselink.cache.type.default" value="NONE"/>
+      <property name="eclipselink.cache.size.default" value="0"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="eclipselink.query-results-cache" value="false"/>
+    </properties>
+  </persistence-unit>
+</persistence>

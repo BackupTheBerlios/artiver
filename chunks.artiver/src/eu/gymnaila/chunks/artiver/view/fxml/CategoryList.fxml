@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id = "vBoxCategory" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.CategoryList">
+        <styleClass>
+            <String fx:value = "vbox-stammdaten"/>
+        </styleClass>
+    <children>
+    <GridPane alignment = "center" fx:id = "gridPaneCategoryList" hgap = "10" vgap = "10">
+            <styleClass>
+                <String fx:value =  "grid-pane"/>
+            </styleClass>
+        <children>
+       
+            <VBox fx:id = "vBoxCategoryListList" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "500" minHeight = "250" prefWidth = "500" prefHeight = "250" />
+        
+            <Button id="btnCategoryListErease" text="Entfernen" GridPane.columnIndex = "2" GridPane.rowIndex = "1" onAction="#btnActionCategoryListErease" fx:id="btnCategoryListErease"/>
+            <Button id="btnCategoryListChange" text="Ändern" GridPane.columnIndex = "0" GridPane.rowIndex = "1" onAction="#btnActionCategoryListChange" fx:id="btnCategoryListChange"/>
+        
+        </children>
+    </GridPane>
+    
+    <GridPane fx:id = "gridPaneCategoryInsert" alignment = "center" hgap = "30" vgap = "30">
+        <styleClass>
+            <String fx:value = "grid-paneCategoryInsert"/>
+        </styleClass>
+            <children>
+                <Label fx:id = "lblInsertCategoryName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <TextField fx:id = "txtInsertCategoryName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
+    
+                <Label fx:id = "lblInsertCategoryDesc" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Beschreibung" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <TextField fx:id = "txtInsertCategoryDesc" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
+    
+                <Button fx:id = "btnInsertCategoryRoger" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Bestätigen" onAction = "#btnActionInsertCategoryRoger"/>
+        </children>
+    </GridPane>
+    </children>
+</VBox>

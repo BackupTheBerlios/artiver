@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="BorderPane" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.RFIDLogIn">
+        <styleClass>
+            <String fx:value = "border-pane"/>
+        </styleClass>
+    <top>
+        <VBox id = "VBox" spacing = "50">
+                <styleClass>
+                    <String fx:value = "vBox"/>
+                </styleClass>
+            <children>
+                <Label id="lblRFIDLogInTitleLabel" text = "Anmeldung via RFID"  minHeight="30" minWidth="300" prefHeight="30" prefWidth="300" fx:id="lblRFIDLogInTitleLabel">
+                    <styleClass>
+                        <String fx:value = "titleLabel"/>
+                    </styleClass>
+                </Label>
+                <Label id="lblRFIDLogIn" text = "Halten sie ihre RFID-Card in die Nähe des Scanners und drücken sie 'Log In'"  minHeight="50" minWidth="360" prefHeight="50" prefWidth="360" fx:id="lblRFIDLogIn" />
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <GridPane id = "GridPane" alignment = "center" hgap = "50" vgap = "50">
+            <styleClass>
+                <String fx:value = "grid-paneRFID"/>
+            </styleClass>
+        <children>
+            <Label id = "lblEmpty2" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "1" minHeight = "1" prefWidth = "1" prefHeight = "1" text ="" fx:id = "lblEmpty2"/>
+            <Label id = "lblEmpty" GridPane.columnIndex = "2" GridPane.rowIndex = "0" minWidth = "1" minHeight = "1" prefWidth = "1" prefHeight = "1" text ="" fx:id = "lblEmpty"/>
+            <Button id="btnRFIDLogInRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "0" text="Log In" onAction="#btnActionRFIDLogInRoger" fx:id="btnRFIDLogInRoger" />
+            <ProgressIndicator id="prgInd" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "35" minHeight = "35" prefWidth = "35" prefHeight = "35" visible = "false" fx:id="prgInd"/>
+            <Button id="btnRFIDLogInBack" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text="Zurück" onAction="#btnActionRFIDLogInBack" fx:id="btnRFIDLogInBack" /> 
+        </children>
+        </GridPane>
+    </center>
+</BorderPane>
+

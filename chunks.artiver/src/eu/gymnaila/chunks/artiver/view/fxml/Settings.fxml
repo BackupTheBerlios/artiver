@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fx:id = "scrSettings" fitToWidth = "true" fitToHeight = "false" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.Settings">
+<content>    
+<GridPane fx:id = "gridPaneSettings" alignment = "center" hgap = "30" vgap = "30">
+        <styleClass>
+            <String fx:value = "grid-pane-settings"/>
+        </styleClass>
+    <children>
+        <Label fx:id = "lblSettingsName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Unternehmensname" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsForm" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Unternehmensform" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsForm" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsContact" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Kontakt" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsContact" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsStreet" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Addresse" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsStreet" GridPane.columnIndex = "1" GridPane.rowIndex = "3" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsPostalCode" GridPane.columnIndex = "0" GridPane.rowIndex = "4" text = "Postleitzahl" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsPostalCode" GridPane.columnIndex = "1" GridPane.rowIndex = "4" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsMwSt" GridPane.columnIndex = "0" GridPane.rowIndex = "5" text = "Umsatzsteuer (in %)" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsMwSt" GridPane.columnIndex = "1" GridPane.rowIndex = "5" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsTaxNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "6" text = "Steuernummer" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsTaxNumber" GridPane.columnIndex = "1" GridPane.rowIndex = "6" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsUStIdNr" GridPane.columnIndex = "0" GridPane.rowIndex = "7" text = "USt-IdNr." minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsUStIdNr" GridPane.columnIndex = "1" GridPane.rowIndex = "7" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsOrderPre" GridPane.columnIndex = "0" GridPane.rowIndex = "8" text = "Angebotspräfix" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsOrderPre" GridPane.columnIndex = "1" GridPane.rowIndex = "8" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsInvoicePre" GridPane.columnIndex = "0" GridPane.rowIndex = "9" text = "Rechnungspräfix" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsInvoicePre" GridPane.columnIndex = "1" GridPane.rowIndex = "9" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsDeliveryPre" GridPane.columnIndex = "0" GridPane.rowIndex = "10" text = "Lieferscheinpräfix" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextField fx:id = "txtSettingsDeliveryPre" GridPane.columnIndex = "1" GridPane.rowIndex = "10" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        
+        <Label fx:id = "lblSettingsTerms" GridPane.columnIndex = "0" GridPane.rowIndex = "11" text = "AGB" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
+        <TextArea fx:id = "txaSettingsTerms" GridPane.columnIndex = "1" GridPane.rowIndex = "11" minHeight = "120" prefHeight = "60" minWidth = "225" prefWidth = "225"/>
+            <styleClass>
+                <String fx:value = "text-area"/>
+            </styleClass>
+        <Button fx:id = "btnSettingsRoger" text = "Bestätigen" GridPane.columnIndex = "1" GridPane.rowIndex = "12" onAction = "#btnActionSettingsRoger"/>
+    </children>
+</GridPane>
+</content>
+</ScrollPane>

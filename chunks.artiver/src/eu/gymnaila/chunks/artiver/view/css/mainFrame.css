@@ -1,0 +1,297 @@
+/* 
+    Document   : mainFrame
+    Created on : 28.02.2012, 19:28:35
+    Author     : Thunderbolt
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.grid-pane
+{
+    -fx-padding: 0 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.grid-paneInsert
+{
+    -fx-padding: 100 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+
+.grid-paneRFID
+{
+    -fx-padding: 100 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.grid-paneCheckIn
+{
+    -fx-padding: 100 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.grid-paneCategoryInsert
+{
+    -fx-padding: 100 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.grid-paneStockInsert
+{
+    -fx-padding: 110 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+
+
+.border-pane
+{
+    -fx-padding: 0 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+}
+
+.hBox
+{
+    -fx-padding: 40 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.vBox
+{
+    -fx-padding: 20 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.vBox-UsersFrame
+{
+    -fx-padding: 20 0 0 30;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.vBox-UsersList
+{
+    -fx-padding: 0 0 0 200;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+
+
+.vBox-giveRights
+{
+    -fx-padding: 0 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+
+
+.vBox-stammdaten
+{
+    -fx-padding: 30 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+
+.button
+{
+    -fx-font: bold 14pt Arial;
+    
+    -fx-background-color: #4F81BD;
+
+    -fx-cursor: hand;
+    
+/*    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );*/
+    
+    
+}
+
+.label
+{
+    -fx-font: normal 16pt Arial;
+    -fx-wrap-text: true;
+}
+
+.titleLabel
+{
+    -fx-font: normal 28pt Arial;
+    -fx-skin: "com.sun.javafx.scene.control.skin.LabelSkin";
+}
+
+.text-field
+{
+    -fx-font: normal 16pt Arial;
+    
+    -fx-cursor: text;
+}
+
+.vBox-accordion
+{
+    -fx-spacing: 0 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+    
+    -fx-background-color:linear-gradient(#DCE6F2,#FFFFFF);
+    
+    
+}
+
+.titled-pane
+{
+    -fx-background-color:linear-gradient(#DCE6F2,#FFFFFF);
+    
+    
+}
+
+.accordion-button
+{
+    
+    -fx-font: normal 14pt Arial;
+    
+    -fx-background-color: #4F81BD;
+    
+    /* That was missing, Phil ;-) */
+    
+/*    Schönen Dank*/
+    
+/*    -fx-border-radius: 5;*/
+
+      -fx-border-color: #EEEEEE;
+
+/*    -fx-background-radius: 5;*/
+
+    -fx-padding: 5 5 5 5;
+
+    -fx-cursor: hand;
+    
+/*    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );*/
+    
+    -fx-skin: "com.sun.javafx.scene.control.skin.ButtonSkin"; 
+    
+    
+}
+
+.hBox-mainFrame
+{
+    -fx-padding: 05 0 05 40;
+    
+/*    -fx-background-color: #4F81BD;*/
+    
+    -fx-alignment: center;
+    
+    -fx-background-color:linear-gradient(#4F81BD,#0080FF);
+    
+    -fx-border-color: rgb(49, 89, 23);
+}
+
+.vBox-mainFrame
+{   
+    -fx-padding: 0 0 0 0;
+    
+    -fx-background-color: #FFFFFF;
+    
+    -fx-border-color: rgb(49, 89, 23);
+}
+
+.list-view
+{
+    -fx-font: normal 14pt Arial;
+}
+
+.choice-box
+{
+    -fx-font: normal 16pt Arial;
+}
+
+/*.scroll-pane
+{
+    -fx-padding: 0 0 0 50;
+}*/
+
+.vBox-main-scroll
+{
+    -fx-padding: 0 0 0 30;
+}
+
+.grid-pane-settings
+{
+    -fx-background-color: #DCE6F2;
+    
+    -fx-border-color: #DCE6F2;
+    
+    -fx-padding: 200 0 0 0;
+    
+}
+
+.grid-paneCustomers
+{
+    -fx-padding: 20 0 0 30;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+
+
+/*.scr-settings
+{
+    -fx-padding: 100 0 0 0;
+}*/
+
+.text-area
+{
+    -fx-font: normal 16pt Arial;
+    
+    -fx-cursor: text;
+    
+}
+
+.vBox-Invoice
+{
+    -fx-padding: 40 0 0 50;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.vBox-Offer
+{
+    -fx-padding: 40 0 0 50;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+}
+
+.image-View
+{
+    -fx-curser: hand;
+}

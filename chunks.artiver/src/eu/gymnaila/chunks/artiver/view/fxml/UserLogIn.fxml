@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id = "BorderPane" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.UserLogIn">
+    <top>
+        <HBox id = "HBox">
+        <styleClass>
+            <String fx:value = "hBox"/>
+        </styleClass>
+        <children>
+            <Label id="lblTitleLabelUserLogIn" text = "Anmeldung via Nutzerdaten" minHeight="16" minWidth="360" prefHeight="16" prefWidth="360" fx:id="lblTitleLabelUserLogIn">
+                <styleClass>
+                    <String fx:value = "titleLabel"/>
+                </styleClass>
+            </Label>
+        </children>
+        </HBox>
+    </top>
+    <center>
+    <GridPane id = "GridPane" alignment = "center" hgap = "30" vgap = "30">
+        <styleClass>
+            <String fx:value = "grid-pane"/>
+        </styleClass>
+        <children>
+            <Button id="btnUserLogInRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "2" text="Log In" onAction="#btnActionUserLogInRoger" fx:id="btnUserLogInRoger" />
+            <Button id="btnUserLogInBack"  GridPane.columnIndex = "0" GridPane.rowIndex = "2" text="Zurück" onAction="#btnActionUserLogInBack" fx:id="btnUserLogInBack" />
+            <Label id="lblUserLogInUser" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Nutzername" minHeight="16" minWidth="100" prefHeight="16" prefWidth="100" fx:id="lblUserLogInUser" />
+            <Label id="lblUserLogInPW" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Passwort" minHeight="16" minWidth="100" prefHeight="16" prefWidth="100" fx:id="lblUserLogInPW" />
+            <TextField id = "txtUserLogInUser" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "txtUserLogInUser"/>
+            <PasswordField id = "txtUserLogInPW" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "txtUserLogInPW" />
+        </children>
+    </GridPane>
+    </center>
+</BorderPane>

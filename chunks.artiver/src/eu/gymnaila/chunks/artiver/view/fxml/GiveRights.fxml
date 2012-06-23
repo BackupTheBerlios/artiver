@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="vBoxGiveRights" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.GiveRights">
+        <styleClass>
+            <String fx:value = "vBox-giveRights"/>
+        </styleClass>
+    <children>
+        
+    <GridPane fx:id = "gridPaneGiveRightsList" hgap = "20" vgap = "20">
+            <children>
+                <VBox fx:id = "vBoxGiveRightsList" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "600" prefWidth = "600" minHeight = "250" prefHeight = "250"/>
+            
+                    <Button fx:id = "btnGiveRightsChange" text = "Ändern" GridPane.columnIndex = "0" GridPane.rowIndex = "1" onAction = "#btnActionGiveRightsChange"/>
+                    <Button fx:id = "btnGiveRightsErease" text = "Löschen" GridPane.columnIndex = "2" GridPane.rowIndex = "1" onAction = "#btnActionGiveRightsErease"/>
+            
+            </children>
+        </GridPane>
+        
+        <Label fx:id = "lblGiveRightsEmpty" text = "" minWidth = "20" prefWidth = "20" minHeight = "100" prefHeight = "100"/>      
+      
+        <HBox fx:id = "hBoxGiveRights">
+            <children>
+                
+                <HBox fx:id = "hBoxGiveRights2">
+                    <children>
+                        
+                        <GridPane fx:id = "gridPaneGiveRights" hgap = "20" vgap = "20">
+                            <children>
+                                <Label fx:id = "lblGiveRightsName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Gruppenname" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                
+                                <TextField fx:id = "txtGiveRightsName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
+                            </children>
+                        </GridPane>
+       
+                        <Label fx:id = "lblGiveRightsEmpty" text = "" minWidth = "20" minHeight = "1" prefWidth = "20" prefHeight = "1"/>
+                
+                        <ScrollPane fx:id = "scrGiveRightsListView" minWidth = "300" minHeight = "150" prefWidth = "300" prefHeight = "150">
+                            <content>
+                                <ListView fx:id = "lstGiveRights" minHeight = "300" minWidth="500" prefHeight = "300" prefWidth="500"/>
+                                    <styleClass>
+                                        <String fx:value = "list-view"/>
+                                    </styleClass>
+                            </content>
+                        </ScrollPane>
+
+                  </children>
+               </HBox>
+            </children>
+        </HBox>
+        
+        <Button fx:id = "btnGiveRightsRoger" text = "Bestätigen" onAction = "#btnActionGiveRightsRoger"/>
+        
+    </children>
+</VBox>

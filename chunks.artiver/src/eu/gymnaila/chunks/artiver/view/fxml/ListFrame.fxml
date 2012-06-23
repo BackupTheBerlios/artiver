@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment = "center" fx:id = "gridPaneListFrame" hgap = "10" vgap = "10" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.ListFrame">
+        <styleClass>
+            <String fx:value =  "grid-pane"/>
+        </styleClass>
+    <children>
+       
+        <VBox fx:id = "vBoxListArticlelist" GridPane.columnIndex = "1" GridPane.rowIndex = "0" />
+        
+        <Button id="btnListFrameErease" text="Entfernen" GridPane.columnIndex = "2" GridPane.rowIndex = "1" onAction="#btnActionListFrameErease" fx:id="btnListFrameErease"/>
+        <Button id="btnListFrameChange" text="Ändern" GridPane.columnIndex = "0" GridPane.rowIndex = "1" onAction="#btnActionListFrameChange" fx:id="btnListFrameChange"/>
+        
+    </children>
+</GridPane>
