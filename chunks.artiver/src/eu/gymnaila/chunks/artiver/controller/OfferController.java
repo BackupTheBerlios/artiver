@@ -61,7 +61,7 @@ public class OfferController
      List<DepictionArticle> tempArts = this.normalizeList(articles);
      offers.add(new Offer(newID, this.generateOfferNr(), price));
      persist(offers);
-       //rechnungsnummer, preis, artikelliste, kunde
+
     
     
      
