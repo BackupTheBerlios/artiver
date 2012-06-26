@@ -122,7 +122,8 @@ public class InvoiceFrame implements Initializable
         double priceTempNoMwSt = priceNoMwSt;
         
         priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * 0.19);
-        
+        Math.round(priceTempNoMwSt);
+                
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
         txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
         
