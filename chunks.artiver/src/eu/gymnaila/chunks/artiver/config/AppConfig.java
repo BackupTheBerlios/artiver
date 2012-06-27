@@ -149,6 +149,7 @@ public class AppConfig
             {
                 sshTunnel = createTunnel();
                 
+                System.out.println(sshTunnel.getTunnelRemoteHost());
                 
                 // TODO WICHTIG!!! das try-catch unten mit einem throws ersetzen
                 // TODO (sshTunnel.go() einfach aus dem try-catch nehmen und dann try-catch entfernen)
