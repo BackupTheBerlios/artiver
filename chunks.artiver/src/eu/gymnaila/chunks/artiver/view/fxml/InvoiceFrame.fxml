@@ -88,7 +88,11 @@
         
         <HBox fx:id = "hBoxButton" >
             <children>
-                <Button fx:id = "btnInvoiceRoger" text = "Bestätigen" onAction = "#btnActionInvoiceRoger" />
+                <Button fx:id = "btnInvoice" text = "Rechnung generieren" onAction = "#btnActionInvoiceRoger" />
+                
+                <Button fx:id = "btnOffer" text = "Angebot generieren" onAction = "#btnActionOfferRoger" />
+                
+                <Button fx:id = "btnDelivery" text = "Lieferschein generieren" onAction = "#btnActionDeliveryRoger" />
                 
                 <Label fx:id = "lblInvoiceEmpty5" text = "" minWidth = "300" prefWidth = "300" minHeight = "1" prefHeight = "1"/>
                 
