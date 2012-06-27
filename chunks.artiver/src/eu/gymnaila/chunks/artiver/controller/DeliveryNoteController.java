@@ -6,15 +6,13 @@ package eu.gymnaila.chunks.artiver.controller;
 
 
 import eu.gymnaila.chunks.artiver.config.AppConfig;
-import eu.gymnaila.chunks.artiver.entity.DeliveryNote;
+import eu.gymnaila.chunks.artiver.entity.*;
 import java.util.List;
 import java.util.Date;
-import eu.gymnaila.chunks.artiver.entity.State;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import eu.gymnaila.chunks.artiver.exceptions.*;
 import javax.persistence.Query;
-import eu.gymnaila.chunks.artiver.entity.MasterData;
 /**
  *
  * @author Fat
@@ -288,15 +286,11 @@ public class DeliveryNoteController
   
  
   
-  public void addDeliveryNote(int deliveryNoteNumber, String delivery, String deliveryState, String deliveryName) throws DeliveryNoteAlreadyExistsException
+  public void addDeliveryNote(Customer customer, List<DepictionArticle> depArt) throws DeliveryNoteAlreadyExistsException
   {
       
      List<DeliveryNote> noteList = update();
      
-     if(noteExists(deliveryName))
-     {
-         throw new DeliveryNoteAlreadyExistsException("This note does already exist."); 
-     }
      
      int newID = 0;
      
@@ -309,7 +303,7 @@ public class DeliveryNoteController
      }
      
      newID++;
-     noteList.add(new DeliveryNote(newID, deliveryNoteNumber, delivery, deliveryState));
+     noteList.add(new DeliveryNote(newID));
      persist(noteList);
   }
 
