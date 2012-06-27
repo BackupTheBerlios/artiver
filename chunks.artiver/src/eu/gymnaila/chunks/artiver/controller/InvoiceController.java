@@ -218,12 +218,13 @@ public class InvoiceController
          {
              newID = inv.getIdInvoice();
              newID++;
+             List<DepictionArticle> tempArts = this.normalizeList(articles);
+             invoiceList.add(new Invoice(newID, this.generateInvoiceNr(), price, tempArts));
+             persist(invoiceList); 
+             return;
          }
      }
-     List<DepictionArticle> tempArts = this.normalizeList(articles);
-     
-     invoiceList.add(new Invoice(newID, this.generateInvoiceNr(), price, tempArts));
-     persist(invoiceList);
+
      
      throw new InvoiceAlreadyExistsException("This invoice does already exist."); 
  
