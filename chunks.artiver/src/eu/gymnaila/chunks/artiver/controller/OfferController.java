@@ -46,7 +46,7 @@ public class OfferController
       }
   }
 
-   public void addOffer(double price, List<DepictionArticle> articles, List<Customer> customer)
+   public void addOffer(double price, List<DepictionArticle> articles, Customer customer)
    {
      List <Offer> offers = update();
      int newID = -1;
