@@ -4,21 +4,24 @@
  */
 package eu.gymnaila.chunks.artiver.view;
 
-import eu.gymnaila.chunks.artiver.controller.Articlemanagement;
-import eu.gymnaila.chunks.artiver.controller.CustomerController;
-import eu.gymnaila.chunks.artiver.controller.InvoiceController;
+import eu.gymnaila.chunks.artiver.controller.*;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
 import eu.gymnaila.chunks.artiver.entity.Article;
+import eu.gymnaila.chunks.artiver.entity.Customer;
 import eu.gymnaila.chunks.artiver.entity.DepictionArticle;
 import eu.gymnaila.chunks.artiver.entity.Invoice;
+import eu.gymnaila.chunks.artiver.exceptions.InvoiceAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
 import eu.gymnaila.chunks.artiver.tooling.Numbers;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -70,7 +73,11 @@ public class InvoiceFrame implements Initializable
 
     private double priceNoMwSt = 0;
     
+    List<DepictionArticle> listDepArt = new ArrayList<DepictionArticle>();
+
+    ObservableList<DepictionArticle> observableList = FXCollections.observableList(listDepArt);
     
+    DepictionArticle depArt = new DepictionArticle();
             
     InvoiceController invoice = new InvoiceController();
     
@@ -78,15 +85,103 @@ public class InvoiceFrame implements Initializable
     
     CustomerController customer = new CustomerController();
     
+    OfferController offer = new OfferController();
+    
+    DeliveryNoteController delivery = new DeliveryNoteController();
     
     
     @FXML
     private void btnActionInvoiceRoger(ActionEvent event) 
     {
-        System.out.println("Rechnung bestätigen");
+        try {
+            System.out.println("Rechnung bestätigen");
+            
+            String stringTemp;
+            
+            listDepArt.clear();
+           
+            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+            {
+                stringTemp = lstInvoice.getItems().get(i).toString();
+               
+                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+                
+                depArt = null;
+                depArt.setName(stringList[1]);
+                depArt.setNr(stringList[0]);
+                depArt.setPrice(Numbers.parseDouble(stringList[3]));
+                depArt.setAmount(Numbers.parseInt(stringList[2]));
+                
+                listDepArt.add(depArt);
+                
+            }
+            
+            invoice.addInvoice(listDepArt, priceTotal, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+        } catch (InvoiceAlreadyExistsException ex) {
+            Logger.getLogger(InvoiceFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
         
         
+    }
+    
+    @FXML
+    private void btnActionOfferRoger(ActionEvent event) 
+    {
+        
+            System.out.println("Angebot bestätigen");
+            
+            String stringTemp;
+            
+            listDepArt.clear();
+           
+            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+            {
+                stringTemp = lstInvoice.getItems().get(i).toString();
+               
+                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+                
+                depArt = null;
+                depArt.setName(stringList[1]);
+                depArt.setNr(stringList[0]);
+                depArt.setPrice(Numbers.parseDouble(stringList[3]));
+                depArt.setAmount(Numbers.parseInt(stringList[2]));
+                
+                listDepArt.add(depArt);
+                
+            }
+            
+            offer.addOffer(priceTotal, listDepArt, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+        
+    }
+    
+    @FXML
+    private void btnActionDeliveryRoger(ActionEvent event) 
+    {
+        
+//            System.out.println("Lieferschein bestätigen");
+//            
+//            String stringTemp;
+//            
+//            listDepArt.clear();
+//           
+//            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+//            {
+//                stringTemp = lstInvoice.getItems().get(i).toString();
+//               
+//                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+//                
+//                depArt = null;
+//                depArt.setName(stringList[1]);
+//                depArt.setNr(stringList[0]);
+//                depArt.setAmount(Numbers.parseInt(stringList[2]));
+//                
+//                listDepArt.add(depArt);
+//                
+//            }
+//            
+//            delivery.addDeliveryNote(priceTotal, listDepArt, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+//        
     }
     
     
@@ -122,7 +217,7 @@ public class InvoiceFrame implements Initializable
         double priceTempNoMwSt = priceNoMwSt;
         
         priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * 0.19);
-        Math.round(priceTempNoMwSt);
+        priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
                 
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
         txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
