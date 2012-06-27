@@ -12,7 +12,7 @@
                     <String fx:value = "hBox"/>
                 </styleClass>
             <children>
-                   <Label id="lblLogInTitle" text="ArtiVer Anmeldung" minHeight="30" minWidth="250" prefHeight="30" prefWidth="250" fx:id="lblLogInTitle" >
+                   <Label id="lblLogInTitle" text="ArtiVer Anmeldung" minHeight="50" minWidth="250" prefHeight="50" prefWidth="250" fx:id="lblLogInTitle" >
                         <styleClass>
                              <String fx:value = "titleLabel"/>
                         </styleClass>

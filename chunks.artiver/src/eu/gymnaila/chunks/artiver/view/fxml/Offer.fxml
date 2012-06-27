@@ -13,7 +13,7 @@
         <VBox fx:id = "vBoxCustomer">
             <children>
                 
-                <Label fx:id = "lblOfferCustomer" text = "Kunde" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225"/>
+                <Label fx:id = "lblOfferCustomer" text = "Kunde" minHeight = "50" minWidth="225" prefHeight="50 " prefWidth="225"/>
                 
                 <ChoiceBox id = "cbxOfferCustomer" minHeight = "30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "cbxOfferCustomer"/>
               
@@ -45,10 +45,10 @@
                                 
                                 
                                 
-                                                                <Label fx:id = "lblOfferAmount" text = "Anzahl" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
+                                                                <Label fx:id = "lblOfferAmount" text = "Anzahl" minWidth = "70" prefWidth = "70" minHeight = "50" prefHeight = "50"/>
                                                                 <TextField fx:id = "txtOfferAmount" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
                       
-                                                                <Label fx:id = "lblOfferPrice" text = "Preis" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
+                                                                <Label fx:id = "lblOfferPrice" text = "Preis" minWidth = "70" prefWidth = "70" minHeight = "50" prefHeight = "50"/>
                                                                 <TextField fx:id = "txtOfferPrice" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
                       
                                 
@@ -83,7 +83,7 @@
             <children>
                 <Button fx:id = "btnOfferRoger" text = "Bestätigen" onAction = "#btnActionOfferRoger" />
                 
-                <Label fx:id = "lblOfferPrice" text = "" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
+                <Label fx:id = "lblOfferPrice" text = "" minWidth = "225" prefWidth = "225" minHeight = "50" prefHeight = "50"/>
             </children>
         </HBox>
     </children>

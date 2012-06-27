@@ -31,7 +31,7 @@
                         
                         <GridPane fx:id = "gridPaneGiveRights" hgap = "20" vgap = "20">
                             <children>
-                                <Label fx:id = "lblGiveRightsName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Gruppenname" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                                <Label fx:id = "lblGiveRightsName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Gruppenname" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
                 
                                 <TextField fx:id = "txtGiveRightsName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                             </children>

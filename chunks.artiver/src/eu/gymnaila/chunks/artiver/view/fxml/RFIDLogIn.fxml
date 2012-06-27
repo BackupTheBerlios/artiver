@@ -15,12 +15,12 @@
                     <String fx:value = "vBox"/>
                 </styleClass>
             <children>
-                <Label id="lblRFIDLogInTitleLabel" text = "Anmeldung via RFID"  minHeight="30" minWidth="300" prefHeight="30" prefWidth="300" fx:id="lblRFIDLogInTitleLabel">
+                <Label id="lblRFIDLogInTitleLabel" text = "Anmeldung via RFID"  minHeight="50" minWidth="300" prefHeight="50" prefWidth="300" fx:id="lblRFIDLogInTitleLabel">
                     <styleClass>
                         <String fx:value = "titleLabel"/>
                     </styleClass>
                 </Label>
-                <Label id="lblRFIDLogIn" text = "Halten sie ihre RFID-Card in die Nähe des Scanners und drücken sie 'Log In'"  minHeight="50" minWidth="360" prefHeight="50" prefWidth="360" fx:id="lblRFIDLogIn" />
+                <Label id="lblRFIDLogIn" text = "Halten sie ihre RFID-Card in die Nähe des Scanners und drücken sie 'Log In'"  minHeight="80" minWidth="360" prefHeight="80" prefWidth="360" fx:id="lblRFIDLogIn" />
             </children>
         </VBox>
     </top>

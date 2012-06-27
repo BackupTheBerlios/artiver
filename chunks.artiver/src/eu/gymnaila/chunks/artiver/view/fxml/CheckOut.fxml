@@ -18,8 +18,8 @@
                     <Button id = "btnCheckOutRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "2" text = "Bestätigen" onAction = "#btnActionCheckOutRoger" fx:id = "btnCheckOutRoger" />
                     <TextField id = "txtCheckOutNummer" GridPane.columnIndex = "1" GridPane.rowIndex = "1" fx:id = "txtCheckOutNummer" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" />
                     <TextField id = "txtCheckOutArticle" GridPane.columnIndex = "1" GridPane.rowIndex = "0" fx:id = "txtCheckOutArticle" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" />
-                    <Label id = "lblCheckOutNummer" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Anzahl" fx:id = "lblCheckOutNummer" minHeight="20" minWidth="150" prefHeight="20" prefWidth="150"/>
-                    <Label id = "lblCheckOutArticle" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Artikel" fx:id = "lblCheckOutArticle" minHeight="20" minWidth="150" prefHeight="20" prefWidth="150" />
+                    <Label id = "lblCheckOutNummer" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Anzahl" fx:id = "lblCheckOutNummer" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150"/>
+                    <Label id = "lblCheckOutArticle" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Artikel" fx:id = "lblCheckOutArticle" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150" />
                 </children>
             </GridPane>
     </children>

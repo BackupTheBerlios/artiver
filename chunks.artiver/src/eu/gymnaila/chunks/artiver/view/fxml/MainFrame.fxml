@@ -25,7 +25,7 @@
                 </ImageView>
                 </children>
                 </StackPane>
-               <Label id="lblMainFrameTitleLabel" styleClass = "titleLabel" text = ""  minHeight="30" minWidth="300" prefHeight="30" prefWidth="300" fx:id="lblMainFrameTitleLabel">
+               <Label id="lblMainFrameTitleLabel" styleClass = "titleLabel" text = ""  minHeight="50" minWidth="300" prefHeight="50" prefWidth="300" fx:id="lblMainFrameTitleLabel">
                     <!--<styleClass>
                         <String fx:value = "titleLabel"/>
                     </styleClass>-->

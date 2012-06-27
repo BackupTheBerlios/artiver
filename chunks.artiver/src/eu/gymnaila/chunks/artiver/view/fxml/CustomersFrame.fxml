@@ -46,13 +46,13 @@
                                     <String fx:value = "grid-paneCustomer"/>
                                 </styleClass>
                             <children>
-                                <Label fx:id = "lblCustomersFrameCustomer" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
+                                <Label fx:id = "lblCustomersFrameCustomer" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
                                 <TextField fx:id = "txtCustomersFrameCustomer" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                
-                                <Label fx:id = "lblCustomersFrameCustomerID" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nummer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
+                                <Label fx:id = "lblCustomersFrameCustomerID" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nummer" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>             
                                 <TextField fx:id = "txtCustomersFrameCustomerID" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />          
                                 
-                                <Label fx:id = "lblCustomersFrameAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
+                                <Label fx:id = "lblCustomersFrameAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>             
                                 <TextField fx:id = "txtCustomersFrameAddress" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                 
                                 

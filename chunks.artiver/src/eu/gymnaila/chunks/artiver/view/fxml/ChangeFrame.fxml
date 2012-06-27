@@ -11,19 +11,19 @@
             <String fx:value = "grid-paneInsert"/>
         </styleClass>
     <children>
-        <Label id = "lblGridPaneChangeNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "0"  minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelnummer" fx:id = "lblGridPaneChangeNumber"/>
+        <Label id = "lblGridPaneChangeNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "0"  minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikelnummer" fx:id = "lblGridPaneChangeNumber"/>
         <TextField id = "txtGridPaneChangeNumber" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangeNumber"/>
         
-        <Label id = "lblGridPaneChangeName" GridPane.columnIndex = "0" GridPane.rowIndex = "1"  minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelname" fx:id = "lblGridPaneChangeName"/>
+        <Label id = "lblGridPaneChangeName" GridPane.columnIndex = "0" GridPane.rowIndex = "1"  minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikelname" fx:id = "lblGridPaneChangeName"/>
         <TextField id = "txtGridPaneChangeName" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangeName"/>
         
-        <Label id = "lblGridPaneChangeTyp" GridPane.columnIndex = "0" GridPane.rowIndex = "2" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikeltyp" fx:id = "lblGridPaneChangeTyp"/>
+        <Label id = "lblGridPaneChangeTyp" GridPane.columnIndex = "0" GridPane.rowIndex = "2" minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikeltyp" fx:id = "lblGridPaneChangeTyp"/>
         <TextField id = "txtGridPaneChangeTyp" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangeTyp"/>
         
-        <Label id = "lblGridPaneChangeCategory" GridPane.columnIndex = "0" GridPane.rowIndex = "3" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelkategorie" fx:id = "lbl"/>
+        <Label id = "lblGridPaneChangeCategory" GridPane.columnIndex = "0" GridPane.rowIndex = "3" minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikelkategorie" fx:id = "lbl"/>
         <TextField id = "txtGridPaneChangeCategory" GridPane.columnIndex = "1" GridPane.rowIndex = "3" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225" fx:id = "txtGridPaneChangeCategory"/>
         
-        <Label id = "lblGridPaneChangePlace" GridPane.columnIndex = "0" GridPane.rowIndex = "4" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Lagerort" fx:id = "lblGridPaneChangePlace"/>
+        <Label id = "lblGridPaneChangePlace" GridPane.columnIndex = "0" GridPane.rowIndex = "4" minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Lagerort" fx:id = "lblGridPaneChangePlace"/>
         <TextField id = "txtGridPaneChangePlace" GridPane.columnIndex = "1" GridPane.rowIndex = "4" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneChangePlace"/>
         
         <Label id = "lblGridPaneChangePropertysNonEdit" GridPane.columnIndex = "0" GridPane.rowIndex = "5" minWidth = "150" minHeight = "60" prefWidth = "150" prefHeight = "60" text ="Eigenschaften" fx:id = "lblGridPaneChangePropertysNonEdit"/>

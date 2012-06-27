@@ -29,13 +29,13 @@
             <String fx:value = "grid-paneStockInsert"/>
         </styleClass>
             <children>
-                <Label fx:id = "lblInsertStockName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <Label fx:id = "lblInsertStockName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "225" minHeight = "50" prefWidth = "225" prefHeight = "50" />
                 <TextField fx:id = "txtInsertStockName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
     
-                <Label fx:id = "lblInsertStockCountry" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Land" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <Label fx:id = "lblInsertStockCountry" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Land" minWidth = "225" minHeight = "50" prefWidth = "225" prefHeight = "50" />
                 <TextField fx:id = "txtInsertStockCountry" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
                 
-                <Label fx:id = "lblInsertStockAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
+                <Label fx:id = "lblInsertStockAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "225" minHeight = "50" prefWidth = "225" prefHeight = "50" />
                 <TextField fx:id = "txtInsertStockAddress" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
     
                 <Button fx:id = "btnInsertStockRoger" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Bestätigen" onAction = "#btnActionInsertStockRoger"/>
