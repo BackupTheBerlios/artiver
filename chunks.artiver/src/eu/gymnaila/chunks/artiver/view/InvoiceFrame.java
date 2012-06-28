@@ -65,7 +65,11 @@ public class InvoiceFrame implements Initializable
     @FXML 
     private ImageView arrowGreen;
     @FXML
-    private Button btnInvoiceRoger;
+    private Button btnInvoice;
+    @FXML
+    private Button btnOffer;
+    @FXML
+    private Button btnDelivery;
             
     private DropShadow shadow = new DropShadow();
     
@@ -313,20 +317,58 @@ public class InvoiceFrame implements Initializable
        
         });
         
-        btnInvoiceRoger.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        btnInvoice.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
         @Override public void handle(MouseEvent e) 
             {
-                btnInvoiceRoger.setEffect(shadow);
+                btnInvoice.setEffect(shadow);
             }
         
        
         });
-        btnInvoiceRoger.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+        btnInvoice.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
         {
         @Override public void handle(MouseEvent e) 
             {
-                btnInvoiceRoger.setEffect(null);
+                btnInvoice.setEffect(null);
+            }
+        
+       
+        });
+        
+        btnOffer.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnOffer.setEffect(shadow);
+            }
+        
+       
+        });
+        btnOffer.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnOffer.setEffect(null);
+            }
+        
+       
+        });
+        
+        btnDelivery.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnDelivery.setEffect(shadow);
+            }
+        
+       
+        });
+        btnDelivery.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnDelivery.setEffect(null);
             }
         
        
