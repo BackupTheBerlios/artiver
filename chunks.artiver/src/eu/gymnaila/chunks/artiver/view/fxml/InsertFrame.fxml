@@ -6,26 +6,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-<ScrollPane fx:id = "scrInsert" fitToWidth = "true" fitToHeight = "false" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.InsertFrame">
-<content>    
-<GridPane fx:id = "gridPaneInsertFrame" alignment = "center" hgap = "20" vgap = "20">
+<!--<ScrollPane fx:id = "scrInsert" fitToWidth = "true" fitToHeight = "false" >
+<content>-->    
+<GridPane fx:id = "gridPaneInsertFrame" alignment = "center" hgap = "20" vgap = "20" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.InsertFrame">
         <styleClass>
             <String fx:value = "grid-paneInsert"/>
         </styleClass>
     <children>
-        <Label id = "lblGridPaneInsertNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "0"  minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikelnummer" fx:id = "lblGridPaneInsertNumber"/>
+        <Label id = "lblGridPaneInsertNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "0"  minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelnummer" fx:id = "lblGridPaneInsertNumber"/>
         <TextField id = "txtGridPaneInsertNumber" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneInsertNumber"/>
         
-        <Label id = "lblGridPaneInsertName" GridPane.columnIndex = "0" GridPane.rowIndex = "1"  minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikelname" fx:id = "lblGridPaneInsertName"/>
+        <Label id = "lblGridPaneInsertName" GridPane.columnIndex = "0" GridPane.rowIndex = "1"  minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelname" fx:id = "lblGridPaneInsertName"/>
         <TextField id = "txtGridPaneInsertName" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "txtGridPaneInsertName"/>
                 
-        <Label id = "lblGridPaneInsertCategory" GridPane.columnIndex = "0" GridPane.rowIndex = "2" minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Artikelkategorie" fx:id = "lblGridPaneInsertCategory"/>
+        <Label id = "lblGridPaneInsertCategory" GridPane.columnIndex = "0" GridPane.rowIndex = "2" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Artikelkategorie" fx:id = "lblGridPaneInsertCategory"/>
         <ChoiceBox id = "cbxGridPaneInsertCategory" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225" fx:id = "cbxGridPaneInsertCategory"/>
         
-        <Label id = "lblGridPaneInsertPlace" GridPane.columnIndex = "0" GridPane.rowIndex = "3" minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Lagerort" fx:id = "lblGridPaneInsertPlace"/>
+        <Label id = "lblGridPaneInsertPlace" GridPane.columnIndex = "0" GridPane.rowIndex = "3" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Lagerort" fx:id = "lblGridPaneInsertPlace"/>
         <ChoiceBox id = "cbxGridPaneInsertPlace" GridPane.columnIndex = "1" GridPane.rowIndex = "3" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "cbxGridPaneInsertPlace"/>
         
-        <Label id = "lblGridPaneInsertStatus" GridPane.columnIndex = "0" GridPane.rowIndex = "4" minWidth = "150" minHeight = "50" prefWidth = "150" prefHeight = "50" text ="Status" fx:id = "lblGridPaneInsertStatus"/>
+        <Label id = "lblGridPaneInsertStatus" GridPane.columnIndex = "0" GridPane.rowIndex = "4" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30" text ="Status" fx:id = "lblGridPaneInsertStatus"/>
         <ChoiceBox id = "cbxGridPaneInsertStatus" GridPane.columnIndex = "1" GridPane.rowIndex = "4" minHeight = "30" minWidth="225" prefHeight = "30" prefWidth="225" fx:id = "cbxGridPaneInsertStatus"/>
         
         <Label id = "lblGridPaneInsertPropertysNonEdit" GridPane.columnIndex = "0" GridPane.rowIndex = "5" minWidth = "150" minHeight = "60" prefWidth = "150" prefHeight = "60" text ="Eigenschaften" fx:id = "lblGridPaneInsertPropertysNonEdit"/>
@@ -81,11 +81,11 @@
         
         <Button id="btnInsertFrameRoger" text="Bestätigen" GridPane.columnIndex = "1" GridPane.rowIndex = "8" onAction="#btnActionInsertFrameRoger" fx:id="btnInsertFrameRoger"/>
               
-        <Label fx:id = "lblRogerMessage" GridPane.columnIndex = "2" GridPane.rowIndex = "8" opacity="0.0" text = "Artikel erfolgreich erstellt" minWidth = "225" prefWidth = "225" minHeight = "50" prefHeight = "50"/>
+        <Label fx:id = "lblRogerMessage" GridPane.columnIndex = "2" GridPane.rowIndex = "8" opacity="0.0" text = "Artikel erfolgreich erstellt" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
             
  
         
     </children>
 </GridPane>
-</content>
-</ScrollPane>
+<!--</content>
+</ScrollPane>-->

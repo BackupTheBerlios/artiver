@@ -29,7 +29,7 @@
                     <Button id="btnLogInUser" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text="Bestätigen" onAction="#logInActionUser" fx:id="btnLogInUser" />
                     <Button id="btnLogInRFID" GridPane.columnIndex = "1" GridPane.rowIndex = "1" text="Bestätigen" onAction="#logInActionRFID" fx:id="btnLogInRFID" />
                     <Label id="lblLogInUser" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text="Anmeldung via Nutzerdaten" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150" fx:id="lblLogInUser" />
-                    <Label id="lblLogInRFID" GridPane.columnIndex = "1" GridPane.rowIndex = "0" text="Anmeldung via RFID" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150" fx:id="lblLogInRFID" />
+                    <Label id="lblLogInRFID" GridPane.columnIndex = "1" GridPane.rowIndex = "0" text="Anmeldung via RFID" minHeight="30" minWidth="150" prefHeight="30" prefWidth="150" fx:id="lblLogInRFID" />
                 </children>
             </GridPane>
         </center>    

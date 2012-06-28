@@ -6,24 +6,24 @@
 <?import javafx.scene.layout.*?>
 
 
-<GridPane fx:id = "gridPaneCustomers" hgap = "20" vgap = "20" alignment = "center" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.CustomersFrame" >
-    <styleClass>
+<GridPane fx:id = "gridPaneCustomers" styleClass = "grid-paneCustomers" hgap = "20" vgap = "20" alignment = "center" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.CustomersFrame" >
+    <!--<styleClass>
         <String fx:value = "grid-paneCustomers"/>
-    </styleClass>
+    </styleClass>-->
 <children>    
-<VBox fx:id="vBoxCustomersFrame" GridPane.columnIndex = "0" GridPane.rowIndex = "0" >
-        <styleClass>
+<VBox fx:id="vBoxCustomersFrame" styleClass = "vBox-UsersFrame" GridPane.columnIndex = "0" GridPane.rowIndex = "0" >
+        <!--<styleClass>
             <String fx:value = "vBox-UsersFrame"/>
-        </styleClass>
+       </styleClass>-->
     <children>
         
         <GridPane alignment = "center" fx:id = "gridPaneCustomersFrameList" hgap = "20" vgap = "20">
             <children>
                 
-                        <VBox fx:id = "vBoxCustomersFrameList" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "500" prefWidth = "500" minHeight = "150" prefHeight = "150"/>
-                            <styleClass>
+                        <VBox fx:id = "vBoxCustomersFrameList" styleClass = "vBox-UsersList" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "500" prefWidth = "500" minHeight = "150" prefHeight = "150"/>
+                            <!--<styleClass>
                                 <String fx:value = "vBox-UsersList"/>
-                            </styleClass>
+                            </styleClass>-->
                 
                     
                     <Button fx:id = "btnCustomersFrameChange" text = "Ändern" GridPane.columnIndex = "0" GridPane.rowIndex = "1" onAction = "#btnActionCustomersFrameChange"/>
@@ -41,18 +41,18 @@
                     <children>
                         
                         
-                        <GridPane fx:id = "gridPaneCustomersFrame" alignment = "center" hgap = "20" vgap = "20">
-                                <styleClass>
+                        <GridPane fx:id = "gridPaneCustomersFrame" styleClass = "grid-paneCustomer" alignment = "center" hgap = "20" vgap = "20">
+                                <!--<styleClass>
                                     <String fx:value = "grid-paneCustomer"/>
-                                </styleClass>
+                                </styleClass>-->
                             <children>
-                                <Label fx:id = "lblCustomersFrameCustomer" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
+                                <Label fx:id = "lblCustomersFrameCustomer" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
                                 <TextField fx:id = "txtCustomersFrameCustomer" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                
-                                <Label fx:id = "lblCustomersFrameCustomerID" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nummer" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>             
+                                <Label fx:id = "lblCustomersFrameCustomerID" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nummer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
                                 <TextField fx:id = "txtCustomersFrameCustomerID" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />          
                                 
-                                <Label fx:id = "lblCustomersFrameAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>             
+                                <Label fx:id = "lblCustomersFrameAddress" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Addresse" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
                                 <TextField fx:id = "txtCustomersFrameAddress" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                 
                                 

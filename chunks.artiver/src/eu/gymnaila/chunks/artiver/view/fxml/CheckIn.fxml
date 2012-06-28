@@ -20,8 +20,8 @@
                     <Button id = "btnCheckInRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "2" text = "Bestätigen" onAction = "#btnActionCheckInRoger" fx:id = "btnCheckInRoger" />
                     <TextField id = "txtCheckInNummer" GridPane.columnIndex = "1" GridPane.rowIndex = "1" fx:id = "txtCheckInNummer" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" />
                     <TextField id = "txtCheckInArticle" GridPane.columnIndex = "1" GridPane.rowIndex = "0" fx:id = "txtCheckInArticle" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" />
-                    <Label id = "lblCheckInNummer" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Anzahl" fx:id = "lblCheckInNummer" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150"/>
-                    <Label id = "lblCheckInArticle" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Artikel" fx:id = "lblCheckInArticle" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150" />
+                    <Label id = "lblCheckInNummer" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Anzahl" fx:id = "lblCheckInNummer" minHeight="30" minWidth="150" prefHeight="30" prefWidth="150"/>
+                    <Label id = "lblCheckInArticle" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Artikel" fx:id = "lblCheckInArticle" minHeight="30" minWidth="150" prefHeight="30" prefWidth="150" />
                 </children>
         </GridPane>
     </children>

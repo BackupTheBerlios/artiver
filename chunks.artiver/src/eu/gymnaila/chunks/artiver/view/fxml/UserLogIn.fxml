@@ -12,10 +12,10 @@
             <String fx:value = "hBox"/>
         </styleClass>
         <children>
-            <Label id="lblTitleLabelUserLogIn" text = "Anmeldung via Nutzerdaten" minHeight="50" minWidth="360" prefHeight="50" prefWidth="360" fx:id="lblTitleLabelUserLogIn">
-                <styleClass>
+            <Label id="lblTitleLabelUserLogIn" styleClass = "titleLabel" text = "Anmeldung via Nutzerdaten" minHeight="50" minWidth="360" prefHeight="50" prefWidth="360" fx:id="lblTitleLabelUserLogIn">
+                <!--<styleClass>
                     <String fx:value = "titleLabel"/>
-                </styleClass>
+                </styleClass>-->
             </Label>
         </children>
         </HBox>
@@ -28,8 +28,8 @@
         <children>
             <Button id="btnUserLogInRoger" GridPane.columnIndex = "1" GridPane.rowIndex = "2" text="Log In" onAction="#btnActionUserLogInRoger" fx:id="btnUserLogInRoger" />
             <Button id="btnUserLogInBack"  GridPane.columnIndex = "0" GridPane.rowIndex = "2" text="Zurück" onAction="#btnActionUserLogInBack" fx:id="btnUserLogInBack" />
-            <Label id="lblUserLogInUser" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Nutzername" minHeight="50" minWidth="100" prefHeight="50" prefWidth="100" fx:id="lblUserLogInUser" />
-            <Label id="lblUserLogInPW" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Passwort" minHeight="50" minWidth="100" prefHeight="50" prefWidth="100" fx:id="lblUserLogInPW" />
+            <Label id="lblUserLogInUser" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Nutzername" minHeight="30" minWidth="100" prefHeight="30" prefWidth="100" fx:id="lblUserLogInUser" />
+            <Label id="lblUserLogInPW" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Passwort" minHeight="30" minWidth="100" prefHeight="30" prefWidth="100" fx:id="lblUserLogInPW" />
             <TextField id = "txtUserLogInUser" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "txtUserLogInUser"/>
             <PasswordField id = "txtUserLogInPW" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minHeight="30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "txtUserLogInPW" />
         </children>

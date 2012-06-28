@@ -32,21 +32,23 @@
                 <HBox fx:id = "hBoxUsersFrame2">
                     <children>
                         
+                        <!--<ScrollPane fx:id = "scrUsers">
+                        <content>-->
                         <GridPane fx:id = "gridPaneUsersFrame" hgap = "20" vgap = "20">
                             <children>
-                                <Label fx:id = "lblUsersFrameName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
+                                <Label fx:id = "lblUsersFrameName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
                                 <TextField fx:id = "txtUsersFrameName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                
-                                <Label fx:id = "lblUsersFrameNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nutzer ID" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>             
+                                <Label fx:id = "lblUsersFrameNumber" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Nutzer ID" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>             
                                 <TextField fx:id = "txtUsersFrameNumber" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                 
-                                <Label fx:id = "lblUsersFramePW" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Passwort" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
+                                <Label fx:id = "lblUsersFramePW" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Passwort" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
                                 <PasswordField fx:id = "pwfUsersFramePW" GridPane.columnIndex = "1" GridPane.rowIndex = "2" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                 
-                                <Label fx:id = "lblUsersFramePWconf" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Passwort wiederholen" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
+                                <Label fx:id = "lblUsersFramePWconf" GridPane.columnIndex = "0" GridPane.rowIndex = "3" text = "Passwort wiederholen" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
                                 <PasswordField fx:id = "pwfUsersFramePWconf" GridPane.columnIndex = "1" GridPane.rowIndex = "3" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30" />
                                 
-                                <Label fx:id = "lblUsersFrameRFID" GridPane.columnIndex = "0" GridPane.rowIndex = "4" text = "RFID" minWidth = "200" prefWidth = "200" minHeight = "50" prefHeight = "50"/>
+                                <Label fx:id = "lblUsersFrameRFID" GridPane.columnIndex = "0" GridPane.rowIndex = "4" text = "RFID" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30"/>
                                 
                                 <HBox fx:id = "hBoxRFID" GridPane.columnIndex = "1" GridPane.rowIndex = "4">
                                     <children>
@@ -59,6 +61,8 @@
                                 
                             </children>
                         </GridPane>
+                        <!--</content>
+                        </ScrollPane>-->
        
                         <Label fx:id = "lblUsersFrameEmpty" text = "" minWidth = "20" minHeight = "1" prefWidth = "20" prefHeight = "1"/>
                 

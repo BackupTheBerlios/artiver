@@ -29,10 +29,10 @@
                 <String fx:value = "grid-paneCategoryInsert"/>
             </styleClass>
                 <children>
-                    <Label fx:id = "lblInsertStateName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "225" minHeight = "50" prefWidth = "225" prefHeight = "50" />
+                    <Label fx:id = "lblInsertStateName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Name" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
                     <TextField fx:id = "txtInsertStateName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
     
-                    <Label fx:id = "lblInsertStateDescription" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Beschreibung" minWidth = "225" minHeight = "50" prefWidth = "225" prefHeight = "50" />
+                    <Label fx:id = "lblInsertStateDescription" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Beschreibung" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30" />
                     <TextField fx:id = "txtInsertStateDescription" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "225" minHeight = "30" prefWidth = "225" prefHeight = "30"/>
     
                     <Button fx:id = "btnInsertStateRoger" GridPane.columnIndex = "0" GridPane.rowIndex = "2" text = "Bestätigen" onAction = "#btnActionInsertStateRoger"/>

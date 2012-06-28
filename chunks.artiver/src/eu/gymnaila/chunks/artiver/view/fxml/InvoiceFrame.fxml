@@ -14,7 +14,7 @@
         <VBox fx:id = "vBoxInvoiceCustomer">
             <children>
                 
-                <Label fx:id = "lblInvoiceCustomer" text = "Kunde" minHeight = "50" minWidth="225" prefHeight="50 " prefWidth="225"/>
+                <Label fx:id = "lblInvoiceCustomer" text = "Kunde" minHeight = "30" minWidth="225" prefHeight="30 " prefWidth="225"/>
                 
                 <ChoiceBox id = "cbxInvoiceCustomer" minHeight = "30" minWidth="225" prefHeight="30" prefWidth="225" fx:id = "cbxInvoiceCustomer"/>
               
@@ -49,10 +49,10 @@
                                 
                                 
                                 
-                                                                <Label fx:id = "lblInvoiceAmount" text = "Anzahl" minWidth = "70" prefWidth = "70" minHeight = "50" prefHeight = "50"/>
+                                                                <Label fx:id = "lblInvoiceAmount" text = "Anzahl" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
                                                                 <TextField fx:id = "txtInvoiceAmount" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
                       
-                                                                <Label fx:id = "lblInvoicePrice" text = "Preis" minWidth = "70" prefWidth = "70" minHeight = "50" prefHeight = "50"/>
+                                                                <Label fx:id = "lblInvoicePrice" text = "Preis" minWidth = "70" prefWidth = "70" minHeight = "30" prefHeight = "30"/>
                                                                 <TextField fx:id = "txtInvoicePrice" minWidth = "50" prefWidth = "50" minHeight = "30" prefHeight = "30"/>
                       
                                 
@@ -98,10 +98,10 @@
                 
                 <GridPane fx:id = "gridPaneInvoicePrices" alignment = "center" hgap = "20" vgap = "20">
                     <children>
-                        <Label fx:id = "lblInvoicePriceNoMwSt" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Preis ohne MwSt" minWidth = "225" prefWidth = "225" minHeight = "50" prefHeight = "50"/>
+                        <Label fx:id = "lblInvoicePriceNoMwSt" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Preis ohne MwSt" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
                         <TextField fx:id = "txtInvoicePriceNoMwSt" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
                         
-                        <Label fx:id = "lblInvoiceTotal" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Preis mit MwSt" minWidth = "225" prefWidth = "225" minHeight = "50" prefHeight = "50"/>
+                        <Label fx:id = "lblInvoiceTotal" GridPane.columnIndex = "0" GridPane.rowIndex = "1" text = "Preis mit MwSt" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
                         <TextField fx:id = "txtInvoiceTotal" GridPane.columnIndex = "1" GridPane.rowIndex = "1" minWidth = "225" prefWidth = "225" minHeight = "30" prefHeight = "30"/>
                     </children>
                 </GridPane>
