@@ -271,9 +271,9 @@ public class InsertFrame implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        scrInsert.setMinHeight((GuiPrototyp.screenBounds.getHeight() * 0.9) - 110);
-        scrInsert.setPrefHeight((GuiPrototyp.screenBounds.getHeight() * 0.9) - 110);
-
+//        scrInsert.setMinHeight((GuiPrototyp.screenBounds.getHeight() * 0.9) - 105);
+//        scrInsert.setPrefHeight((GuiPrototyp.screenBounds.getHeight() * 0.9));
+//        scrInsert.setMaxHeight(GuiPrototyp.screenBounds.getHeight());
         
         btnInsertFrameRoger.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
