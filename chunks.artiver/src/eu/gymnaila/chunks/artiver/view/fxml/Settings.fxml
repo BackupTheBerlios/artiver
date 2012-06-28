@@ -7,10 +7,10 @@
 
 <ScrollPane fx:id = "scrSettings" fitToWidth = "true" fitToHeight = "false" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.Settings">
 <content>    
-<GridPane fx:id = "gridPaneSettings" alignment = "center" hgap = "30" vgap = "30">
-        <styleClass>
+<GridPane fx:id = "gridPaneSettings" styleClass = "grid-pane-settings" alignment = "center" hgap = "30" vgap = "30">
+        <!--<styleClass>
             <String fx:value = "grid-pane-settings"/>
-        </styleClass>
+        </styleClass>-->
     <children>
         <Label fx:id = "lblSettingsName" GridPane.columnIndex = "0" GridPane.rowIndex = "0" text = "Unternehmensname" minHeight = "50" prefHeight = "50" minWidth = "225" prefWidth = "225"/>
         <TextField fx:id = "txtSettingsName" GridPane.columnIndex = "1" GridPane.rowIndex = "0" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
@@ -46,10 +46,10 @@
         <TextField fx:id = "txtSettingsDeliveryPre" GridPane.columnIndex = "1" GridPane.rowIndex = "10" minHeight = "30" prefHeight = "30" minWidth = "225" prefWidth = "225"/>
         
         <Label fx:id = "lblSettingsTerms" GridPane.columnIndex = "0" GridPane.rowIndex = "11" text = "AGB" minHeight = "50" prefHeight = "50" minWidth = "225" prefWidth = "225"/>
-        <TextArea fx:id = "txaSettingsTerms" GridPane.columnIndex = "1" GridPane.rowIndex = "11" minHeight = "120" prefHeight = "60" minWidth = "225" prefWidth = "225"/>
-            <styleClass>
+        <TextArea fx:id = "txaSettingsTerms" styleClass = "text-area" GridPane.columnIndex = "1" GridPane.rowIndex = "11" minHeight = "120" prefHeight = "60" minWidth = "225" prefWidth = "225"/>
+            <!--<styleClass>
                 <String fx:value = "text-area"/>
-            </styleClass>
+            </styleClass>-->
         <Button fx:id = "btnSettingsRoger" text = "Bestätigen" GridPane.columnIndex = "1" GridPane.rowIndex = "12" onAction = "#btnActionSettingsRoger"/>
     </children>
 </GridPane>
