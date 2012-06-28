@@ -139,6 +139,7 @@ public class Usermanagement
      
      newID++;
      User newUser = new User(newID, userName, persoNr, pw);
+     newUser.setGroups(grp);
      newUser.setUid(uid);
      userList.add(newUser);
      persist(userList);

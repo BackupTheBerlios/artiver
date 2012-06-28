@@ -134,6 +134,7 @@ public class UsersFrame implements Initializable {
                 {
                         tempUser.setName(name);
                         tempUser.setPersonalNr(persID);
+                        tempUser.setGroups(grp);
                         if (!pwfUsersFramePW.getText().equals("") && pwConf.equals(pw))
                         {
                             tempUser.setPassword(pw);
