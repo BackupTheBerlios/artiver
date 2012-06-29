@@ -374,43 +374,43 @@ public class MainFrame implements Initializable {
        
         });
         
-        btnAccMainFrameOffer.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
-        {
-        @Override public void handle(MouseEvent e) 
-            {
-                btnAccMainFrameOffer.setEffect(shadow);
-            }
-        
-       
-        });
-        btnAccMainFrameOffer.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
-        {
-        @Override public void handle(MouseEvent e) 
-            {
-                btnAccMainFrameOffer.setEffect(null);
-            }
-        
-       
-        });
-        
-        btnAccMainFrameDelivery.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
-        {
-        @Override public void handle(MouseEvent e) 
-            {
-                btnAccMainFrameDelivery.setEffect(shadow);
-            }
-        
-       
-        });
-        btnAccMainFrameDelivery.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
-        {
-        @Override public void handle(MouseEvent e) 
-            {
-                btnAccMainFrameDelivery.setEffect(null);
-            }
-        
-       
-        });
+//        btnAccMainFrameOffer.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+//        {
+//        @Override public void handle(MouseEvent e) 
+//            {
+//                btnAccMainFrameOffer.setEffect(shadow);
+//            }
+//        
+//       
+//        });
+//        btnAccMainFrameOffer.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+//        {
+//        @Override public void handle(MouseEvent e) 
+//            {
+//                btnAccMainFrameOffer.setEffect(null);
+//            }
+//        
+//       
+//        });
+//        
+//        btnAccMainFrameDelivery.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+//        {
+//        @Override public void handle(MouseEvent e) 
+//            {
+//                btnAccMainFrameDelivery.setEffect(shadow);
+//            }
+//        
+//       
+//        });
+//        btnAccMainFrameDelivery.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+//        {
+//        @Override public void handle(MouseEvent e) 
+//            {
+//                btnAccMainFrameDelivery.setEffect(null);
+//            }
+//        
+//       
+//        });
         
         btnAccMainFrameCustomer.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
