@@ -11,6 +11,7 @@ import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.entity.Customer;
 import eu.gymnaila.chunks.artiver.entity.DepictionArticle;
 import eu.gymnaila.chunks.artiver.entity.Invoice;
+import eu.gymnaila.chunks.artiver.exceptions.DeliveryNoteAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.exceptions.InvoiceAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
 import eu.gymnaila.chunks.artiver.tooling.Numbers;
@@ -77,6 +78,8 @@ public class InvoiceFrame implements Initializable
 
     private double priceNoMwSt = 0;
     
+    private double mwst;
+    
     List<DepictionArticle> listDepArt = new ArrayList<DepictionArticle>();
 
     ObservableList<DepictionArticle> observableList = FXCollections.observableList(listDepArt);
@@ -92,6 +95,8 @@ public class InvoiceFrame implements Initializable
     OfferController offer = new OfferController();
     
     DeliveryNoteController delivery = new DeliveryNoteController();
+    
+    MasterDataController masterData = new MasterDataController();
     
     
     @FXML
@@ -162,30 +167,34 @@ public class InvoiceFrame implements Initializable
     @FXML
     private void btnActionDeliveryRoger(ActionEvent event) 
     {
+        try {
+            System.out.println("Lieferschein bestätigen");
+            
+            String stringTemp;
+            
+            listDepArt.clear();
+           
+            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+            {
+                stringTemp = lstInvoice.getItems().get(i).toString();
+               
+                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+                
+                depArt = null;
+                depArt.setName(stringList[1]);
+                depArt.setNr(stringList[0]);
+                depArt.setPrice(Numbers.parseDouble(stringList[3]));
+                depArt.setAmount(Numbers.parseInt(stringList[2]));
+                
+                listDepArt.add(depArt);
+                
+            }
+            
+            delivery.addDeliveryNote((Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem(), listDepArt);
+        } catch (DeliveryNoteAlreadyExistsException ex) {
+            Logger.getLogger(InvoiceFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-//            System.out.println("Lieferschein bestätigen");
-//            
-//            String stringTemp;
-//            
-//            listDepArt.clear();
-//           
-//            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
-//            {
-//                stringTemp = lstInvoice.getItems().get(i).toString();
-//               
-//                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
-//                
-//                depArt = null;
-//                depArt.setName(stringList[1]);
-//                depArt.setNr(stringList[0]);
-//                depArt.setAmount(Numbers.parseInt(stringList[2]));
-//                
-//                listDepArt.add(depArt);
-//                
-//            }
-//            
-//            delivery.addDeliveryNote(priceTotal, listDepArt, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
-//        
     }
     
     
@@ -220,7 +229,7 @@ public class InvoiceFrame implements Initializable
         double priceTempTotal = priceTotal;
         double priceTempNoMwSt = priceNoMwSt;
         
-        priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * 0.19);
+        priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
         priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
                 
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
@@ -266,7 +275,7 @@ public class InvoiceFrame implements Initializable
         double priceTempTotal = priceTotal;
         double priceTempNoMwSt = priceNoMwSt;
         
-        priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * 0.19);
+        priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
         
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
         txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
@@ -279,6 +288,18 @@ public class InvoiceFrame implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        
+        if(masterData.getMasterData().getVat() != 0)
+        {
+            mwst = ((masterData.getMasterData().getVat())/100);
+            System.out.println(mwst);
+        }
+        else
+        {
+            mwst = 0;
+        }
+        
+        
         arrowGreen.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
         @Override public void handle(MouseEvent e) 
