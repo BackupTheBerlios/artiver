@@ -89,12 +89,12 @@
         <HBox fx:id = "hBoxButton" >
             <children>
                 <Button fx:id = "btnInvoice" text = "Rechnung generieren" onAction = "#btnActionInvoiceRoger" />
-                
+                    <Label fx:id = "lblInvoiceEmpty6" text = "" minWidth = "20" prefWidth = "20" minHeight = "1" prefHeight = "1"/>
                 <Button fx:id = "btnOffer" text = "Angebot generieren" onAction = "#btnActionOfferRoger" />
-                
+                    <Label fx:id = "lblInvoiceEmpty7" text = "" minWidth = "20" prefWidth = "20" minHeight = "1" prefHeight = "1"/>
                 <Button fx:id = "btnDelivery" text = "Lieferschein generieren" onAction = "#btnActionDeliveryRoger" />
-                
-                <Label fx:id = "lblInvoiceEmpty5" text = "" minWidth = "300" prefWidth = "300" minHeight = "1" prefHeight = "1"/>
+                    <Label fx:id = "lblInvoiceEmpty8" text = "" minWidth = "20" prefWidth = "20" minHeight = "1" prefHeight = "1"/>
+                <Label fx:id = "lblInvoiceEmpty5" text = "" minWidth = "240" prefWidth = "240" minHeight = "1" prefHeight = "1"/>
                 
                 <GridPane fx:id = "gridPaneInvoicePrices" alignment = "center" hgap = "20" vgap = "20">
                     <children>
