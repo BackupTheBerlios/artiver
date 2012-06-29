@@ -143,21 +143,12 @@
                                 <String fx:value = "vBox-accordion"/>
                             </styleClass>-->
                                 <children>
-                                    <Button fx:id="btnAccMainFrameInvoice" styleClass = "accordion-button" text = "Rechnung" onAction = "#btnActionAccMainFrameInvoice" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                    <Button fx:id="btnAccMainFrameInvoice" styleClass = "accordion-button" text = "Warenwirtschaft" onAction = "#btnActionAccMainFrameInvoice" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
                                         <!--<styleClass>
                                             <String fx:value = "accordion-button"/>
                                         </styleClass>-->
                                     </Button>
-                                    <Button fx:id="btnAccMainFrameOffer" styleClass = "accordion-button" text = "Angebot" onAction = "#btnActionAccMainFrameOffer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
-                                        <!--<styleClass>
-                                            <String fx:value = "accordion-button"/>
-                                        </styleClass>-->
-                                    </Button>
-                                    <Button fx:id="btnAccMainFrameDelivery" styleClass = "accordion-button" text = "Lieferschein" onAction = "#btnActionAccMainFrameDelivery" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
-                                        <!--<styleClass>
-                                            <String fx:value = "accordion-button"/>
-                                        </styleClass>-->
-                                    </Button>
+                                    
                                     <Button fx:id="btnAccMainFrameCustomer" styleClass = "accordion-button" text = "Kunden" onAction = "#btnActionAccMainFrameCustomer" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
                                         <!--<styleClass>
                                             <String fx:value = "accordion-button"/>
