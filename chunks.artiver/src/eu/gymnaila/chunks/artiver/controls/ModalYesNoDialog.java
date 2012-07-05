@@ -25,9 +25,9 @@ public class ModalYesNoDialog  extends Stage
 {
    private EventHandler<ActionEvent> ehaeYes, ehaeNo;
    
-   public ModalYesNoDialog(Stage owner, String msg)
+   public ModalYesNoDialog(Stage owner, String title, String msg)
    {
-      setTitle("Message");
+      setTitle(title);
       initOwner(owner);
       initStyle(StageStyle.UTILITY);
       initModality(Modality.APPLICATION_MODAL);
