@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListRep" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="131"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Article.`name` AS name,
+     Article.`nr` AS nr,
+     Article.`price` AS price,
+     Article.`ean` AS ean,
+     Article.`amount` AS amount,
+     Article.`colourCode` AS colourCode,
+     Article.`stock` AS stock,
+     Article.`state` AS state,
+     Article.`category` AS category,
+     Category.`name` AS categoryname,
+     Stock.`name` AS stockname,
+     State.`name` AS statename
+FROM
+     `Category` Category INNER JOIN `Article` Article ON Category.`idCategory` = Article.`category`
+     INNER JOIN `Stock` Stock ON Article.`stock` = Stock.`idStock`
+     INNER JOIN `State` State ON Article.`state` = State.`idState`]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<field name="nr" class="java.lang.String"/>
+	<field name="price" class="java.lang.Double"/>
+	<field name="ean" class="java.lang.String"/>
+	<field name="amount" class="java.lang.Integer"/>
+	<field name="colourCode" class="java.lang.String"/>
+	<field name="stock" class="java.lang.Integer"/>
+	<field name="state" class="java.lang.Integer"/>
+	<field name="category" class="java.lang.Integer"/>
+	<field name="categoryname" class="java.lang.String"/>
+	<field name="stockname" class="java.lang.String"/>
+	<field name="statename" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72"/>
+	</title>
+	<pageHeader>
+		<band height="13">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-92" width="844" height="186" backcolor="#006699"/>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21"/>
+	</columnHeader>
+	<detail>
+		<band height="20"/>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="762" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Seite "+$V{PAGE_NUMBER}+" von"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="762" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
