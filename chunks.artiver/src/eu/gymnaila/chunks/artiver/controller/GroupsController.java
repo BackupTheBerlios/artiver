@@ -110,7 +110,6 @@ public class GroupsController implements Serializable
               if(groups.getIdGroups() == groupsID)
               {
                   dbDelete(groups);
-                  persist(groupsList);
                   return;
               }
           }
