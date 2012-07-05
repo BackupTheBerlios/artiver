@@ -7,6 +7,7 @@ package eu.gymnaila.chunks.artiver.view;
 import eu.gymnaila.chunks.artiver.controller.StockController;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
+import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.entity.State;
 import eu.gymnaila.chunks.artiver.entity.Stock;
 import eu.gymnaila.chunks.artiver.exceptions.*;
@@ -70,21 +71,40 @@ public class StockList implements Initializable {
     {
         System.out.println("Lager entfernen");
         
-        try 
+        
+        ModalYesNoDialog yesNo = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich löschen?");
+        EventHandler<ActionEvent> ehaeYes = new EventHandler<ActionEvent>() 
         {
-            stock.deleteStock(mainTable.getSelectionModel().getSelectedItem().getIdStock());
+
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
+        
+                    try 
+                    {
+                            stock.deleteStock(mainTable.getSelectionModel().getSelectedItem().getIdStock());
             
-                    ds = new ObjectDataSource(stock.list(), Stock.class, "name", "country", "address");
-                    mainTable.setItems(tempList);
-                    mainTable.setItems(ds.getData());
+                                ds = new ObjectDataSource(stock.list(), Stock.class, "name", "country", "address");
+                                mainTable.setItems(tempList);
+                                mainTable.setItems(ds.getData());
                     
-        } catch (StockConnectedWithArticlesException e) {
-            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-            e.printStackTrace();
-        } catch (StockNotFoundException e) {
-            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-            e.printStackTrace();
-        }
+                    } 
+                    catch (StockConnectedWithArticlesException e) 
+                    {
+                        ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                        e.printStackTrace();
+                    } 
+                    catch (StockNotFoundException e) 
+                    {
+                        ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                        e.printStackTrace();
+                    }
+            
+            }
+        };
+        
+        yesNo.setOnYes(ehaeYes);
+        yesNo.show();
         
     }
     

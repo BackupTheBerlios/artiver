@@ -6,6 +6,7 @@ package eu.gymnaila.chunks.artiver.view;
 
 import eu.gymnaila.chunks.artiver.controller.GroupsController;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
+import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.entity.Groups;
 import eu.gymnaila.chunks.artiver.exceptions.GroupConnectedToUserException;
@@ -258,19 +259,40 @@ public class GiveRights implements Initializable {
     private void btnActionGiveRightsErease(ActionEvent event) 
     {
         System.out.println("Rechte Löschen");
-        try {
-            groups.deleteGroups(mainTable.getSelectionModel().getSelectedItem());
+        
+        ModalYesNoDialog yesNo = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich löschen?");
+        EventHandler<ActionEvent> ehaeYes = new EventHandler<ActionEvent>() 
+        {
+
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
+        
+        
+                    try 
+                    {
+                        groups.deleteGroups(mainTable.getSelectionModel().getSelectedItem());
             
-            // Update TableView
-            ds = new ObjectDataSource(groups.list(), Groups.class, "name", "checkIn", "checkOut", "article", "category", "stock", "state", "invoice", "offer", "deliveryNote", "groups", "user", "customer", "admin");
-            mainTable.setItems(tempList);
-            mainTable.setItems(ds.getData());
-            mainTable.layout();
-        } catch (GroupsNotFoundException ex) {
-            Logger.getLogger(GiveRights.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (GroupConnectedToUserException ex) {
-            Logger.getLogger(GiveRights.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                        // Update TableView
+                        ds = new ObjectDataSource(groups.list(), Groups.class, "name", "checkIn", "checkOut", "article", "category", "stock", "state", "invoice", "offer", "deliveryNote", "groups", "user", "customer", "admin");
+                        mainTable.setItems(tempList);
+                        mainTable.setItems(ds.getData());
+                        mainTable.layout();
+                        } 
+                        catch (GroupsNotFoundException ex)  
+                        {
+                            Logger.getLogger(GiveRights.class.getName()).log(Level.SEVERE, null, ex);
+                        } 
+                        catch (GroupConnectedToUserException ex) 
+                        {
+                        Logger.getLogger(GiveRights.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+        
+            }
+        };
+        
+        yesNo.setOnYes(ehaeYes);
+        yesNo.show();
     }
     
     @Override

@@ -8,6 +8,7 @@ import eu.gymnaila.chunks.artiver.controller.CategoryController;
 import eu.gymnaila.chunks.artiver.controller.StateController;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
+import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.entity.Category;
 import eu.gymnaila.chunks.artiver.entity.State;
@@ -72,22 +73,40 @@ public class StateList implements Initializable {
     {
         System.out.println("Status löschen");
         
-        try 
+        
+        ModalYesNoDialog yesNo = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich löschen?");
+        EventHandler<ActionEvent> ehaeYes = new EventHandler<ActionEvent>() 
         {
-            state.deleteState(mainTable.getSelectionModel().getSelectedItem());
+
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
+        
+                    try 
+                    {
+                        state.deleteState(mainTable.getSelectionModel().getSelectedItem());
             
-                    ds = new ObjectDataSource(state.list(), State.class, "name", "description");
-                    mainTable.setItems(tempList);
-                    mainTable.setItems(ds.getData());
+                                ds = new ObjectDataSource(state.list(), State.class, "name", "description");
+                                mainTable.setItems(tempList);
+                                mainTable.setItems(ds.getData());
                     
-        } catch (StateConnectedToArticleException e) {
-            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-            e.printStackTrace();
-        }
-            catch (StateNotFoundException e) {
-                ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-                e.printStackTrace();
-        }
+                    } 
+                    catch (StateConnectedToArticleException e) 
+                    {
+                        ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                        e.printStackTrace();
+                    }
+                    catch (StateNotFoundException e) 
+                    {
+                            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                            e.printStackTrace();
+                    }
+        
+            }
+        };
+        
+        yesNo.setOnYes(ehaeYes);
+        yesNo.show();
         
     }
     

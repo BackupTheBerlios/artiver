@@ -8,6 +8,7 @@ import eu.gymnaila.chunks.artiver.controller.Articlemanagement;
 import eu.gymnaila.chunks.artiver.controller.CategoryController;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
+import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.entity.Category;
 import eu.gymnaila.chunks.artiver.exceptions.ArticleDoesNotExistException;
@@ -71,22 +72,40 @@ public class CategoryList implements Initializable {
     {
         System.out.println("Kategorie löschen");
         
-        try 
+        ModalYesNoDialog yesNo = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich löschen?");
+        EventHandler<ActionEvent> ehaeYes = new EventHandler<ActionEvent>() 
         {
-            category.deleteCategory(mainTable.getSelectionModel().getSelectedItem());
+
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
+        
+        
+                    try 
+                    {
+                            category.deleteCategory(mainTable.getSelectionModel().getSelectedItem());
             
-                    ds = new ObjectDataSource(category.list(), Category.class, "name", "description");
-                    mainTable.setItems(tempList);
-                    mainTable.setItems(ds.getData());
+                                ds = new ObjectDataSource(category.list(), Category.class, "name", "description");
+                                mainTable.setItems(tempList);
+                                mainTable.setItems(ds.getData());
                     
-        } catch (CategoryConnectedToArticleException e) {
-            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-            e.printStackTrace();
-        }
-            catch (CategoryNotFoundException e) {
-                ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-                e.printStackTrace();
-        }
+                    } 
+                    catch (CategoryConnectedToArticleException e) 
+                    {
+                        ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                        e.printStackTrace();
+                    }
+                    catch (CategoryNotFoundException e) {
+                        ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                        e.printStackTrace();
+                    }
+        
+            }
+            
+        };
+        
+        yesNo.setOnYes(ehaeYes);
+        yesNo.show();
         
     }
     

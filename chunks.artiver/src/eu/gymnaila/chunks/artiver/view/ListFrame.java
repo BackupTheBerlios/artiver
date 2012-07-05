@@ -8,6 +8,7 @@ import eu.gymnaila.chunks.artiver.config.AppConfig;
 import eu.gymnaila.chunks.artiver.controller.Articlemanagement;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
+import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.exceptions.ArticleDoesNotExistException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
@@ -84,23 +85,41 @@ public class ListFrame implements Initializable
         System.out.println("Entfernen");
         
         
-        // Todo try catch
-        try {
-            articles.delete(mainTable.getSelectionModel().getSelectedItem().getNr());
+        ModalYesNoDialog yesNo = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich löschen?");
+        EventHandler<ActionEvent> ehaeYes = new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
+                
+            
+        
+        
+        
+                    // Todo try catch
+                    try {
+                        articles.delete(mainTable.getSelectionModel().getSelectedItem().getNr());
             
             
                 
-                    ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state");
-                    mainTable.setItems(tempList);
-                    mainTable.setItems(ds.getData());
-                    mainTable.layout();
+                                ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state");
+                                mainTable.setItems(tempList);
+                                mainTable.setItems(ds.getData());
+                                mainTable.layout();
             
             
-            } catch (ArticleDoesNotExistException e) {
-            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-            e.printStackTrace();
+                        } 
+                        catch (ArticleDoesNotExistException e) 
+                        {
+                            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                            e.printStackTrace();
+                        }               
+            
         }
+        };
         
+        yesNo.setOnYes(ehaeYes);
+        yesNo.show();
     }
     
     @Override
