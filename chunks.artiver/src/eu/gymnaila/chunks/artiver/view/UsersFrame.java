@@ -10,6 +10,7 @@ import eu.gymnaila.chunks.artiver.controller.Usermanagement;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWaitingDialog;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
+import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.encryption.EncMode;
 import eu.gymnaila.chunks.artiver.encryption.ShaEncrypter;
 import eu.gymnaila.chunks.artiver.entity.Groups;
@@ -190,36 +191,71 @@ public class UsersFrame implements Initializable {
     private void btnActionUsersFrameChange(ActionEvent event) {
         System.out.println("Ändere User");
         
-        tempUser = mainTable.getSelectionModel().getSelectedItem();
+        ModalYesNoDialog yesNoChange = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich ändern?");
+        EventHandler<ActionEvent> ehaeYesChange = new EventHandler<ActionEvent>() 
+        {
+
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
         
-        txtUsersFrameName.setText(tempUser.getName());
+                    tempUser = mainTable.getSelectionModel().getSelectedItem();
+        
+                    txtUsersFrameName.setText(tempUser.getName());
         
         
-        txtUsersFrameNumber.setText(String.valueOf(tempUser.getPersonalNr()));
+                    txtUsersFrameNumber.setText(String.valueOf(tempUser.getPersonalNr()));
         
         
         
-        lstUsersFrame.getSelectionModel().select(tempUser.getGroups());
-        //txtUsersFrameRFID;
+                    lstUsersFrame.getSelectionModel().select(tempUser.getGroups());
+                    //txtUsersFrameRFID;
     
+            }
+        };
+        
+        yesNoChange.setOnYes(ehaeYesChange);
+        yesNoChange.show();
+        
+        
     }
     
     @FXML
     private void btnActionUsersFrameErease(ActionEvent event) 
     {
-        try {
-            System.out.println("Lösche User");
-            user.deleteUser(mainTable.getSelectionModel().getSelectedItem().getIdUser());
+        
+        ModalYesNoDialog yesNo = new ModalYesNoDialog(GuiPrototyp.getInstance().getStage(), "Warnung", "Wollen sie wirklich löschen?");
+        EventHandler<ActionEvent> ehaeYes = new EventHandler<ActionEvent>() 
+        {
 
-            ds = new ObjectDataSource(user.list(), User.class, "name", "personalNr", "groups");
-            mainTable.setItems(tempList);
-            mainTable.setItems(ds.getData());
-            mainTable.layout();
+            @Override
+            public void handle(ActionEvent arg0) 
+            {
+        
+        
+        
+                    try 
+                    {
+                        System.out.println("Lösche User");
+                        user.deleteUser(mainTable.getSelectionModel().getSelectedItem().getIdUser());
 
-        } catch (UserNotFoundException e) {
-            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
-            e.printStackTrace();
-        }
+                            ds = new ObjectDataSource(user.list(), User.class, "name", "personalNr", "groups");
+                            mainTable.setItems(tempList);
+                            mainTable.setItems(ds.getData());
+                            mainTable.layout();
+
+                    } 
+                    catch (UserNotFoundException e) 
+                    {
+                        ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+                        e.printStackTrace();
+                    }
+        
+            }
+        };
+        
+        yesNo.setOnYes(ehaeYes);
+        yesNo.show();
             
             
             
