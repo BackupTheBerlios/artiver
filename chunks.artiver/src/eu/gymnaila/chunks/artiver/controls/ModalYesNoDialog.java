@@ -31,7 +31,7 @@ public class ModalYesNoDialog  extends Stage
       initOwner(owner);
       initStyle(StageStyle.UTILITY);
       initModality(Modality.APPLICATION_MODAL);
-      Button btnYes = new Button("Yes");
+      Button btnYes = new Button("Ja");
       btnYes.setOnAction(new EventHandler<ActionEvent>()
                          {
                             @Override
@@ -42,7 +42,7 @@ public class ModalYesNoDialog  extends Stage
                                close();
                             }
                          });
-      Button btnNo = new Button("No");
+      Button btnNo = new Button("Nein");
       btnNo.setOnAction(new EventHandler<ActionEvent>()
                         {
                            @Override
