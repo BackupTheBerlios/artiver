@@ -45,7 +45,7 @@ public class CustomerController implements Serializable
             
       for (Customer curCustomer : customerList) 
       {
-        if (curCustomer.getIdCustomer() == curCustomer.getIdCustomer()) 
+        if (curCustomer.getIdCustomer().equals(customer.getIdCustomer())) 
         {
              index = customerList.indexOf(curCustomer);
              break;
