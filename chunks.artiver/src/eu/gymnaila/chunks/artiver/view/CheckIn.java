@@ -82,11 +82,11 @@ public class CheckIn implements Initializable {
         mainTable.setItems(tempList);
         mainTable.setItems(ds.getData());
         mainTable.layout();
-        
+        mainTable.getSortOrder().add(mainTable.getColumns().get(0));
+        mainTable.getSortOrder().clear();
         
         txtCheckInNummer.clear();
         txtCheckInArticle.clear();
-        
     }
     
     @Override
