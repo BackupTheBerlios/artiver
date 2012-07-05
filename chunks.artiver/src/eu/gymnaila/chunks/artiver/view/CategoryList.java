@@ -175,6 +175,8 @@ public class CategoryList implements Initializable {
      ds = new ObjectDataSource(category.list(), Category.class, "name", "description");
                     mainTable.setItems(tempList);
                     mainTable.setItems(ds.getData());
+                    mainTable.getSortOrder().add(mainTable.getColumns().get(0));
+        mainTable.getSortOrder().clear();
     }
     
     @Override

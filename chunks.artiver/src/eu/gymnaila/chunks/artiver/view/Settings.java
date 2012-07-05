@@ -16,9 +16,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -51,6 +54,10 @@ public class Settings implements Initializable {
     private TextField txtSettingsDeliveryPre;
     @FXML
     private TextArea txaSettingsTerms;
+    @FXML
+    private Button btnSettingsRoger;
+    
+    private DropShadow shadow = new DropShadow();
     
     @FXML 
     private ScrollPane scrSettings;
@@ -161,6 +168,25 @@ public class Settings implements Initializable {
             txtSettingsDeliveryPre.setText(tempMaster.getDeliveryNotePrefix());
             txaSettingsTerms.setText(tempMaster.getTerms());
         }
+        
+        btnSettingsRoger.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnSettingsRoger.setEffect(shadow);
+            }
+        
+       
+        });
+        btnSettingsRoger.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnSettingsRoger.setEffect(null);
+            }
+        
+       
+        });
 
     }    
 }

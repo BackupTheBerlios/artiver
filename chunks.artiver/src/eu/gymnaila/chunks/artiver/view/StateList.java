@@ -158,6 +158,13 @@ public class StateList implements Initializable {
             e.printStackTrace();
         }
         
+        ds = new ObjectDataSource(state.list(), State.class, "name", "description");
+        mainTable.setItems(tempList);
+        mainTable.setItems(ds.getData());
+        mainTable.getSortOrder().add(mainTable.getColumns().get(0));
+        mainTable.getSortOrder().clear();
+        
+        
         txtInsertStateName.clear();
        
         txtInsertStateDescription.clear();

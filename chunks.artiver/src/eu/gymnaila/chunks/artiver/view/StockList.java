@@ -154,6 +154,8 @@ public class StockList implements Initializable {
             ds = new ObjectDataSource(stock.list(), Stock.class, "name", "country", "address");
                     mainTable.setItems(tempList);
                     mainTable.setItems(ds.getData());
+                    mainTable.getSortOrder().add(mainTable.getColumns().get(0));
+        mainTable.getSortOrder().clear();
             
         } catch (StockAlreadyExistsException e) {
             ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());

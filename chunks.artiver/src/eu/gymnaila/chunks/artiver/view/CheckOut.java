@@ -83,6 +83,8 @@ public class CheckOut implements Initializable {
         mainTable.setItems(tempList);
         mainTable.setItems(ds.getData());
         mainTable.layout();
+        mainTable.getSortOrder().add(mainTable.getColumns().get(0));
+        mainTable.getSortOrder().clear();
         
         txtCheckOutArticle.clear();
         txtCheckOutNummer.clear();

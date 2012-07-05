@@ -330,11 +330,11 @@ public class UsersFrame implements Initializable {
        
         });
         
-        btnUsersFrameRoger.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        btnUsersFrameRFID.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
         @Override public void handle(MouseEvent e) 
             {
-                btnUsersFrameRoger.setEffect(shadow);
+                btnUsersFrameRFID.setEffect(shadow);
             }
         
        
@@ -349,11 +349,11 @@ public class UsersFrame implements Initializable {
        
         });
         
-        btnUsersFrameRFID.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        btnUsersFrameChange.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
         @Override public void handle(MouseEvent e) 
             {
-                btnUsersFrameRFID.setEffect(shadow);
+                btnUsersFrameChange.setEffect(shadow);
             }
         
        
