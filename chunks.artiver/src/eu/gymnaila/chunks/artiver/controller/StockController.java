@@ -70,7 +70,13 @@ public class StockController implements Serializable
       
      
   }
-  
+  /**
+   * This method creates a new stock
+   * @param name the name of the new stock
+   * @param country the country where the stock is placed
+   * @param address the address of the stock
+   * @throws StockAlreadyExistsException 
+   */
   public void createStock(String name, String country, String address) throws StockAlreadyExistsException
   {
    
