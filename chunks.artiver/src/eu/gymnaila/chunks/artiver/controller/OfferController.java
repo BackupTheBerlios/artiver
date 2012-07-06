@@ -23,11 +23,21 @@ import javax.persistence.Query;
  */
 public class OfferController 
 {
-    
-    public List<Offer> list()
+     /**
+     *  this method returns a List-Object contained with all offers
+     * @return List of all offers
+     * ©Fat Don
+     */
+  public List<Offer> list()
   {
      return update();
   }
+  /**
+   * This method delets an offer from the offerlist
+   * @param offerID the ID of the offer the user wants to delete
+   * @throws OfferNotFoundException
+   * @throws OfferDoesNotExistException 
+   */
     
   public void deleteOffer(String offerID) throws  OfferNotFoundException, OfferDoesNotExistException
   {
@@ -45,7 +55,12 @@ public class OfferController
          }
       }
   }
-
+ /**
+  * This method adds an offer to the offerlist
+  * @param price the total price of the offer
+  * @param articles the articles that the offer will contain
+  * @param customer the customer who created the offer
+  */
    public void addOffer(double price, List<DepictionArticle> articles, Customer customer)
    {
      List <Offer> offers = update();
@@ -66,7 +81,10 @@ public class OfferController
     
      
    }
-
+   /**
+    * thsi method creates a new offer number
+    * @return 
+    */
    public String generateOfferNr()
    {
 
