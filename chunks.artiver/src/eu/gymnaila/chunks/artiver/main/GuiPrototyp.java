@@ -4,6 +4,7 @@
  */
 package eu.gymnaila.chunks.artiver.main;
 
+import com.sun.javafx.tk.Toolkit;
 import eu.gymnaila.chunks.artiver.config.AppConfig;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
@@ -97,11 +98,15 @@ public class GuiPrototyp extends Application
         stage.setScene(scene);
         stage.setTitle("ArtiVer Anmeldung");
         
-//        logo = new Image("artiicon2.PNG");
-//        
-//        stage.getIcons().add(logo);
-//        stage.setIconified(true);
+        logo = new Image(GuiPrototyp.class.getResource("/eu/gymnaila/chunks/artiver/main/artiicon2.PNG").getPath());
+        
+        stage.getIcons().add(logo);
+        
+        
+        
         stage.show();
+        
+        
         
         // TODO Exception handling for that method
         AppConfig.init();
