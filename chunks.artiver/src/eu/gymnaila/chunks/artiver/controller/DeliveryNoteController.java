@@ -351,8 +351,9 @@ public class DeliveryNoteController
  
   /**
    * adds a delivery note into the DB
-   * @param customer customer to set
-   * @param depArt depiction of the article to set
+   * @param deliveryNoteNumber number to set
+   * @param delivery delivery to set
+   * @param deliveryState state to set
    * @throws DeliveryNoteAlreadyExistsException thrown, if id was not found in DB
    */
   
@@ -512,7 +513,7 @@ public class DeliveryNoteController
                 em.merge(deliveryNote);
                 em.getTransaction().commit();
 	}
-        System.out.println("Size: " + deliveryNotes.size());
+      //  System.out.println("Size: " + deliveryNotes.size());
         em.close();
         
     }
