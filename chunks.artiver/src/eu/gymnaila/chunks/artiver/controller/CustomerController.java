@@ -61,12 +61,12 @@ public class CustomerController implements Serializable
      
   }
   
-  //TODO sehr aussagekräftig, ändern
+  
   /**
    * 
-   * @param number
-   * @param customer
-   * @param address 
+   * @param number number to set
+   * @param customer customer to set
+   * @param address customer's address to set
    * @throws CustomerAlreadyExistsException thrown if customer already exists in DB
    */
   public void addCustomer(String number, String customer, String address) throws CustomerAlreadyExistsException
