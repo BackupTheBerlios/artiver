@@ -355,7 +355,9 @@ public class DeliveryNoteController
    * @param depArt depiction of the article to set
    * @throws DeliveryNoteAlreadyExistsException thrown, if id was not found in DB
    */
-  public void addDeliveryNote(Customer customer, List<DepictionArticle> depArt) throws DeliveryNoteAlreadyExistsException
+  
+  //vorher : Customer und List<DepictionArticle> als Parameter - > ?
+  public void addDeliveryNote(int deliveryNoteNumber, String delivery, String deliveryState) throws DeliveryNoteAlreadyExistsException
   {
       
      List<DeliveryNote> noteList = update();
@@ -372,7 +374,7 @@ public class DeliveryNoteController
      }
      
      newID++;
-     noteList.add(new DeliveryNote(newID));
+     noteList.add(new DeliveryNote(newID, deliveryNoteNumber, delivery, deliveryState));
      persist(noteList);
   }
 
