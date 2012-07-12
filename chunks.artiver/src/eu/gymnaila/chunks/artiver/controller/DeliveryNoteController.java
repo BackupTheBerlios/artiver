@@ -93,7 +93,12 @@ public class DeliveryNoteController
 
   
   
-    
+   /**
+    * see return
+    * @param noteID PK
+    * @return unique number of the delivery note
+    * @throws DeliveryNoteNotFoundException thrown, if note's id was not found in DB
+    */ 
   public int getDeliveryNoteNumber(int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -112,7 +117,12 @@ public class DeliveryNoteController
   }
   
   
-  
+  /**
+   * allows to set the note's number
+   * @param deliveryNoteNumber note's unique number
+   * @param noteID PK 
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in db 
+   */
   public void setDeliveryNoteNumber(int deliveryNoteNumber, int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -134,6 +144,12 @@ public class DeliveryNoteController
      persist(noteList);
   }
   
+  /**
+   * 
+   * @param noteID PK 
+   * @return returns the note's state
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in DB
+   */
   public String getDeliveryState(int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -151,7 +167,12 @@ public class DeliveryNoteController
      
   }
   
-  
+  /**
+   * 
+   * @param state
+   * @param noteID
+   * @throws DeliveryNoteNotFoundException 
+   */
   public void setDeliveryNoteState(String state, int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -174,7 +195,12 @@ public class DeliveryNoteController
      persist(noteList);
   }
   
-  
+  /**
+   * see return
+   * @param noteID PK 
+   * @return note's modifier
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in DB
+   */
   public String getModifier(int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -192,6 +218,12 @@ public class DeliveryNoteController
      
   }
   
+  /**
+   * allows to set note's modifier
+   * @param mod modifier to set
+   * @param noteID PK 
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in DB
+   */
    public void setDeliveryModifier(String mod, int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -213,7 +245,12 @@ public class DeliveryNoteController
      persist(noteList);
   }
   
-      
+  /**
+   * see return
+   * @param noteID PK 
+   * @return returns the delivery
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in DB
+   */   
     
   public String getDelivery(int noteID) throws DeliveryNoteNotFoundException
   {
@@ -232,6 +269,12 @@ public class DeliveryNoteController
      
   }
   
+  /**
+   * enables to set the delivery
+   * @param delivery delivery to set
+   * @param noteID PK 
+   * @throws DeliveryNoteNotFoundException  thrown, if was not found in DB
+   */
   public void setDelivery(String delivery, int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -254,7 +297,12 @@ public class DeliveryNoteController
   }
   
   
-  
+  /**
+   * see return
+   * @param noteID PK
+   * @return returns the date of it's delivery
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in the DB
+   */
   public Date getDeliveryDate(int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -272,7 +320,12 @@ public class DeliveryNoteController
      
   }
   
-
+  /**
+   * enables to set the date of delivery
+   * @param date date to set
+   * @param noteID PK
+   * @throws DeliveryNoteNotFoundException  thrown, if id was not found in DB
+   */
   public void setDeliveryDate(Date date, int noteID) throws DeliveryNoteNotFoundException
   {
       
@@ -296,7 +349,12 @@ public class DeliveryNoteController
   
   
  
-  
+  /**
+   * adds a delivery note into the DB
+   * @param customer customer to set
+   * @param depArt depiction of the article to set
+   * @throws DeliveryNoteAlreadyExistsException thrown, if id was not found in DB
+   */
   public void addDeliveryNote(Customer customer, List<DepictionArticle> depArt) throws DeliveryNoteAlreadyExistsException
   {
       
@@ -320,7 +378,11 @@ public class DeliveryNoteController
 
   
   
-  
+  /**
+   * enables to delete a note from DB
+   * @param noteID PK 
+   * @throws DeliveryNoteNotFoundException thrown, if id was not found in DB
+   */
   public void deleteNote(int noteID) throws DeliveryNoteNotFoundException
   {
           List<DeliveryNote> noteList = update();
