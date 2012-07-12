@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package eu.gymnaila.chunks.artiver.controller;
 
 import eu.gymnaila.chunks.artiver.config.AppConfig;
@@ -16,20 +13,30 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+
 /**
- * Handles database-access for Stock entities
- * @author privat
+ * 
+ * @author Don
  */
 public class GroupsController implements Serializable
 {
   
+    /**
+     * see return
+     * @return returns all Groups as a List<Groups> Object
+     */
   public List<Groups> list()
   {
       return update();
   }
   
   
-  
+  /**
+   * enables to edit a Group
+   * @param groups group to edit
+   * @throws GroupsNotFoundException thrown, if group's id was not found in DB 
+   * 
+   */
   public void edit(Groups groups) throws GroupsNotFoundException
   {
       List<Groups> groupsList = update();
@@ -57,7 +64,11 @@ public class GroupsController implements Serializable
   }
   
   
-  
+  /**
+   * enables to add a group into the DB
+   * @param group group to add
+   * @throws GroupsAlreadyExistException  thrown, if id was not found in db
+   */
   public void addGroups(Groups group) throws GroupsAlreadyExistException
   {
       
@@ -88,6 +99,12 @@ public class GroupsController implements Serializable
      persist(groupsList);
   }
   
+  /**
+   * enables to delete a group
+   * @param group group to delete
+   * @throws GroupsNotFoundException thrown, if group's id was not found in db
+   * @throws GroupConnectedToUserException thrown, if a user is assigned to the group to delete
+   */
   public void deleteGroups(Groups group) throws GroupsNotFoundException, GroupConnectedToUserException
   {
      List<Groups> groupsList = update();
@@ -117,7 +134,13 @@ public class GroupsController implements Serializable
           
       throw new GroupsNotFoundException("Group with ID '" + groupsID + "' not found."); 
   }
-  
+ 
+  /**
+   * see return
+   * @param groupsID PK
+   * @return returns group's name
+   * @throws GroupsNotFoundException  thrown, if id was not found in db
+   */
   public String getName(int groupsID) throws GroupsNotFoundException
   {
       
@@ -141,6 +164,12 @@ public class GroupsController implements Serializable
       return curName;
   }
   
+  /**
+   * enables to set a group's name
+   * @param groupsID PK
+   * @param name name to set
+   * @throws GroupsNotFoundException  thrown, if id was not found in db
+   */
   public void setName(int groupsID, String name) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
@@ -186,6 +215,12 @@ public class GroupsController implements Serializable
       return curCheckIn;
   }
   
+  /**
+   * enables to set the check-in
+   * @param groupsID PK 
+   * @param checkIn check-in to set
+   * @throws GroupsNotFoundException thrown, if id was not found in db 
+   */
   public void setCheckIn(int groupsID, boolean checkIn) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
@@ -206,6 +241,12 @@ public class GroupsController implements Serializable
           persist(groupsList);
   }
   
+  /**
+   * enables to set the check-out
+   * @param groupsID PK 
+   * @param checkOut check-out to set
+   * @throws GroupsNotFoundException thrown, if group's id was not found in db
+   */
   public void setCheckOut(int groupsID, boolean checkOut) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
@@ -227,7 +268,12 @@ public class GroupsController implements Serializable
   }  
   
   
-  
+  /**
+   * see return
+   * @param groupsID PK
+   * @return returns 
+   * @throws GroupsNotFoundException 
+   */
   public boolean getCheckOut(int groupsID) throws GroupsNotFoundException
   {
       
