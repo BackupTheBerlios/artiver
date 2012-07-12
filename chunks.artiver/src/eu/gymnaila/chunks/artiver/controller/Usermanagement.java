@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import javax.persistence.NoResultException;
 
 /**
- * @author Fatih (Fat Don)
+ * @author Fat Don
  */
 
 public class Usermanagement 
@@ -27,6 +27,11 @@ public class Usermanagement
   }
   
   
+  /**
+   * 
+   * @param user user to edit
+   * @throws UserNotFoundException thrown if user's id is not found in DB
+   */
   public void edit(User user) throws UserNotFoundException
   {
       List<User> userList = update();

@@ -264,7 +264,7 @@ public class Articlemanagement
     }
     
      /**
-     * this method delets one article from the data base
+     * this method deletes one article from the data base
      */
     private void dbDelete(Article article)
     {

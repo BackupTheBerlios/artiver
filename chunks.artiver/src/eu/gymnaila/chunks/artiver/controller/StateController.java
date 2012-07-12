@@ -32,7 +32,12 @@ public class StateController implements Serializable
       return update();  
   }
   
-  
+  /**
+   * enables to edit a state
+   * @param stateName name to set
+   * @param description a fitting description for a state
+   * @throws StateAlreadyExistsException thrown, if id does not exist in db
+   */
   public void addState(String stateName, String description) throws StateAlreadyExistsException
   {
       
@@ -62,7 +67,12 @@ public class StateController implements Serializable
      persist(stateList);
   }
   
-  
+  /**
+   * allows to delete a state
+   * @param st state to delete
+   * @throws StateNotFoundException thrown, if state does not exist in DB
+   * @throws StateConnectedToArticleException thrown, if an article's state is equal to argument
+   */
   public void deleteState(State st) throws StateNotFoundException, StateConnectedToArticleException
   {
           List<State> stateList = update();
@@ -91,6 +101,12 @@ public class StateController implements Serializable
  
   }
   
+  /**
+   * enables to set state's name
+   * @param stateID PK in DB
+   * @param name name to set
+   * @throws StateNotFoundException thrown if state does not exist
+   */
   public void setName(int stateID, String name) throws StateNotFoundException
   {
           List<State> stateList = update();
@@ -109,7 +125,12 @@ public class StateController implements Serializable
           }
   }
   
-  
+  /**
+   * allows to set a description
+   * @param stateID PK in DB 
+   * @param description a fitting description to set
+   * @throws StateNotFoundException thrown, if state wasn't found by it's id
+   */
   public void setDescription(int stateID, String description) throws StateNotFoundException
   {
           List<State> stateList = update();
@@ -133,7 +154,13 @@ public class StateController implements Serializable
   }
   
   
-    public void setModificationDate(int stateID, Date modificationDate) throws StateNotFoundException
+  /**
+   * 
+   * @param stateID PK
+   * @param modificationDate name is all
+   * @throws StateNotFoundException thrown, if state's id is not found in DB
+   */
+  public void setModificationDate(int stateID, Date modificationDate) throws StateNotFoundException
   {
           List<State> stateList = update();
           
@@ -155,6 +182,12 @@ public class StateController implements Serializable
   
   }
   
+  /**
+   * 
+   * @param stateID PK
+   * @return state's name
+   * @throws StateNotFoundException thrown, if state's id was not found in DB 
+   */
   public String getName(int stateID) throws StateNotFoundException
   {
       
@@ -179,6 +212,12 @@ public class StateController implements Serializable
   }
   
   
+  /**
+   * 
+   * @param stateID PK
+   * @return state's description
+   * @throws StateNotFoundException thrown, if state's id exists in DB 
+   */
   public String getDescription(int stateID) throws StateNotFoundException
   {
       
@@ -202,7 +241,12 @@ public class StateController implements Serializable
       return curDescription;
   }
   
-  
+  /**
+   * 
+   * @param stateID PK 
+   * @return date on which the state is modified
+   * @throws StateNotFoundException thrown, if state's id was not found in DB
+   */
   public Date getModificationDate(int stateID) throws StateNotFoundException
   {
       
@@ -260,10 +304,6 @@ public class StateController implements Serializable
     }
  
   
-  /**
-   * this method is used in order to check whether a state
-   * with the named ID exists
-   */
   private boolean stateExists(int stateID)
   {
       EntityManager em = AppConfig.createEntityManager();

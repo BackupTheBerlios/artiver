@@ -15,7 +15,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 /**
- * Handles database-access for Stock entities
  * @author Fat Don + ?
  */
 public class CustomerController implements Serializable
@@ -31,7 +30,11 @@ public class CustomerController implements Serializable
   }
   
   
-  
+  /**
+   * used to edit a given customer
+   * @param customer customer wanted to edit
+   * @throws CustomerNotFoundException thrown, if invalid customer 
+   */
   public void edit(Customer customer) throws CustomerNotFoundException
   {
       List<Customer> customerList = update();
@@ -58,9 +61,15 @@ public class CustomerController implements Serializable
      
   }
   
-  
-  
-  public void addUser(String number, String customer, String address) throws CustomerAlreadyExistsException
+  //TODO sehr aussagekräftig, ändern
+  /**
+   * 
+   * @param number
+   * @param customer
+   * @param address 
+   * @throws CustomerAlreadyExistsException thrown if customer already exists in DB
+   */
+  public void addCustomer(String number, String customer, String address) throws CustomerAlreadyExistsException
   {
       
      List<Customer> customerList = update();
@@ -87,7 +96,11 @@ public class CustomerController implements Serializable
      persist(customerList);
   }
   
-  
+  /**
+   * this method deletes a customer by it's id
+   * @param customerID PK in the DB
+   * @throws CustomerNotFoundException thrown if customer does not exist in DB 
+   */
   public void deleteCustomer(int customerID) throws CustomerNotFoundException
   {
           List<Customer> customerList = update();
@@ -108,7 +121,12 @@ public class CustomerController implements Serializable
           
   }
   
-  
+  /**
+   * this method returns a customer's name
+   * @param customerID PK in DB
+   * @return customer's name as String
+   * @throws CustomerNotFoundException thrown, if ID does not exist in DB
+   */
   public String getName(int customerID) throws CustomerNotFoundException
   {
       
@@ -132,7 +150,12 @@ public class CustomerController implements Serializable
       return curName;
   }
   
-  
+  /**
+   * returns customer's address
+   * @param customerID PK in DB
+   * @return customer's address as String
+   * @throws CustomerNotFoundException thrown, if id does not exist in db
+   */
   public String getAddress(int customerID) throws CustomerNotFoundException
   {
       
@@ -156,7 +179,12 @@ public class CustomerController implements Serializable
       return curAddress;
   }
   
-  
+  /**
+   * this method is used to set a customer's name
+   * @param customerID PK in DB
+   * @param name customer's name
+   * @throws CustomerNotFoundException thrown, if cannot be found in db 
+   */
   public void setName(int customerID, String name) throws CustomerNotFoundException
   {
           List<Customer> customerList = update();
@@ -177,6 +205,12 @@ public class CustomerController implements Serializable
           persist(customerList);
   }
   
+  /**
+   * sets a customer's address
+   * @param customerID PK in DB 
+   * @param address customer's address
+   * @throws CustomerNotFoundException thrown, if id does not exist in db
+   */
   public void setAddress(int customerID, String address) throws CustomerNotFoundException
   {
           List<Customer> customerList = update();
@@ -199,7 +233,11 @@ public class CustomerController implements Serializable
   
   
   
-  
+  /**
+   * searches for a customer in db by it's number
+   * @param number
+   * @return returns true, if customer exists
+   */
    private boolean customerExists(String number)
    {
       EntityManager em = AppConfig.createEntityManager();
@@ -224,7 +262,11 @@ public class CustomerController implements Serializable
             em.close();
         }
    }
-   
+   /**
+    * searches for a customer in db by it's id
+    * @param customerID PK in DB
+    * @return true, if customer exists
+    */
    private boolean customerExists(int customerID)
    {
       EntityManager em = AppConfig.createEntityManager();
@@ -250,6 +292,7 @@ public class CustomerController implements Serializable
         }
    }        
   
+
     private List<Customer> update()
     {
         EntityManager em = AppConfig.createEntityManager();

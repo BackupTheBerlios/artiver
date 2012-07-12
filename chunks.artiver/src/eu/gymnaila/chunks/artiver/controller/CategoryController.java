@@ -17,14 +17,14 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 /**
  *
- * @author privat
+ * @author Don
  */
 public class CategoryController 
 {
 
     /**
-   * this method returns a List-Object contained with all users
-   * @return List of all Users
+   * this method returns a List-Object contained with all categories
+   * @return List of all Caegories
    */
   public List<Category> list()
   {
@@ -32,7 +32,12 @@ public class CategoryController
   }
 
   
-    
+   /**
+    * 
+    * @param name name of e category
+    * @param description adds a fitting description to the category
+    * @throws CategoryAlreadyExistsException thrown in order to avoid duplicate entries
+    */
   public void addCategory(String name, String description) throws CategoryAlreadyExistsException
   {
       
@@ -59,7 +64,13 @@ public class CategoryController
      persist(categoryList);
   }
   
-  
+  /**
+   * deletes an existing category
+   * 
+   * @param cat NaNaNaNaNaNaNaNa CatMan! - 
+   * @throws CategoryNotFoundException thrown if argument does not exist
+   * @throws CategoryConnectedToArticleException thrown, if an article's category is equal to this one
+   */
   public void deleteCategory(Category cat) throws CategoryNotFoundException, CategoryConnectedToArticleException
   {
           //  System.out.println(categoryID);
@@ -93,7 +104,12 @@ public class CategoryController
        throw new CategoryNotFoundException("Category with ID '" + cat.getIdCategory() + "' does not exist.");   
   }
   
-  
+  /**
+   * sets the name of an existing category
+   * @param categoryID required to identify in data base (primary key)
+   * @param name name which has to be set for category
+   * @throws CategoryNotFoundException thrown if id does not exist in data base
+   */
   public void setName(int categoryID, String name) throws CategoryNotFoundException
   {
           List<Category> categoryList = update();
@@ -114,7 +130,12 @@ public class CategoryController
           persist(categoryList);
   }
   
-  
+  /**
+   * sets a description for a category
+   * @param categoryID required to find it in data base (primary key)
+   * @param description a fitting description for the category
+   * @throws CategoryNotFoundException  thrown, if id is invalid
+   */
   public void setDescription(int categoryID, String description) throws CategoryNotFoundException
   {
           List<Category> categoryList = update();
@@ -137,7 +158,12 @@ public class CategoryController
   
   }
   
-  
+  /**
+   * name is all
+   * @param categoryID PK in DB
+   * @param modificationDate name is all
+   * @throws CategoryNotFoundException thrown if id is invalid 
+   */
   public void setModificationDate(int categoryID, Date modificationDate) throws CategoryNotFoundException
   {
           List<Category> categoryList = update();
@@ -159,7 +185,12 @@ public class CategoryController
    
   
   }
-  
+  /**
+   * 
+   * @param categoryID PK in DB
+   * @return category's name as String
+   * @throws CategoryNotFoundException thrown, if invalid id
+   */
   public String getName(int categoryID) throws CategoryNotFoundException
   {
       
@@ -183,7 +214,12 @@ public class CategoryController
       return curCategory;
   }
   
-  
+  /**
+   * see return
+   * @param categoryID required PK in DB
+   * @return category's description as String
+   * @throws CategoryNotFoundException 
+   */
   public String getDescription(int categoryID) throws CategoryNotFoundException
   {
       
@@ -207,7 +243,12 @@ public class CategoryController
       return curDescription;
   }
   
-  
+  /**
+   *  see return
+   * @param categoryID PK in data base
+   * @return modification date as Date
+   * @throws CategoryNotFoundException thrown if invalid id 
+   */
   public Date getModificationDate(int categoryID) throws CategoryNotFoundException
   {
       
@@ -261,9 +302,9 @@ public class CategoryController
   }
   
   /**
- * this method edits an article and inserts it in the database
+ * this method edits an article and inserts it into the database
  * @param category the category the user wants to edit
- * @throws CategoryNotFoundException 
+ * @throws CategoryNotFoundException thrown if category does not exist in DB
  */
  public void edit (Category category) throws CategoryAlreadyExistsException, CategoryNotFoundException            
    {
@@ -293,9 +334,6 @@ public class CategoryController
     }
  
   
-    /**
-   * this method is used to check whether a category exists by its name
-   */
   private boolean categoryExists(String categoryName)
   {
       EntityManager em = AppConfig.createEntityManager();
@@ -353,7 +391,7 @@ public class CategoryController
             em.getTransaction().begin();
             category = em.merge(category);
             
-                System.out.println(category.getIdCategory());
+        //  System.out.println(category.getIdCategory());
             
             em.remove(category);
             em.flush();

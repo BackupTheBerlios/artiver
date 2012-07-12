@@ -15,11 +15,15 @@ import eu.gymnaila.chunks.artiver.exceptions.*;
 import javax.persistence.Query;
 /**
  *
- * @author Fat
+ * @author Don
  */
 public class DeliveryNoteController 
 {
     
+  /**
+   * 
+   * @return the list of all DeliveryNotes 
+   */
   public List<DeliveryNote> list()
   {
      return update();
@@ -27,7 +31,11 @@ public class DeliveryNoteController
     
   
   
-  
+  /**
+   * allows you to edit an existing Note
+   * @param note note to edit
+   * @throws DeliveryNoteNotFoundException thrown if argument could not be found
+   */
   
   public void edit(DeliveryNote note) throws DeliveryNoteNotFoundException
   {
@@ -56,7 +64,10 @@ public class DeliveryNoteController
   }  
   
   
-  
+  /**
+   * 
+   * @return a generated Number for each note
+   */
    public String generateNoteNr()
    {
 
