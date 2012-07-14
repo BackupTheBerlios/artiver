@@ -99,7 +99,7 @@ public class CustomersFrame implements Initializable {
             
             
                     try {
-                            customer.addUser(customerId, cust, address);
+                            customer.addCustomer(customerId, cust, address);
         
                             ds = new ObjectDataSource(customer.list(), Customer.class, "customerNr", "customer", "address");
                                 mainTable.setItems(tempList);
