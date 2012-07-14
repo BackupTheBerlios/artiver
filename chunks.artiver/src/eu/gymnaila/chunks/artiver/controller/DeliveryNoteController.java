@@ -350,15 +350,14 @@ public class DeliveryNoteController
   
  
   /**
-   * adds a delivery note into the DB
-   * @param deliveryNoteNumber number to set
-   * @param delivery delivery to set
-   * @param deliveryState state to set
-   * @throws DeliveryNoteAlreadyExistsException thrown, if id was not found in DB
+   * method adds a Delivery Note into the DB
+   * @param customer customer to set on DN
+   * @param depArt Depiction Articles to set on DN
+   * @throws DeliveryNoteAlreadyExistsException thrown, if id was not found while running the db
    */
   
-  //vorher : Customer und List<DepictionArticle> als Parameter - > ?
-  public void addDeliveryNote(int deliveryNoteNumber, String delivery, String deliveryState) throws DeliveryNoteAlreadyExistsException
+  //re-fixed :)
+ public void addDeliveryNote(Customer customer, List<DepictionArticle> depArt) throws DeliveryNoteAlreadyExistsException
   {
       
      List<DeliveryNote> noteList = update();
@@ -375,7 +374,7 @@ public class DeliveryNoteController
      }
      
      newID++;
-     noteList.add(new DeliveryNote(newID, deliveryNoteNumber, delivery, deliveryState));
+     noteList.add(new DeliveryNote(newID)); //don @ matze: customer und depArt nicht übergeben, wozu dann im constructor? 
      persist(noteList);
   }
 
