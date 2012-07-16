@@ -17,7 +17,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 /**
  *
- * @author Don
+ * @author Don (few meths edited by foreign devs)
  */
 public class CategoryController 
 {
@@ -308,16 +308,20 @@ public class CategoryController
  */
  public void edit (Category category) throws CategoryAlreadyExistsException, CategoryNotFoundException            
    {
+        //welcher held spielt hier eigentlich so doof rum
        
-        if (categoryExists(category.getName())) {
+        if (categoryExists(category.getIdCategory())) 
+        {
             
             List<Category> categories = update();
             
             
             int index = -1;
             
-            for (Category newCat : categories) {
-                if (newCat.getIdCategory() == category.getIdCategory()) {
+            for (Category newCat : categories) 
+            {
+                if (newCat.getIdCategory() == category.getIdCategory()) 
+                {
                     index = categories.indexOf(newCat);
                     break;
                 }
@@ -329,7 +333,7 @@ public class CategoryController
         }
         else
         {
-            throw new CategoryNotFoundException("The category with the number '"+category.getName()+"' does not exist.");
+            throw new CategoryNotFoundException("The category with the ID '" + category.getIdCategory() + "' does not exist.");
         }
     }
  
