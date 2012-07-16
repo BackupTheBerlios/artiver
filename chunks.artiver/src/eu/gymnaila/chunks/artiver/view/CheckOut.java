@@ -78,7 +78,7 @@ public class CheckOut implements Initializable {
             ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
             e.printStackTrace();
         }
-        ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "sock", "state");
+        ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price");
  
         mainTable.setItems(tempList);
         mainTable.setItems(ds.getData());
@@ -117,7 +117,7 @@ public class CheckOut implements Initializable {
         mainTable = new TableView<Article>();
         try
         {
-            ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state");
+            ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price");
             mainTable.setItems(ds.getData());
             mainTable.getColumns().addAll(ds.getColumns());
             

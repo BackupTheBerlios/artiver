@@ -102,7 +102,7 @@ public class ListFrame implements Initializable
             
             
                 
-                                ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state");
+                                ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state", "colourCode");
                                 mainTable.setItems(tempList);
                                 mainTable.setItems(ds.getData());
                                 mainTable.layout();
@@ -166,9 +166,10 @@ public class ListFrame implements Initializable
         mainTable = new TableView<Article>();
         try
         {
-            ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state");
+            ds = new ObjectDataSource(articles.list(), Article.class, "nr", "name", "ean", "amount", "category", "price", "stock", "state", "colourCode");
             mainTable.setItems(ds.getData());
             mainTable.getColumns().addAll(ds.getColumns());
+            
             
             
             if(!vBoxListArticlelist.getChildren().isEmpty())
