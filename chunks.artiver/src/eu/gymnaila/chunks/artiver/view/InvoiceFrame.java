@@ -278,6 +278,8 @@ public class InvoiceFrame implements Initializable
         
         priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
         
+        priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
+        
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
         txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
         
