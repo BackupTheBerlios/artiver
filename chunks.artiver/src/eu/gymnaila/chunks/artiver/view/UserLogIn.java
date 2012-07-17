@@ -22,6 +22,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -45,6 +47,14 @@ public class UserLogIn implements Initializable
     
     private DropShadow shadow = new DropShadow();
     
+    
+    private void checkKeyPressed(KeyEvent ke, KeyCode kc)
+    {
+       if(ke.getCode() == kc)
+       {
+         btnActionUserLogInRoger(new ActionEvent());
+       }
+    }
     
     @FXML
     private void btnActionUserLogInRoger(ActionEvent event) 
@@ -140,6 +150,30 @@ public class UserLogIn implements Initializable
         
        
         });
+
+        txtUserLogInPW.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() 
+        {
+            @Override 
+            public void handle(KeyEvent e) 
+            {
+                checkKeyPressed(e, KeyCode.ENTER);
+            }
+        
+       
+        });
+        
+        txtUserLogInUser.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() 
+        {
+            @Override
+            public void handle(KeyEvent e) 
+            {
+                checkKeyPressed(e, KeyCode.ENTER);
+            }
+        
+       
+        });
+        
+        
         btnUserLogInBack.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
         {
         @Override public void handle(MouseEvent e) 
