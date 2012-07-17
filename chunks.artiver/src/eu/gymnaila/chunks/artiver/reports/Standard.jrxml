@@ -3,25 +3,6 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="131"/>
 	<property name="ireport.y" value="0"/>
-	<queryString>
-		<![CDATA[SELECT
-     Article.`name` AS name,
-     Article.`nr` AS nr,
-     Article.`price` AS price,
-     Article.`ean` AS ean,
-     Article.`amount` AS amount,
-     Article.`colourCode` AS colourCode,
-     Article.`stock` AS stock,
-     Article.`state` AS state,
-     Article.`category` AS category,
-     Category.`name` AS categoryname,
-     Stock.`name` AS stockname,
-     State.`name` AS statename
-FROM
-     `Category` Category INNER JOIN `Article` Article ON Category.`idCategory` = Article.`category`
-     INNER JOIN `Stock` Stock ON Article.`stock` = Stock.`idStock`
-     INNER JOIN `State` State ON Article.`state` = State.`idState`]]>
-	</queryString>
 	<field name="name" class="java.lang.String"/>
 	<field name="nr" class="java.lang.String"/>
 	<field name="price" class="java.lang.Double"/>
