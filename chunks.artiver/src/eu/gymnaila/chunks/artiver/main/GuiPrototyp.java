@@ -6,6 +6,7 @@ package eu.gymnaila.chunks.artiver.main;
 
 import com.sun.javafx.tk.Toolkit;
 import eu.gymnaila.chunks.artiver.config.AppConfig;
+import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
@@ -98,6 +99,7 @@ public class GuiPrototyp extends Application
         stage.setScene(scene);
         stage.setTitle("ArtiVer Anmeldung");
         
+                
         logo = new Image(GuiPrototyp.class.getResource("/eu/gymnaila/chunks/artiver/main/artiicon2.PNG").getPath());
         
         stage.getIcons().add(logo);
@@ -121,7 +123,8 @@ public class GuiPrototyp extends Application
         } 
         catch (Exception ex) 
         {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -134,7 +137,8 @@ public class GuiPrototyp extends Application
         } 
         catch (Exception ex) 
         {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -147,7 +151,8 @@ public class GuiPrototyp extends Application
         } 
         catch (Exception ex) 
         {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -160,7 +165,8 @@ public class GuiPrototyp extends Application
         } 
         catch (Exception ex) 
         {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
       
@@ -227,7 +233,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/CheckIn.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -238,7 +245,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/CheckOut.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -249,7 +257,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/ListFrame.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -260,7 +269,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/InsertFrame.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -279,7 +289,8 @@ public class GuiPrototyp extends Application
             }
             
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -292,7 +303,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/GiveRights.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -303,7 +315,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/UsersFrame.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -315,7 +328,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/CategoryList.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -326,7 +340,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/StateList.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -337,7 +352,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/StockList.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -348,7 +364,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/InvoiceFrame.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -359,7 +376,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/Settings.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
@@ -370,7 +388,8 @@ public class GuiPrototyp extends Application
             vBoxMain = aVBox;
             replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/CustomersFrame.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(GuiPrototyp.class.getName()).log(Level.SEVERE, null, ex);
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
         }
     }
     
