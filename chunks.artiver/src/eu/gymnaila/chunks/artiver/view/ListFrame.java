@@ -12,6 +12,7 @@ import eu.gymnaila.chunks.artiver.controls.ModalYesNoDialog;
 import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.exceptions.ArticleDoesNotExistException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -179,7 +180,7 @@ public class ListFrame implements Initializable
             
             vBoxListArticlelist.getChildren().add(mainTable);
                                                             
-            mainTable.setContextMenu(new ArtiVerContextMenu("ArticleListRep"));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
             
         }
         catch(Exception e)

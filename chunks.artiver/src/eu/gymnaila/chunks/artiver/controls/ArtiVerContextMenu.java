@@ -4,18 +4,28 @@
  */
 package eu.gymnaila.chunks.artiver.controls;
 
+import ar.com.fdvs.dj.core.DynamicJasperHelper;
+import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
+import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import eu.gymnaila.chunks.artiver.config.AppConfig;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.StandardReportTemplate;
 import eu.gymnaila.chunks.artiver.view.ListFrame;
 import java.io.File;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.stage.FileChooser;
 import javax.persistence.EntityManager;
 import net.sf.jasperreports.engine.*;
@@ -24,6 +34,7 @@ import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import org.javafxdata.datasources.protocol.ObjectDataSource;
 
 /**
  *
@@ -31,29 +42,58 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class ArtiVerContextMenu extends ContextMenu
 {
-    public ArtiVerContextMenu(String reportName) throws JRException, SQLException
+    public ArtiVerContextMenu(String reportTemplate, String title, ObjectDataSource objDS) throws JRException, SQLException, Exception
     {
         super();
+        List<AbstractColumn> cols = new ArrayList<>();
         
-        File ralPath = new File(ListFrame.class.getResource("/eu/gymnaila/chunks/artiver/reports" + "/" + reportName + ".jrxml").getPath()); 
+        ObservableList<TableColumn> tableCols = objDS.getColumns();
         
-        if(ralPath != null)
+        for (int i=0; i<tableCols.size(); i++)
         {
-            ralPath = new File("dist/data/reports/" + reportName + ".jrxml");
+            TableColumn tableCol = tableCols.get(i);
+                        
+            AbstractColumn column = ColumnBuilder.getNew()
+                .setColumnProperty(tableCol.getText(), tableCol.getClass().getName())
+                .setTitle(tableCol.getText())
+                .setWidth(85)
+                .build();
+            
+            cols.add(column);
         }
         
-        System.out.println(ralPath.getAbsolutePath());
-	    JasperDesign jasperDesign = JRXmlLoader.load(ralPath); 
-	    JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign); 
-	    jasperReport.setWhenNoDataType(WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL); 
-            EntityManager entityManager = AppConfig.createEntityManager();
-            entityManager.getTransaction().begin();
-            java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
-            System.out.println(connection.isValid(0));
-            entityManager.getTransaction().commit();
-	    final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap(), connection);   
+        StandardReportTemplate repTemp = new StandardReportTemplate(reportTemplate, cols, title);
+        DynamicReport dr = repTemp.buildReport();
+ 
+        List ds = objDS.getData();
+   
+         // We MUST combine compilation (3) and generation (4) in a single line if we want to use a List
+  
+         final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), ds);
+   
+            
+//	    JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign); 
+//            
+//	    jasperReport.setWhenNoDataType(WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL);
+//            
+//            EntityManager entityManager = AppConfig.createEntityManager();
+//            
+//            entityManager.getTransaction().begin();
+//            
+//            java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
+//            
+//            System.out.println(connection.isValid(0));
+//            
+//            entityManager.getTransaction().commit();
+            
+//	    final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap(), connection);   
 
            
+            
+            
+            
+            
+            
             MenuItem item1 = new MenuItem("Drucken");
             item1.setOnAction(new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {

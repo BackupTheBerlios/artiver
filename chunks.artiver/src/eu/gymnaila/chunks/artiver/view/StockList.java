@@ -13,6 +13,7 @@ import eu.gymnaila.chunks.artiver.entity.Stock;
 import eu.gymnaila.chunks.artiver.exceptions.*;
 import eu.gymnaila.chunks.artiver.exceptions.StockConnectedWithArticlesException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -247,7 +248,7 @@ public class StockList implements Initializable {
             
             vBoxStockListList.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu("StockListRep"));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Lagerliste", ds));
         }
         catch(Exception e)
         {

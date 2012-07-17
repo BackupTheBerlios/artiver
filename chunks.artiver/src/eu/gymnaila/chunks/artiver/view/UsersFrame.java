@@ -19,6 +19,7 @@ import eu.gymnaila.chunks.artiver.exceptions.CardNotPresentException;
 import eu.gymnaila.chunks.artiver.exceptions.UserAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.exceptions.UserNotFoundException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
@@ -390,7 +391,7 @@ public class UsersFrame implements Initializable {
             
             vBoxUsersFrameList.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu("UserListRep"));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Benutzerliste", ds));
         }
         catch(Exception e)
         {

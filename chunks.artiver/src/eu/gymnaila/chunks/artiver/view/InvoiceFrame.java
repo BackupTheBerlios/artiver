@@ -14,6 +14,7 @@ import eu.gymnaila.chunks.artiver.entity.Invoice;
 import eu.gymnaila.chunks.artiver.exceptions.DeliveryNoteAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.exceptions.InvoiceAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import eu.gymnaila.chunks.artiver.tooling.Numbers;
 import java.net.URL;
 import java.util.ArrayList;
@@ -409,8 +410,9 @@ public class InvoiceFrame implements Initializable
             }
             
             vBoxArticles.getChildren().add(mainTable);
-                                                            
-            mainTable.setContextMenu(new ArtiVerContextMenu("ArticleListRep"));
+              
+            //TODO Invoice!!!
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
             
         }
         catch(Exception e)

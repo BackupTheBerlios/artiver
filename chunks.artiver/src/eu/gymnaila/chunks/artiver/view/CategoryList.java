@@ -16,6 +16,7 @@ import eu.gymnaila.chunks.artiver.exceptions.CategoryAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.exceptions.CategoryConnectedToArticleException;
 import eu.gymnaila.chunks.artiver.exceptions.CategoryNotFoundException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -255,7 +256,7 @@ public class CategoryList implements Initializable {
             
             vBoxCategoryListList.getChildren().add(mainTable);
         
-            mainTable.setContextMenu(new ArtiVerContextMenu("CategoryListRep"));
+                    mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Kategorieliste", ds));
         }
         catch(Exception e)
         {

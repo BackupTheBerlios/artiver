@@ -99,8 +99,7 @@ public class GuiPrototyp extends Application
         stage.setScene(scene);
         stage.setTitle("ArtiVer Anmeldung");
         
-                
-        logo = new Image(GuiPrototyp.class.getResource("/eu/gymnaila/chunks/artiver/main/artiicon2.PNG").getPath());
+        logo = new Image(GuiPrototyp.class.getResource("/eu/gymnaila/chunks/artiver/main/logokiste_transparent.PNG").getPath());
         
         stage.getIcons().add(logo);
         

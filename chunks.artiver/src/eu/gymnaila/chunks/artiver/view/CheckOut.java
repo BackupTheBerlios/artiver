@@ -11,6 +11,7 @@ import eu.gymnaila.chunks.artiver.entity.Article;
 import eu.gymnaila.chunks.artiver.exceptions.ArticleDoesNotExistException;
 import eu.gymnaila.chunks.artiver.exceptions.NotEnoughAmountException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import eu.gymnaila.chunks.artiver.tooling.Numbers;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -129,7 +130,7 @@ public class CheckOut implements Initializable {
             
             vBoxCheckOutArticlelist.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu("ArticleListRep"));
+                    mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
         }
         catch(Exception e)
         {

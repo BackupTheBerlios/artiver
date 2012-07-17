@@ -17,6 +17,7 @@ import eu.gymnaila.chunks.artiver.exceptions.StateAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.exceptions.StateConnectedToArticleException;
 import eu.gymnaila.chunks.artiver.exceptions.StateNotFoundException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -247,7 +248,7 @@ public class StateList implements Initializable {
             
             vBoxStateListList.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu("StateListRep"));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Statusliste", ds));
         }
         catch(Exception e)
         {
