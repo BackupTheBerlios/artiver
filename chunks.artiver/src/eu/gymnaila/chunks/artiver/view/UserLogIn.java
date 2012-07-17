@@ -6,6 +6,7 @@ package eu.gymnaila.chunks.artiver.view;
 
 import eu.gymnaila.chunks.artiver.config.AppConfig;
 import eu.gymnaila.chunks.artiver.controller.Usermanagement;
+import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
 import eu.gymnaila.chunks.artiver.encryption.EncMode;
 import eu.gymnaila.chunks.artiver.encryption.ShaEncrypter;
 import eu.gymnaila.chunks.artiver.entity.User;
@@ -100,11 +101,12 @@ public class UserLogIn implements Initializable
         }
         catch (NoResultException e)
         {
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
             e.printStackTrace();
-           // throw new UserNotFoundException();
         }
         catch(Exception e)
         {
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
             e.printStackTrace();
         }
         finally
