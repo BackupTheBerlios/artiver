@@ -10,6 +10,10 @@ import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -31,6 +35,8 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -73,7 +79,31 @@ public class GuiPrototyp extends Application
         System.exit(0);
     }
 
-    
+    /**
+	 * Configures the Logger with log4j.properties found at LOG4J_PATH in Analyzer.properties
+	 */
+	private void configureLogger(){
+		
+		BasicConfigurator.configure();
+		
+		File f = null;
+		
+		URL url = GuiPrototyp.class.getClassLoader().getResource("/eu/gymnaila/chunks/artiver/libs/log4j.properties");
+		
+		if(url == null){
+			f = new File("/eu/gymnaila/chunks/artiver/libs/log4j.properties");
+		}
+		else{
+			f = new File(url.getPath());
+		}
+		
+		
+			System.out.println("loggerpath: "+"/eu/gymnaila/chunks/artiver/libs/log4j.properties");
+			PropertyConfigurator.configure(f.getPath());
+			
+		
+
+	}
     
     @Override
     public void start(Stage primStage) throws Exception {
