@@ -191,7 +191,12 @@ public class GroupsController implements Serializable
   }  
   
   
-  
+  /**
+   * check whether the right to check in is given
+   * @param groupsID PK in DB to search for
+   * @return true, if right is given
+   * @throws GroupsNotFoundException thrown, if argument (id) does not exist
+   */
   public boolean getCheckIn(int groupsID) throws GroupsNotFoundException
   {
       
@@ -216,9 +221,9 @@ public class GroupsController implements Serializable
   }
   
   /**
-   * enables to set the check-in
+   * enables the right to checkin
    * @param groupsID PK 
-   * @param checkIn check-in to set
+   * @param checkIn true, if allowed to check in
    * @throws GroupsNotFoundException thrown, if id was not found in db 
    */
   public void setCheckIn(int groupsID, boolean checkIn) throws GroupsNotFoundException
@@ -242,9 +247,9 @@ public class GroupsController implements Serializable
   }
   
   /**
-   * enables to set the check-out
-   * @param groupsID PK 
-   * @param checkOut check-out to set
+   * enables the right to check out
+   * @param groupsID PK in DB 
+   * @param checkOut true, if allowed to check out
    * @throws GroupsNotFoundException thrown, if group's id was not found in db
    */
   public void setCheckOut(int groupsID, boolean checkOut) throws GroupsNotFoundException
@@ -269,10 +274,10 @@ public class GroupsController implements Serializable
   
   
   /**
-   * see return
-   * @param groupsID PK
-   * @return returns 
-   * @throws GroupsNotFoundException 
+   * check whether the right to check out is given
+   * @param groupsID PK in DB
+   * @return true, if the right is given 
+   * @throws GroupsNotFoundException thrown, if id does not exist
    */
   public boolean getCheckOut(int groupsID) throws GroupsNotFoundException
   {
@@ -297,6 +302,13 @@ public class GroupsController implements Serializable
       return curCheckOut;
   }  
   
+  /**
+   * checks, whether the right to edit an article is given
+   * @param groupsID ok in db to search for
+   * @return true, if the right to edit an article is given
+   * @throws GroupsNotFoundException thrown, if id does not exist
+   */
+  
   public boolean getArticle(int groupsID) throws GroupsNotFoundException
   {
       
@@ -320,7 +332,14 @@ public class GroupsController implements Serializable
       return curArticle;
   } 
   
-  public void setArticle(int groupsID, boolean newArticle) throws GroupsNotFoundException
+  
+  /**
+   * enables to set the right to edit an article
+   * @param groupsID PK in DB
+   * @param article true, if allowed to edit
+   * @throws GroupsNotFoundException 
+   */
+  public void setArticle(int groupsID, boolean article) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
           
@@ -333,13 +352,19 @@ public class GroupsController implements Serializable
           {
               if(groups.getIdGroups() == groupsID)
               {
-                  groups.setArticle(newArticle);
+                  groups.setArticle(article);
               }
           }
           
           persist(groupsList);
   }
   
+  /**
+   * checks, whether the right to edit groups is given
+   * @param groupsID PK in DB to search for
+   * @return true, if the right to edit is given
+   * @throws GroupsNotFoundException  thrown, if id in db was not found
+   */
   public boolean getGroups(int groupsID) throws GroupsNotFoundException
   {
       
@@ -363,8 +388,13 @@ public class GroupsController implements Serializable
       return curNewGroup;
   } 
   
-  
-  public void setGroups(int groupsID, boolean newGroup) throws GroupsNotFoundException
+  /**
+   * enables to set the right to edit groups
+   * @param groupsID PK in DB to search for
+   * @param group true, if allowed to edit
+   * @throws GroupsNotFoundException 
+   */
+  public void setGroups(int groupsID, boolean group) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
           
@@ -377,13 +407,19 @@ public class GroupsController implements Serializable
           {
               if(groups.getIdGroups() == groupsID)
               {
-                  groups.setGroups(newGroup);
+                  groups.setGroups(group);
               }
           }
           
           persist(groupsList);
   }  
   
+  /**
+   * checks, whether the right to edit an user is given
+   * @param groupsID PK in DB to search for
+   * @return true, if the right is given
+   * @throws GroupsNotFoundException thrown, if id was not found
+   */
   public boolean getUser(int groupsID) throws GroupsNotFoundException
   {
       
@@ -407,7 +443,13 @@ public class GroupsController implements Serializable
       return curNewUser;
   }   
   
-  public void setUser(int groupsID, boolean newUser) throws GroupsNotFoundException
+  /**
+   * enables to set the right to edit users
+   * @param groupsID PK in DB to search for
+   * @param user true, if allowed to edit
+   * @throws GroupsNotFoundException thrown, if id does not exist
+   */
+  public void setUser(int groupsID, boolean user) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
           
@@ -420,14 +462,19 @@ public class GroupsController implements Serializable
           {
               if(groups.getIdGroups() == groupsID)
               {
-                  groups.setUser(newUser);
+                  groups.setUser(user);
               }
           }
           
           persist(groupsList);
   }
   
-  
+  /**
+   * checks, whether the right to edit categories is given
+   * @param groupsID PK in DB to search for
+   * @return true, if the right is given
+   * @throws GroupsNotFoundException thrown, if id does not exist
+   */
   public boolean getCategory(int groupsID) throws GroupsNotFoundException
   {
       
@@ -451,7 +498,13 @@ public class GroupsController implements Serializable
       return curNewCategory;
   }
 
-  public void setCategory(int groupsID, boolean newCategory) throws GroupsNotFoundException
+  /**
+   * enables to set the right to edit categories
+   * @param groupsID PK in DB to search for
+   * @param category true, if allowed to edit
+   * @throws GroupsNotFoundException thrown, if id was not found
+   */
+  public void setCategory(int groupsID, boolean category) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();
           
@@ -464,14 +517,19 @@ public class GroupsController implements Serializable
           {
               if(groups.getIdGroups() == groupsID)
               {
-                  groups.setCategory(newCategory);
+                  groups.setCategory(category);
               }
           }
           
           persist(groupsList);
   }  
   
-  
+  /**
+   * checks, whether the right to edit admin is given
+   * @param groupsID PK in DB to search for
+   * @return true, if allowed to edit
+   * @throws GroupsNotFoundException thrown, if id was not found
+   */
   public boolean getAdmin(int groupsID) throws GroupsNotFoundException
   {
       
@@ -495,6 +553,12 @@ public class GroupsController implements Serializable
       return curAdmin;
   }
   
+  /**
+   * enables to set the right to edit admin
+   * @param groupsID PK in DB to search for
+   * @param admin true, if allowed to edit
+   * @throws GroupsNotFoundException thrown, if id was not found
+   */
   public void setAdmin(int groupsID, boolean admin) throws GroupsNotFoundException
   {
      List<Groups> groupsList = update();

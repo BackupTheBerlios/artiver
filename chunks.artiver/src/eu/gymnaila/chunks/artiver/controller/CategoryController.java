@@ -24,7 +24,7 @@ public class CategoryController
 
     /**
    * this method returns a List-Object contained with all categories
-   * @return List of all Caegories
+   * @return List of all Categories
    */
   public List<Category> list()
   {
@@ -33,7 +33,7 @@ public class CategoryController
 
   
    /**
-    * 
+    * used in order to add a category
     * @param name name of e category
     * @param description adds a fitting description to the category
     * @throws CategoryAlreadyExistsException thrown in order to avoid duplicate entries
@@ -308,7 +308,8 @@ public class CategoryController
  */
  public void edit (Category category) throws CategoryAlreadyExistsException, CategoryNotFoundException            
    {
-        //welcher held spielt hier eigentlich so doof rum
+        //welcher held spielt hier eigentlich so doof 
+        //vorher : if(categoryExists(category.getName()))
        
         if (categoryExists(category.getIdCategory())) 
         {
