@@ -103,6 +103,9 @@ public class UserLogIn implements Initializable
         {
             ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
             e.printStackTrace();
+            System.out.println("MÄÄÄÄÄÄÄP");
+           // throw new UserNotFoundException();
+
         }
         catch(Exception e)
         {
