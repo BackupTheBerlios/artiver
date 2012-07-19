@@ -384,6 +384,25 @@ public class MainFrame implements Initializable {
        
         });
         
+         btnAccMainFrameInvoiceList.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnAccMainFrameInvoiceList.setEffect(shadow);
+            }
+        
+       
+        });
+        btnAccMainFrameInvoiceList.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() 
+        {
+        @Override public void handle(MouseEvent e) 
+            {
+                btnAccMainFrameInvoiceList.setEffect(null);
+            }
+        
+       
+        });
+        
 //        btnAccMainFrameOffer.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() 
 //        {
 //        @Override public void handle(MouseEvent e) 
