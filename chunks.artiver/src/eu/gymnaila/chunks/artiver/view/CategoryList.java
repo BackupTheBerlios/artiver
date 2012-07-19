@@ -256,7 +256,7 @@ public class CategoryList implements Initializable {
             
             vBoxCategoryListList.getChildren().add(mainTable);
         
-                    mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Kategorieliste", ds));
+                    mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Kategorieliste", ds, null));
         }
         catch(Exception e)
         {

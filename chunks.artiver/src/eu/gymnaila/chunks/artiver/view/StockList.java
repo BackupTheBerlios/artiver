@@ -248,7 +248,7 @@ public class StockList implements Initializable {
             
             vBoxStockListList.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Lagerliste", ds));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Lagerliste", ds, null));
         }
         catch(Exception e)
         {

@@ -414,7 +414,7 @@ public class InvoiceFrame implements Initializable
             vBoxArticles.getChildren().add(mainTable);
               
             //TODO Invoice!!!
-            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.INVOICE.toString(), "Rechnung", ds, null));
             
         }
         catch(Exception e)

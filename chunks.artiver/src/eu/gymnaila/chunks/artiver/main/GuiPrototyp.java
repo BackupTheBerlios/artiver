@@ -91,14 +91,14 @@ public class GuiPrototyp extends Application
 		URL url = GuiPrototyp.class.getClassLoader().getResource("/eu/gymnaila/chunks/artiver/libs/log4j.properties");
 		
 		if(url == null){
-			f = new File("/eu/gymnaila/chunks/artiver/libs/log4j.properties");
+			f = new File("dist/data/log4j.properties");
 		}
 		else{
 			f = new File(url.getPath());
 		}
 		
 		
-			System.out.println("loggerpath: "+"/eu/gymnaila/chunks/artiver/libs/log4j.properties");
+			System.out.println("loggerpath: "+ f.getAbsolutePath());
 			PropertyConfigurator.configure(f.getPath());
 			
 		

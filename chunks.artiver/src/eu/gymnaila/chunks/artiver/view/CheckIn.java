@@ -130,7 +130,12 @@ public class CheckIn implements Initializable {
         
         vBoxCheckInArticlelist.getChildren().add(mainTable);
         
-        mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
+        mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds, 
+                    "select  art.nr as nr, art.name as name, art.ean as ean, art.amount as amount, cat.name as category, art.price as price, sto.name as stock, sta.name as state, art.colourCode as colourCode "
+                    + "from artiver.Article art "
+                    + "inner join State sta on art.state = sta.idState "
+                    + "inner join Stock sto on art.stock = sto.idStock "
+                    + "inner join Category cat on art.category = cat.idCategory"));
         }
         catch(Exception e)
         {

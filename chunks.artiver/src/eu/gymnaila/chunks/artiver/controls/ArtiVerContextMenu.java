@@ -4,8 +4,10 @@
  */
 package eu.gymnaila.chunks.artiver.controls;
 
+import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
+import ar.com.fdvs.dj.domain.DJQuery;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
@@ -29,6 +31,8 @@ import javafx.scene.control.TableColumn;
 import javafx.stage.FileChooser;
 import javax.persistence.EntityManager;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
@@ -42,19 +46,24 @@ import org.javafxdata.datasources.protocol.ObjectDataSource;
  */
 public class ArtiVerContextMenu extends ContextMenu
 {
-    public ArtiVerContextMenu(String reportTemplate, String title, ObjectDataSource objDS) throws JRException, SQLException, Exception
+    public ArtiVerContextMenu(String reportTemplate, String title, ObjectDataSource objDS, String query) throws JRException, SQLException, Exception
     {
         super();
         List<AbstractColumn> cols = new ArrayList<>();
         
         ObservableList<TableColumn> tableCols = objDS.getColumns();
         
+       // List ds = objDS.getData();
+       // System.out.println(ds.get(0));
+        
+        //JRDataSource ds = new JRBeanArrayDataSource(objDS.getData().toArray());
+        
         for (int i=0; i<tableCols.size(); i++)
         {
             TableColumn tableCol = tableCols.get(i);
                         
             AbstractColumn column = ColumnBuilder.getNew()
-                .setColumnProperty(tableCol.getText(), tableCol.getClass().getName())
+                .setColumnProperty(tableCol.getText(), "java.lang.String")
                 .setTitle(tableCol.getText())
                 .setWidth(85)
                 .build();
@@ -65,11 +74,41 @@ public class ArtiVerContextMenu extends ContextMenu
         StandardReportTemplate repTemp = new StandardReportTemplate(reportTemplate, cols, title);
         DynamicReport dr = repTemp.buildReport();
  
-        List ds = objDS.getData();
+        if(objDS.getData().size()>0 && (query == null || query.equals("")))
+        {
+            dr.setQuery(new DJQuery("select * from artiver." + objDS.getData().get(0).getClass().getSimpleName(), DJConstants.QUERY_LANGUAGE_SQL));
+        }
+        else
+        {
+            dr.setQuery(new DJQuery(query, DJConstants.QUERY_LANGUAGE_SQL));
+        }
+        
+        EntityManager entityManager = AppConfig.createEntityManager();
+            
+        entityManager.getTransaction().begin();
+            
+        java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
+            
+        System.out.println(connection.isValid(0));
+            
+        entityManager.getTransaction().commit();
+        
+        final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), connection, null);
+     
+       
+       
+      // final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), ds);
    
+        
+  //---------------- OLD      
+        
+        //  List<String> ds = objDS.getData().;
+   
+        
+      //  for(TableColumn col : objDS.)
          // We MUST combine compilation (3) and generation (4) in a single line if we want to use a List
   
-         final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), ds);
+        // final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), ds);
    
             
 //	    JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign); 

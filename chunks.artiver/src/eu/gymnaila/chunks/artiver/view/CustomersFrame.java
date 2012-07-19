@@ -19,6 +19,7 @@ import eu.gymnaila.chunks.artiver.entity.Groups;
 import eu.gymnaila.chunks.artiver.entity.User;
 import eu.gymnaila.chunks.artiver.exceptions.*;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
@@ -226,7 +227,7 @@ public class CustomersFrame implements Initializable {
             
             vBoxCustomersFrameList.getChildren().add(mainTable);
             
-            //mainTable.setContextMenu(new ArtiVerContextMenu("UserListRep"));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Kundenliste", ds, null));
         }
         catch(Exception e)
         {
@@ -290,7 +291,7 @@ public class CustomersFrame implements Initializable {
         
        
         });
-        
+                
     }   
     
     

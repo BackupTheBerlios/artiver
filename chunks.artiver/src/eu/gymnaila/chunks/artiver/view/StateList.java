@@ -248,7 +248,7 @@ public class StateList implements Initializable {
             
             vBoxStateListList.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Statusliste", ds));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Statusliste", ds, null));
         }
         catch(Exception e)
         {

@@ -391,7 +391,10 @@ public class UsersFrame implements Initializable {
             
             vBoxUsersFrameList.getChildren().add(mainTable);
             
-            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Benutzerliste", ds));
+            mainTable.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Benutzerliste", ds, 
+                    "select usr.name as name, usr.personalNr as personalNr, grp.name as groups "
+                    + "from artiver.User usr "
+                    + " inner join Groups grp on usr.groups = grp.idGroups"));
         }
         catch(Exception e)
         {
