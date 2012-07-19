@@ -84,7 +84,6 @@ public class OfferController
    /**
     * this method creates a new offer number
     * @return generated offer number
-    * @return 
     */
    public String generateOfferNr()
    {
