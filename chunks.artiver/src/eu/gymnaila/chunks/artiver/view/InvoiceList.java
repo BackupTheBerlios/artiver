@@ -118,7 +118,7 @@ public class InvoiceList implements Initializable
                 vBoxListDelivery.getChildren().clear();
             }
             
-            vBoxListDelivery.getChildren().add(vBoxListDelivery);
+            vBoxListDelivery.getChildren().add(mainTableDelivery);
                                                             
             //mainTableOffer.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Lieferscheinliste", ds));
             
