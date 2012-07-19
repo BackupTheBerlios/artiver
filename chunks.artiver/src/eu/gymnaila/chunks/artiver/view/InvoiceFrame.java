@@ -244,7 +244,7 @@ public class InvoiceFrame implements Initializable
         double priceTempNoMwSt = priceNoMwSt;
         
         priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
-        priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
+        //priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
                 
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
         txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
@@ -291,7 +291,7 @@ public class InvoiceFrame implements Initializable
         
         priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
         
-        priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
+        //priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
         
         txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
         txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
@@ -304,6 +304,9 @@ public class InvoiceFrame implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        
+        txtInvoiceTotal.setEditable(false);
+        txtInvoicePriceNoMwSt.setEditable(false);
         
         if(masterData.getMasterData().getVat() != 0)
         {
