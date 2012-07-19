@@ -107,6 +107,9 @@ public class GuiPrototyp extends Application
     
     @Override
     public void start(Stage primStage) throws Exception {
+       
+        configureLogger();
+        
         stage=primStage;  
   
 
