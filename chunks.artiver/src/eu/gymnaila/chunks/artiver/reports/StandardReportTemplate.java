@@ -16,6 +16,7 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 public class StandardReportTemplate 
 {
     private List<AbstractColumn> mCols = null;
