@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id = "vBoxInvoiceList" alignment = "center" styleClass = "vBox-InvoiceList" xmlns:fx="http://javafx.com/fxml" fx:controller="eu.gymnaila.chunks.artiver.view.InvoiceList">
+    <children>
+        <Label fx:id = "lblInvoice" text = "Rechnungen" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30"/>
+        <VBox fx:id = "vBoxListInvoice" alignment = "center" minWidth = "400" prefWidth = "400" minHeight = "100" prefHeight = "100"/>
+        
+        <Label fx:id = "lblOffer" text = "Angebote" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30"/> 
+        <VBox fx:id = "vBoxListOffer" alignment = "center" minWidth = "400" prefWidth = "400" minHeight = "100" prefHeight = "100"/>
+        
+        <Label fx:id = "lblDeliveryNote" text = "Lieferscheine" minWidth = "150" minHeight = "30" prefWidth = "150" prefHeight = "30"/> 
+        <VBox fx:id = "vBoxListDelivery" alignment = "center" minWidth = "400" prefWidth = "400" minHeight = "100" prefHeight = "100"/>
+    </children>
+</VBox>    
