@@ -29,7 +29,6 @@ public class Articlemanagement
     /**
      *  this method returns a List-Object contained with all articles
      * @return List of all articles 
-     * ©Fat Don
      */
     
  public List<Article> list()
@@ -39,18 +38,9 @@ public class Articlemanagement
 
  /**
  * this method edits an article and inserts it in the database
- * @param name the name of the article the user wants to create
- * @param nr the unique number og the article the user wants to create
- * @param price the price of the article the user wants to create
- * @param EAN the ean of the article the user wants to create
- * @param amount the amount of the article the user wants to create
- * @param colourCode the colour code of the article the user wants to create
- * @param categoryId the category id of the article the user wants to create
- * @param stockId the stock id
- * @param stateId the state id
- * @throws ArticleDoesNotExistException 
+ * @param article article to edit
+ * @throws ArticleDoesNotExistException thrown, if invalid id
  */
-
    public void edit (Article article) throws ArticleAlreadyExistsException, ArticleDoesNotExistException            
    {
        

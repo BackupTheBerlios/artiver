@@ -18,7 +18,7 @@ import javax.persistence.Query;
 
 /**
  * Handles database-access for Stock entities
- * @author Fat Don  + pmarek
+ * @author pmarek
  */
 public class StockController implements Serializable
 {
@@ -27,7 +27,6 @@ public class StockController implements Serializable
   /**
    * this method returns a List-Object contained with all articles
    * @return List of all Stocks
-   * ©Fat Don
    */
   
   public List<Stock> list()
@@ -44,14 +43,18 @@ public class StockController implements Serializable
   */
   
   
-  
+  /**
+   * enables to edit stocks
+   * @param stock stock to edit
+   * @throws StockNotFoundException thrown, if invalid id 
+   */
   public void edit(Stock stock) throws StockNotFoundException
   {
       List<Stock> stockList = update();
       
       if(!stockExists(stock.getIdStock()))
       {
-          throw new StockNotFoundException("Stock with the ID + " + stock.getIdStock() + " does not exist.");
+          throw new StockNotFoundException("Stock with the ID  " + stock.getIdStock() + " does not exist.");
       }
       
       int index = 0;
@@ -252,7 +255,12 @@ public class StockController implements Serializable
       return curModifier;
   }
   
-  
+  /**
+   * enables to set stock's name
+   * @param stockID id to search for
+   * @param name name to set
+   * @throws StockNotFoundException thrown, if invalid id 
+   */
   public void setName(int stockID, String name) throws StockNotFoundException
   {
           List<Stock> stockList = update();
@@ -273,6 +281,13 @@ public class StockController implements Serializable
           persist(stockList);
   }
   
+  
+  /**
+   * enables to set stock's address
+   * @param stockID id to search for
+   * @param address address to set
+   * @throws StockNotFoundException thrown, if invalid id 
+   */
   public void setAddress(int stockID, String address) throws StockNotFoundException
   {
           List<Stock> stockList = update();
@@ -294,7 +309,12 @@ public class StockController implements Serializable
   }
   
   
-  
+  /**
+   * enables to set stock's country
+   * @param stockID id to search for
+   * @param country country to set
+   * @throws StockNotFoundException thrown, if invalid id 
+   */
   public void setCountry(int stockID, String country) throws StockNotFoundException
   {
           List<Stock> stockList = update();
@@ -315,6 +335,12 @@ public class StockController implements Serializable
           persist(stockList);
   }
   
+  /**
+   * enables to set the modifier
+   * @param stockID id to search for
+   * @param modifier modifier to set
+   * @throws StockNotFoundException thrown, if invalid id 
+   */
   public void setModifier(int stockID, String modifier) throws StockNotFoundException
   {
           List<Stock> stockList = update();

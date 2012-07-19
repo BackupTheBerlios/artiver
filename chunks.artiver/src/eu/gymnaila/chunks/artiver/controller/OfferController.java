@@ -82,7 +82,8 @@ public class OfferController
      
    }
    /**
-    * thsi method creates a new offer number
+    * this method creates a new offer number
+    * @return generated offer number
     * @return 
     */
    public String generateOfferNr()
@@ -114,7 +115,7 @@ public class OfferController
 
     
     /**
-     * this method delets one offer from the data base
+     * this method deletes one offer from the data base
      */
     private void dbDelete(Offer offer)
     {
@@ -130,10 +131,11 @@ public class OfferController
     
     
     /**
-     * this method sets the invoicelist equal to the offerList from the data base
-     * @return this returns the offers in the offerList
-     * ©Fat Don
+     * this method sets the offerList equal to the offerList from the data base
+     * @return returns all offers
      */
+    
+    //Doc-Comment überarbeitet; fail copy & paste ;) (Don)
     
     private List<Offer> update()
     {
@@ -162,7 +164,7 @@ public class OfferController
                 em.merge(offer);
                 em.getTransaction().commit();
 	}
-        System.out.println("Size: " + offers.size());
+       // System.out.println("Size: " + offers.size());
         em.close();
         
     }
