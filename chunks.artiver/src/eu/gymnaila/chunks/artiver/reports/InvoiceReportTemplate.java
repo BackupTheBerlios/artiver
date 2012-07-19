@@ -6,7 +6,7 @@ package eu.gymnaila.chunks.artiver.reports;
 
 /**
  *
- * @author Philipp
+ * @author Thunderbolt
  */
 public class InvoiceReportTemplate 
 {
