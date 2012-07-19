@@ -60,6 +60,8 @@ public class MainFrame implements Initializable {
     @FXML
     private Button btnAccMainFrameInvoice;
     @FXML
+    private Button btnAccMainFrameInvoiceList;
+    @FXML
     private Button btnAccMainFrameOffer;
     @FXML
     private Button btnAccMainFrameDelivery;
@@ -496,25 +498,18 @@ public class MainFrame implements Initializable {
             {
                 btnAccMainFrameCustomer.setVisible(false);
             }
-            if(!curUsersGroup.getDeliveryNote())
-            {
-                btnAccMainFrameDelivery.setVisible(false);
-            }
             if(!curUsersGroup.getGroups())
             {
                 btnAccMainFrameGiveRights.setVisible(false);
             }
-            if(!curUsersGroup.getInvoice())
+            if(!curUsersGroup.getInvoice() || !curUsersGroup.getOffer() || !curUsersGroup.getDeliveryNote())
             {
                 btnAccMainFrameInvoice.setVisible(false);
+                btnAccMainFrameInvoiceList.setVisible(false);
             }
             if(!curUsersGroup.getMasterData())
             {
                 btnAccMainFrameSettings.setVisible(false);
-            }
-            if(!curUsersGroup.getOffer())
-            {
-                btnAccMainFrameOffer.setVisible(false);
             }
             if(!curUsersGroup.getState())
             {              
