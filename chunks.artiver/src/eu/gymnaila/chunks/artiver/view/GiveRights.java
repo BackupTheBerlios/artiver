@@ -156,19 +156,22 @@ public class GiveRights implements Initializable {
                 }
                 
                 
-                ds = new ObjectDataSource(groups.list(), Groups.class, "name", "checkIn", "checkOut", "article", "category", "stock", "state", "invoice", "offer", "deliveryNote", "groups", "user", "customer", "admin");
-                mainTable.setItems(tempList);
-                mainTable.setItems(ds.getData());
-                mainTable.layout();
                 
-                txtGiveRightsName.setText("");
-                lstGiveRights.getSelectionModel().clearSelection();
                 
             }
             else
             {
                 ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", "Bitte Gruppennamen angeben");
             }
+            
+            ds = new ObjectDataSource(groups.list(), Groups.class, "name", "checkIn", "checkOut", "article", "category", "stock", "state", "invoice", "offer", "deliveryNote", "groups", "user", "customer", "admin");
+                mainTable.setItems(tempList);
+                mainTable.setItems(ds.getData());
+                mainTable.layout();
+                
+                txtGiveRightsName.setText("");
+                lstGiveRights.getSelectionModel().clearSelection();
+            
         } catch (GroupsNotFoundException ex) {
             ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
             ex.printStackTrace();
@@ -176,6 +179,7 @@ public class GiveRights implements Initializable {
             ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
             ex.printStackTrace();
         }
+        
         
     }
     

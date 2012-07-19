@@ -57,7 +57,7 @@ public class InvoiceList implements Initializable
         mainTableInvoice = new TableView<Invoice>();
         try
         {
-            ds = new ObjectDataSource(invoice.list(), Invoice.class, "price", "customer", "modificationDate");
+            ds = new ObjectDataSource(invoice.list(), Invoice.class, "invoiceNumber", "price", "customer", "modificationDate");
             mainTableInvoice.setItems(ds.getData());
             mainTableInvoice.getColumns().addAll(ds.getColumns());
             
@@ -70,7 +70,7 @@ public class InvoiceList implements Initializable
             
             vBoxListInvoice.getChildren().add(mainTableInvoice);
                                                             
-            //mainTableInvoice.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
+            //mainTableInvoice.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Rechnungsliste", ds));
             
         }
         catch(Exception e)
@@ -82,7 +82,7 @@ public class InvoiceList implements Initializable
         mainTableOffer = new TableView<Offer>();
         try
         {
-            ds = new ObjectDataSource(offer.list(), Offer.class, "price", "customer", "modificationDate");
+            ds = new ObjectDataSource(offer.list(), Offer.class, "offerNumber", "price", "customer", "modificationDate");
             mainTableOffer.setItems(ds.getData());
             mainTableOffer.getColumns().addAll(ds.getColumns());
             
@@ -95,7 +95,7 @@ public class InvoiceList implements Initializable
             
             vBoxListOffer.getChildren().add(mainTableOffer);
                                                             
-            //mainTableOffer.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
+            //mainTableOffer.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Angebotsliste", ds));
             
         }
         catch(Exception e)
@@ -107,7 +107,7 @@ public class InvoiceList implements Initializable
         mainTableDelivery = new TableView<DeliveryNote>();
         try
         {
-            ds = new ObjectDataSource(delivery.list(), DeliveryNote.class, "delivery", "customer", "modificationDate");
+            ds = new ObjectDataSource(delivery.list(), DeliveryNote.class, "deliveryNoteNumber", "delivery", "customer", "modificationDate");
             mainTableDelivery.setItems(ds.getData());
             mainTableDelivery.getColumns().addAll(ds.getColumns());
             
@@ -120,7 +120,7 @@ public class InvoiceList implements Initializable
             
             vBoxListDelivery.getChildren().add(vBoxListDelivery);
                                                             
-            //mainTableOffer.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Artikelliste", ds));
+            //mainTableOffer.setContextMenu(new ArtiVerContextMenu(ReportTemplate.STANDARD.toString(), "Lieferscheinliste", ds));
             
         }
         catch(Exception e)
