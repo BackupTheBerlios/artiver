@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package eu.gymnaila.chunks.artiver.controller;
 
 
@@ -39,6 +35,7 @@ public class OfferController
    * @throws OfferDoesNotExistException 
    */
     
+  //wieso id -> String
   public void deleteOffer(String offerID) throws  OfferNotFoundException, OfferDoesNotExistException
   {
       List<Offer>offers=update();
@@ -145,11 +142,9 @@ public class OfferController
         em.close();
         return offers;
     }
-    /**
-     * this method changes the old offerList from the data base and replaces it with the list,
-     * that has been changed by the method
-     * @param offers this returns the offers in the offerList
-     */
+  
+    
+    
     // List<Offer> als Attribut übergebbar machen und diese liste in die db schreiben
     private void persist(List<Offer> offers)
     {
