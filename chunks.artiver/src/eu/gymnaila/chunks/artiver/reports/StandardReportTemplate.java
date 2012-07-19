@@ -19,12 +19,12 @@ import java.util.List;
 
 public class StandardReportTemplate 
 {
-    private List<AbstractColumn> mCols = null;
+    protected List<AbstractColumn> mCols = null;
 
-    private String mTitle = "";
+    protected String mTitle = "";
 
     
-    private String mReportTemplate = "";
+    protected String mReportTemplate = "";
     
     
     public StandardReportTemplate(String reportTemplate, List<AbstractColumn> cols, String title)
@@ -66,8 +66,6 @@ public class StandardReportTemplate
         subtitleStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
         subtitleStyle.setTextColor(Color.white);
 
-        Style amountStyle = new Style();
-        amountStyle.setHorizontalAlign(HorizontalAlign.LEFT);
 
         /**
          * Creates the DynamicReportBuilder and sets the basic options for the
@@ -108,7 +106,7 @@ public class StandardReportTemplate
 
     
     
-    private void addColumns(DynamicReportBuilder reportBuilder, List<AbstractColumn> cols) 
+    protected void addColumns(DynamicReportBuilder reportBuilder, List<AbstractColumn> cols) 
     {
 
         for(AbstractColumn col : cols)

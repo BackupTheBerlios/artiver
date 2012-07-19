@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListRep" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a5bfaf3-d841-432a-adeb-774fe948aa66">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InvoiceRep" pageWidth="595" pageHeight="842" columnWidth="455" leftMargin="70" rightMargin="70" topMargin="190" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="131"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="155"/>
 	<background>
 		<band/>
 	</background>
 	<title>
-		<band height="72"/>
-	</title>
-	<pageHeader>
-		<band height="50">
+		<band height="305">
 			<frame>
-				<reportElement uuid="25171688-edc3-4423-a054-e254cdce04ff" mode="Opaque" x="-20" y="-92" width="844" height="261" backcolor="#006699"/>
+				<reportElement mode="Opaque" x="-106" y="-202" width="999" height="202" backcolor="#006699"/>
 			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="455" height="223" forecolor="#FFFFFF"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[ ]]></textFieldExpression>
+			</textField>
 		</band>
-	</pageHeader>
+	</title>
 	<columnHeader>
 		<band height="21"/>
 	</columnHeader>
@@ -26,19 +28,19 @@
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="50">
+		<band height="30">
 			<textField>
-				<reportElement uuid="f6f882d6-6e3d-4609-8529-b016453b3e23" mode="Opaque" x="0" y="4" width="762" height="13" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="0" y="4" width="415" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Seite "+$V{PAGE_NUMBER}+" von"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="62f440f4-277e-4eef-b031-6e565e58c098" mode="Opaque" x="762" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="415" y="4" width="40" height="13" backcolor="#E6E6E6"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="e21ea81b-fd7a-4c35-abfa-eb119e01b2d7" x="0" y="4" width="100" height="13"/>
+				<reportElement x="0" y="4" width="100" height="13"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
