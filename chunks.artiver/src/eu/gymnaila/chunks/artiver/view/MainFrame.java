@@ -157,10 +157,18 @@ public class MainFrame implements Initializable {
     
     @FXML
     private void btnActionAccMainFrameInvoice(ActionEvent event) {
-        System.out.println("Rechnung");
-        lblMainFrameTitleLabel.setText("Rechnung");
+        System.out.println("Erstellen von Aufträgen");
+        lblMainFrameTitleLabel.setText("Erstellen");
         GuiPrototyp.getInstance().buildInvoiceFrame(vBoxMain);
     }
+    
+    @FXML
+    private void btnActionAccMainFrameInvoiceList(ActionEvent event) {
+        System.out.println("Einsehen von Auftragen");
+        lblMainFrameTitleLabel.setText("Einsehen");
+        GuiPrototyp.getInstance().buildInvoiceList(vBoxMain);
+    }
+    
     @FXML
     private void btnActionAccMainFrameOffer(ActionEvent event) {
         System.out.println("Angebot");
