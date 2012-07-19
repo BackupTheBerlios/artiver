@@ -149,7 +149,7 @@
                                         </styleClass>-->
                                     </Button>
                                     
-                                    <Button fx:id="btnAccMainFrameInvoice" styleClass = "accordion-button" text = "Einsehen" onAction = "#btnActionAccMainFrameInvoiceList" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
+                                    <Button fx:id="btnAccMainFrameInvoiceList" styleClass = "accordion-button" text = "Einsehen" onAction = "#btnActionAccMainFrameInvoiceList" minWidth = "200" prefWidth = "200" minHeight = "30" prefHeight = "30">
                                         <!--<styleClass>
                                             <String fx:value = "accordion-button"/>
                                         </styleClass>-->
