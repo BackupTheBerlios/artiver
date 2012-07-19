@@ -114,13 +114,16 @@ public class InvoiceFrame implements Initializable
             {
                 stringTemp = lstInvoice.getItems().get(i).toString();
                
-                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+                String stringList[] = stringTemp.split("; ");
                 
                 depArt = null;
                 depArt.setName(stringList[1]);
+                System.out.println(depArt);
                 depArt.setNr(stringList[0]);
                 depArt.setPrice(Numbers.parseDouble(stringList[3]));
                 depArt.setAmount(Numbers.parseInt(stringList[2]));
+                
+                System.out.println(depArt);
                 
                 listDepArt.add(depArt);
                 
@@ -149,7 +152,7 @@ public class InvoiceFrame implements Initializable
             {
                 stringTemp = lstInvoice.getItems().get(i).toString();
                
-                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+                String stringList[] = stringTemp.split("; ");
                 
                 depArt = null;
                 depArt.setName(stringList[1]);
@@ -179,7 +182,7 @@ public class InvoiceFrame implements Initializable
             {
                 stringTemp = lstInvoice.getItems().get(i).toString();
                
-                String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+                String stringList[] = stringTemp.split("; ");
                 
                 depArt = null;
                 depArt.setName(stringList[1]);
@@ -212,14 +215,24 @@ public class InvoiceFrame implements Initializable
             System.out.println(nameArt);
         String nrArt = mainTable.getSelectionModel().getSelectedItem().getNr().toString();
             System.out.println(nrArt);
-        String amount = txtInvoiceAmount.getText().toString();
-            System.out.println(amount);
-        String price = txtInvoicePrice.getText();
+        String price = txtInvoicePrice.getText().toString();
             System.out.println(price);
+            
+            String amount = "";
+            
+        if(Numbers.parseInt(txtInvoiceAmount.getText()) <= mainTable.getSelectionModel().getSelectedItem().getAmount())
+        {
+            amount = txtInvoiceAmount.getText();
+                System.out.println(amount);
+        }
+        else
+        {
+            amount = Numbers.toString(mainTable.getSelectionModel().getSelectedItem().getAmount());
+        }
         
         if(mainTable.getSelectionModel().getSelectedItem() != null && !txtInvoiceAmount.getText().equals("") && !txtInvoicePrice.getText().equals(""))
         {
-            lstInvoice.getItems().add(nrArt + ";\t" + nameArt + ";\t" + amount + ";\t" + price);
+            lstInvoice.getItems().add(nrArt + "; " + nameArt + "; " + amount + "; " + price);
         }
         
         double priceTemp = Numbers.parseDouble(txtInvoicePrice.getText());
@@ -263,7 +276,7 @@ public class InvoiceFrame implements Initializable
             }
         
         
-        String stringList[] = stringTemp.replaceAll("\t", "").split(";");
+        String stringList[] = stringTemp.split("; ");
         
         txtInvoicePrice.setText(stringList[3]);
         txtInvoiceAmount.setText(stringList[2]);
