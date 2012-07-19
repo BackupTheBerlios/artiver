@@ -76,6 +76,18 @@
     -fx-alignment: center;
 }
 
+.vBox-InvoiceList
+{
+    -fx-padding: 50 0 0 0;
+    
+    -fx-background-color: #DCE6F2;
+    
+    -fx-alignment: center;
+    
+    -fx-spacing: 20;
+}
+
+
 .vBox-UsersFrame
 {
     -fx-padding: 20 0 0 30;
