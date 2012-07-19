@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package eu.gymnaila.chunks.artiver.controller;
 
 
@@ -19,15 +16,24 @@ import javax.persistence.Query;
 import java.util.Date;
 /**
  *
- * @author privat
+ * @author Don
  */
 public class InvoiceController 
 {
+    
+  /**
+   * see return
+   * @return list of all invoices 
+   */  
   public List<Invoice> list()
   {
      return update();
   }
   
+   /**
+    * see return
+    * @return generated offer number as String
+    */
    public String generateInvoiceNr()
    {
 
@@ -57,8 +63,12 @@ public class InvoiceController
    }
   
   
-  //1
-  
+  /**
+   * 
+   * @param invID PK in DB to search for
+   * @return invoice number as String
+   * @throws InvoiceNotFoundException thrown, if invalid id as argument 
+   */
   public String getInvoiceNumber(int invID) throws InvoiceNotFoundException
   {
       
@@ -77,7 +87,12 @@ public class InvoiceController
   }
   
   
-    
+  /**
+   * 
+   * @param invNum invoice number to set
+   * @param invID PK in DB to search for
+   * @throws InvoiceNotFoundException thrown, if invalid id as argument
+   */  
   public void setInvoiceNumber(String invNum, int invID) throws InvoiceNotFoundException
   {
       
@@ -99,8 +114,12 @@ public class InvoiceController
   
   
   
-  //2
-  
+  /**
+   * 
+   * @param invID PK in DB to search for
+   * @return price as double
+   * @throws InvoiceNotFoundException  thrown, if invalid id as argument
+   */
   public double getPrice(int invID) throws InvoiceNotFoundException
   {
       
@@ -120,9 +139,13 @@ public class InvoiceController
   
   
  
-  //3
-  
-    
+
+  /**
+   * 
+   * @param invID PK in DB to search for
+   * @return invoice's modifier
+   * @throws InvoiceNotFoundException thrown, if invalid id as argument
+   */
   public String getModifier(int invID) throws InvoiceNotFoundException
   {
       
@@ -142,9 +165,13 @@ public class InvoiceController
   
  
   
-  //4
-  
-    
+ 
+  /**
+   * 
+   * @param invID PK in DB to search for
+   * @return customer as customer-object
+   * @throws InvoiceNotFoundException thrown, if invalid id as argument
+   */
   public Customer getCustomer(int invID) throws InvoiceNotFoundException
   {
       
@@ -162,7 +189,12 @@ public class InvoiceController
      
   }
   
-  
+  /**
+   * enables to set a customer
+   * @param cust customer to set
+   * @param invID PK in DB to search for
+   * @throws InvoiceNotFoundException thrown, if invalid id as argument
+   */
   public void setCustomer(Customer cust, int invID) throws InvoiceNotFoundException
   {
       
@@ -182,9 +214,13 @@ public class InvoiceController
      throw new InvoiceNotFoundException("Invoice could not be found."); 
   }
   
-  //5
-  
-    
+
+  /**
+   * 
+   * @param invID PK in DB to search for
+   * @return date on which invoice is modfied as date-object
+   * @throws InvoiceNotFoundException thrown, if invalid id as argument
+   */
   public Date getModificationDate(int invID) throws InvoiceNotFoundException
   {
       
@@ -202,9 +238,14 @@ public class InvoiceController
      
   }
   
-  //6
-  
-  
+
+  /**
+   * enables to add an invoice into the list
+   * @param articles articles to add
+   * @param price price to set
+   * @param customer customer to set
+   * @throws InvoiceAlreadyExistsException  thrown, if invalid id as argument
+   */
   public void addInvoice(List<DepictionArticle> articles, double price, Customer customer) throws InvoiceAlreadyExistsException
   {
       
@@ -231,7 +272,11 @@ public class InvoiceController
   }
   
   
-  
+  /**
+   * enables to delete an invoice
+   * @param invoiceID
+   * @throws InvoiceNotFoundException 
+   */
   public void deleteInvoice(int invoiceID) throws InvoiceNotFoundException
   {
           List<Invoice> invoiceList = update();
@@ -253,9 +298,7 @@ public class InvoiceController
 
   
 
-    /**
-     * this method delets one invoice from the data base
-     */
+
     private void dbDelete(Invoice invoice)
     {
             EntityManager em = AppConfig.createEntityManager();
@@ -269,12 +312,6 @@ public class InvoiceController
     
     
     
-    /**
-     * this method sets the invoicelist equal to the invoicelist from the data base
-     * @return this returns the invoices in the invoicelist
-     * ©Fat Don
-     */
-    
     private List<Invoice> update()
     {
         EntityManager em = AppConfig.createEntityManager();
@@ -284,12 +321,8 @@ public class InvoiceController
         em.close();
         return invoices;
     }
-    /**
-     * this method changes the old invoicelist from the data base and replaces it with the list,
-     * that has been changed by the method
-     * @param invoices this returns the invoices in the invoicelist
-     */
-    // List<Invoice> als Attribut übergebbar machen und diese liste in die db schreiben
+
+    
     private void persist(List<Invoice> invoices)
     {
         EntityManager em = AppConfig.createEntityManager();
