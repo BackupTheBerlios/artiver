@@ -425,6 +425,17 @@ public class GuiPrototyp extends Application
         }
     }
     
+    public void buildInvoiceList(VBox aVBox) 
+     {
+        try {
+            vBoxMain = aVBox;
+            replacePanelContent("/eu/gymnaila/chunks/artiver/view/fxml/InvoiceList.fxml");
+        } catch (Exception ex) {
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", ex.toString());
+            ex.printStackTrace();
+        }
+    }
+    
     
     //This method is used to show the different Frames in the middle of the MainFrame. It needs the new Frame given as an fxml-file.
     private void replacePanelContent(String fxml) throws Exception 
