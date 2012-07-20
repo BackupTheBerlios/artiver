@@ -39,7 +39,7 @@ public class InvoiceController
 
      List<Invoice> invoices = update();
      
-     int newID = -1;
+     int newID = 0;
      
 
             for (Invoice invoice : invoices) 
@@ -245,8 +245,9 @@ public class InvoiceController
    * @param price price to set
    * @param customer customer to set
    * @throws InvoiceAlreadyExistsException  thrown, if invalid id as argument
+   * @return id of the inserted invoice
    */
-  public void addInvoice(List<DepictionArticle> articles, double price, Customer customer) throws InvoiceAlreadyExistsException
+  public int addInvoice(List<DepictionArticle> articles, double price, Customer customer) throws InvoiceAlreadyExistsException
   {
       
      List<Invoice> invoiceList = update();
@@ -258,17 +259,18 @@ public class InvoiceController
          if(inv.getIdInvoice() >= newID)
          {
              newID = inv.getIdInvoice();
-             newID++;
-             List<DepictionArticle> tempArts = this.normalizeList(articles);
-             invoiceList.add(new Invoice(newID, this.generateInvoiceNr(), price, tempArts));
-             persist(invoiceList); 
-             return;
          }
      }
-
+     newID++;
      
-     throw new InvoiceAlreadyExistsException("This invoice does already exist."); 
- 
+     System.out.println("id:" + newID);
+     
+     List<DepictionArticle> tempArts = this.normalizeList(articles);
+     Invoice addInv = new Invoice(newID, this.generateInvoiceNr(), price, tempArts);
+     addInv.setCustomer(customer);
+     invoiceList.add(addInv);
+     persist(invoiceList); 
+     return newID;
   }
   
   
@@ -356,10 +358,11 @@ public class InvoiceController
             if (depArt.getIdDepictionArticle() >= newID) 
             {
                 newID = depArt.getIdDepictionArticle();
-                newID++;
+                
             }
         }
-
+        newID++;
+        
         List<DepictionArticle> tempArts = new ArrayList<DepictionArticle>();
         
         for (DepictionArticle tempArt : articles)

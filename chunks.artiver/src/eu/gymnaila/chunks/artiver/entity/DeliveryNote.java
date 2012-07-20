@@ -34,7 +34,7 @@ public class DeliveryNote implements Serializable {
     private Integer idDeliveryNote;
     @Basic(optional = false)
     @Column(name = "deliveryNoteNumber")
-    private int deliveryNoteNumber;
+    private String deliveryNoteNumber;
     @Basic(optional = false)
     @Column(name = "delivery")
     private String delivery;
@@ -68,7 +68,7 @@ public class DeliveryNote implements Serializable {
         this.idDeliveryNote = idDeliveryNote;
     }
 
-    public DeliveryNote(Integer idDeliveryNote, int deliveryNoteNumber, String delivery, String deliveryState) {
+    public DeliveryNote(Integer idDeliveryNote, String deliveryNoteNumber, String delivery, String deliveryState) {
         this.idDeliveryNote = idDeliveryNote;
         this.deliveryNoteNumber = deliveryNoteNumber;
         this.delivery = delivery;
@@ -83,11 +83,11 @@ public class DeliveryNote implements Serializable {
         this.idDeliveryNote = idDeliveryNote;
     }
 
-    public int getDeliveryNoteNumber() {
+    public String getDeliveryNoteNumber() {
         return deliveryNoteNumber;
     }
 
-    public void setDeliveryNoteNumber(int deliveryNoteNumber) {
+    public void setDeliveryNoteNumber(String deliveryNoteNumber) {
         this.deliveryNoteNumber = deliveryNoteNumber;
     }
 

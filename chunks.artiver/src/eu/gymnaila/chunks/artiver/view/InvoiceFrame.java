@@ -4,20 +4,29 @@
  */
 package eu.gymnaila.chunks.artiver.view;
 
+import ar.com.fdvs.dj.core.DJConstants;
+import ar.com.fdvs.dj.core.DynamicJasperHelper;
+import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
+import ar.com.fdvs.dj.domain.DJQuery;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
+import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import eu.gymnaila.chunks.artiver.config.AppConfig;
 import eu.gymnaila.chunks.artiver.controller.*;
 import eu.gymnaila.chunks.artiver.controls.ArtiVerContextMenu;
 import eu.gymnaila.chunks.artiver.controls.ModalWarningDialog;
-import eu.gymnaila.chunks.artiver.entity.Article;
-import eu.gymnaila.chunks.artiver.entity.Customer;
-import eu.gymnaila.chunks.artiver.entity.DepictionArticle;
-import eu.gymnaila.chunks.artiver.entity.Invoice;
+import eu.gymnaila.chunks.artiver.entity.*;
 import eu.gymnaila.chunks.artiver.exceptions.DeliveryNoteAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.exceptions.InvoiceAlreadyExistsException;
 import eu.gymnaila.chunks.artiver.main.GuiPrototyp;
+import eu.gymnaila.chunks.artiver.reports.InvoiceReportTemplate;
+import eu.gymnaila.chunks.artiver.reports.MainTest;
 import eu.gymnaila.chunks.artiver.reports.ReportTemplate;
 import eu.gymnaila.chunks.artiver.tooling.Numbers;
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,6 +42,12 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javax.persistence.EntityManager;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import org.javafxdata.datasources.protocol.ObjectDataSource;
 
 /**
@@ -103,35 +118,145 @@ public class InvoiceFrame implements Initializable
     @FXML
     private void btnActionInvoiceRoger(ActionEvent event) 
     {
-        try {
+        try 
+        {
             System.out.println("Rechnung bestätigen");
             
             String stringTemp;
             
-            listDepArt.clear();
-           
-            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+            if(lstInvoice.getItems().size()>0)
             {
-                stringTemp = lstInvoice.getItems().get(i).toString();
-               
-                String stringList[] = stringTemp.split("; ");
+                listDepArt.clear();
+           
+                for(int i = 0; i < lstInvoice.getItems().size(); i++)
+                {
+                    stringTemp = lstInvoice.getItems().get(i).toString();
+                    System.out.println(stringTemp);
+                    String stringList[] = stringTemp.split("; ");
+
+                    depArt = new DepictionArticle();
+                    depArt.setName(stringList[1]);
+                    System.out.println(depArt);
+                    depArt.setNr(stringList[0]);
+                    depArt.setPrice(Numbers.parseDouble(stringList[3]));
+                    depArt.setAmount(Numbers.parseInt(stringList[2]));
+
+                    System.out.println(depArt);
+
+                    listDepArt.add(depArt);
+
+                }
+
+              int idInv = invoice.addInvoice(listDepArt, priceTotal, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+          
+            
+                  
+        
+
+
+          
+            List<AbstractColumn> cols = new ArrayList<>();
+                 
                 
-                depArt = null;
-                depArt.setName(stringList[1]);
-                System.out.println(depArt);
-                depArt.setNr(stringList[0]);
-                depArt.setPrice(Numbers.parseDouble(stringList[3]));
-                depArt.setAmount(Numbers.parseInt(stringList[2]));
+                AbstractColumn column1 = ColumnBuilder.getNew()
+                    .setColumnProperty("Artikelnummer", "java.lang.String")
+                    .setTitle("Artikelnummer")
+                    .setWidth(85)
+                    .build();
                 
-                System.out.println(depArt);
+                cols.add(column1);
                 
-                listDepArt.add(depArt);
+                AbstractColumn column2 = ColumnBuilder.getNew()
+                    .setColumnProperty("Anzahl", "java.lang.Integer")
+                    .setTitle("Anzahl")
+                    .setWidth(85)
+                    .build();
                 
+                cols.add(column2);
+                
+                AbstractColumn column3 = ColumnBuilder.getNew()
+                    .setColumnProperty("Artikel", "java.lang.String")
+                    .setTitle("Artikel")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column3);
+                
+                AbstractColumn column4 = ColumnBuilder.getNew()
+                    .setColumnProperty("Preis", "java.lang.Double")
+                    .setTitle("Preis")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column4);
+                
+            HashMap<String,String> props = new HashMap<>();
+            
+            props.put("Total_sum", txtInvoiceTotal.getText());
+            System.out.println(txtInvoiceTotal.getText());
+            InvoiceReportTemplate repTemp = new InvoiceReportTemplate(ReportTemplate.INVOICE.toString(), cols, "Rechnung", AppConfig.getMasterData(), (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+            DynamicReport dr = repTemp.buildReport();
+     
+        
+           dr.setQuery(new DJQuery("Select art.nr as Artikelnummer, art.amount as Anzahl, art.name as Artikel, art.price as Preis " +
+                                    " From IntersectionInvoiceArticle inter "+
+                                    " inner join DepictionArticle art on art.idDepictionArticle = inter.idArticle "+
+                                    " inner join Invoice inv on inv.idInvoice = inter.idInvoice " +
+                                    " where inter.idInvoice = " + idInv, DJConstants.QUERY_LANGUAGE_SQL));
+           
+            
+            EntityManager entityManager = AppConfig.createEntityManager();
+                
+            entityManager.getTransaction().begin();
+                
+            java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
+                
+            System.out.println(connection.isValid(0));
+                
+            entityManager.getTransaction().commit();
+            
+    
+            
+            final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), connection, props);
+         
+
+
+           
+                     System.out.println("PDF-Export");
+                        FileChooser selFile = new FileChooser();
+                        selFile.setTitle("PDF-Export");
+                        
+                        //Set extension filter
+                        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF Dateien (*.pdf)", "*.pdf");
+                        selFile.getExtensionFilters().add(extFilter);
+
+                        File tempFile = selFile.showSaveDialog(GuiPrototyp.getInstance().getStage());
+                        
+                        if(tempFile != null)
+                        {
+                            String path = tempFile.getAbsolutePath().endsWith(".pdf") ? tempFile.getAbsolutePath() : tempFile.getAbsolutePath() + ".pdf";
+                            
+                            JasperExportManager.exportReportToPdfFile(jasperPrint, path); 
+                        }
+                        else
+                        {
+                           // throw new Exception();
+                        }
+                        
+                        JasperViewer.viewReport(jasperPrint, false);
+            
+            
+            
+            
+            
+            
             }
             
-            invoice.addInvoice(listDepArt, priceTotal, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
-        } catch (InvoiceAlreadyExistsException ex) {
-            Logger.getLogger(InvoiceFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (Exception e) 
+        {
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+            e.printStackTrace();
         }
     
         
@@ -141,62 +266,261 @@ public class InvoiceFrame implements Initializable
     @FXML
     private void btnActionOfferRoger(ActionEvent event) 
     {
-        
+        try
+        {
             System.out.println("Angebot bestätigen");
             
             String stringTemp;
             
-            listDepArt.clear();
-           
-            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+            if(lstInvoice.getItems().size()>0)
             {
-                stringTemp = lstInvoice.getItems().get(i).toString();
-               
-                String stringList[] = stringTemp.split("; ");
+                listDepArt.clear();
+
+                for(int i = 0; i < lstInvoice.getItems().size(); i++)
+                {
+                    stringTemp = lstInvoice.getItems().get(i).toString();
+
+                    String stringList[] = stringTemp.split("; ");
+
+                    depArt = null;
+                    depArt.setName(stringList[1]);
+                    depArt.setNr(stringList[0]);
+                    depArt.setPrice(Numbers.parseDouble(stringList[3]));
+                    depArt.setAmount(Numbers.parseInt(stringList[2]));
+
+                    listDepArt.add(depArt);
+
+                }
+
+                int idOff = offer.addOffer(priceTotal, listDepArt, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+           
+           
+          
+            List<AbstractColumn> cols = new ArrayList<>();
+                 
                 
-                depArt = null;
-                depArt.setName(stringList[1]);
-                depArt.setNr(stringList[0]);
-                depArt.setPrice(Numbers.parseDouble(stringList[3]));
-                depArt.setAmount(Numbers.parseInt(stringList[2]));
+                AbstractColumn column1 = ColumnBuilder.getNew()
+                    .setColumnProperty("Artikelnummer", "java.lang.String")
+                    .setTitle("Artikelnummer")
+                    .setWidth(85)
+                    .build();
                 
-                listDepArt.add(depArt);
+                cols.add(column1);
                 
-            }
+                AbstractColumn column2 = ColumnBuilder.getNew()
+                    .setColumnProperty("Anzahl", "java.lang.Integer")
+                    .setTitle("Anzahl")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column2);
+                
+                AbstractColumn column3 = ColumnBuilder.getNew()
+                    .setColumnProperty("Artikel", "java.lang.String")
+                    .setTitle("Artikel")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column3);
+                
+                AbstractColumn column4 = ColumnBuilder.getNew()
+                    .setColumnProperty("Preis", "java.lang.Double")
+                    .setTitle("Preis")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column4);
+                
+            HashMap<String,String> props = new HashMap<>();
             
-            offer.addOffer(priceTotal, listDepArt, (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+            props.put("Total_sum", txtInvoicePrice.getText());
+            
+            InvoiceReportTemplate repTemp = new InvoiceReportTemplate(ReportTemplate.OFFER.toString(), cols, "Angebot", AppConfig.getMasterData(), (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+            DynamicReport dr = repTemp.buildReport();
+     
         
+           dr.setQuery(new DJQuery("Select art.nr as Artikelnummer, art.amount as Anzahl, art.name as Artikel, art.price as Preis " +
+                                    " From IntersectionOfferArticle inter "+
+                                    " inner join DepictionArticle art on art.idDepictionArticle = inter.idArticle " +
+                                    " where inter.idOffer = " + idOff, DJConstants.QUERY_LANGUAGE_SQL));
+           
+            
+            EntityManager entityManager = AppConfig.createEntityManager();
+                
+            entityManager.getTransaction().begin();
+                
+            java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
+                
+            System.out.println(connection.isValid(0));
+                
+            entityManager.getTransaction().commit();
+            
+    
+            
+            final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), connection, props);
+         
+
+
+           
+                     System.out.println("PDF-Export");
+                        FileChooser selFile = new FileChooser();
+                        selFile.setTitle("PDF-Export");
+                        
+                        //Set extension filter
+                        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF Dateien (*.pdf)", "*.pdf");
+                        selFile.getExtensionFilters().add(extFilter);
+
+                        File tempFile = selFile.showSaveDialog(GuiPrototyp.getInstance().getStage());
+                        
+                        if(tempFile != null)
+                        {
+                            String path = tempFile.getAbsolutePath().endsWith(".pdf") ? tempFile.getAbsolutePath() : tempFile.getAbsolutePath() + ".pdf";
+                            
+                            JasperExportManager.exportReportToPdfFile(jasperPrint, path); 
+                        }
+                        else
+                        {
+                           // throw new Exception();
+                        }
+                        
+                        JasperViewer.viewReport(jasperPrint, false);
+            
+            
+            
+            
+            
+            }
+        } 
+        catch (Exception e) 
+        {
+            ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+            e.printStackTrace();
+        }
     }
     
     @FXML
     private void btnActionDeliveryRoger(ActionEvent event) 
     {
-        try {
+        try 
+        {
             System.out.println("Lieferschein bestätigen");
             
             String stringTemp;
             
-            listDepArt.clear();
-           
-            for(int i = 0; i < lstInvoice.getItems().size()-1; i++)
+            if(lstInvoice.getItems().size()>0)
             {
-                stringTemp = lstInvoice.getItems().get(i).toString();
-               
-                String stringList[] = stringTemp.split("; ");
+                listDepArt.clear();
+
+                for(int i = 0; i < lstInvoice.getItems().size(); i++)
+                {
+                    stringTemp = lstInvoice.getItems().get(i).toString();
+
+                    String stringList[] = stringTemp.split("; ");
+
+                    depArt = null;
+                    depArt.setName(stringList[1]);
+                    depArt.setNr(stringList[0]);
+                    depArt.setPrice(Numbers.parseDouble(stringList[3]));
+                    depArt.setAmount(Numbers.parseInt(stringList[2]));
+
+                    listDepArt.add(depArt);
+
+                }
+
+                int idNote = delivery.addDeliveryNote((Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem(), listDepArt);
+           
+                      
+        
+
+
+          
+            List<AbstractColumn> cols = new ArrayList<>();
+                 
                 
-                depArt = null;
-                depArt.setName(stringList[1]);
-                depArt.setNr(stringList[0]);
-                depArt.setPrice(Numbers.parseDouble(stringList[3]));
-                depArt.setAmount(Numbers.parseInt(stringList[2]));
+                AbstractColumn column1 = ColumnBuilder.getNew()
+                    .setColumnProperty("Artikelnummer", "java.lang.String")
+                    .setTitle("Artikelnummer")
+                    .setWidth(85)
+                    .build();
                 
-                listDepArt.add(depArt);
+                cols.add(column1);
                 
-            }
+                AbstractColumn column2 = ColumnBuilder.getNew()
+                    .setColumnProperty("Anzahl", "java.lang.Integer")
+                    .setTitle("Anzahl")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column2);
+                
+                AbstractColumn column3 = ColumnBuilder.getNew()
+                    .setColumnProperty("Artikel", "java.lang.String")
+                    .setTitle("Artikel")
+                    .setWidth(85)
+                    .build();
+                
+                cols.add(column3);
+                
+      
             
-            delivery.addDeliveryNote((Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem(), listDepArt);
-        } catch (DeliveryNoteAlreadyExistsException ex) {
-            Logger.getLogger(InvoiceFrame.class.getName()).log(Level.SEVERE, null, ex);
+            InvoiceReportTemplate repTemp = new InvoiceReportTemplate(ReportTemplate.DELIVERY.toString(), cols, "Lieferschein", AppConfig.getMasterData(), (Customer)cbxInvoiceCustomer.getSelectionModel().getSelectedItem());
+            DynamicReport dr = repTemp.buildReport();
+     
+        
+           dr.setQuery(new DJQuery("Select art.nr as Artikelnummer, art.amount as Anzahl, art.name as Artikel " +
+                                    " From IntersectionInvoiceArticle inter "+
+                                    " inner join DepictionArticle art on art.idDepictionArticle = inter.idArticle " +
+                                    " where inv.idInvoice = " + idNote, DJConstants.QUERY_LANGUAGE_SQL));
+           
+            
+            EntityManager entityManager = AppConfig.createEntityManager();
+                
+            entityManager.getTransaction().begin();
+                
+            java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
+                
+            System.out.println(connection.isValid(0));
+                
+            entityManager.getTransaction().commit();
+            
+    
+            
+            final JasperPrint jasperPrint = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), connection, null);
+         
+
+
+           
+                     System.out.println("PDF-Export");
+                        FileChooser selFile = new FileChooser();
+                        selFile.setTitle("PDF-Export");
+                        
+                        //Set extension filter
+                        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF Dateien (*.pdf)", "*.pdf");
+                        selFile.getExtensionFilters().add(extFilter);
+
+                        File tempFile = selFile.showSaveDialog(GuiPrototyp.getInstance().getStage());
+                        
+                        if(tempFile != null)
+                        {
+                            String path = tempFile.getAbsolutePath().endsWith(".pdf") ? tempFile.getAbsolutePath() : tempFile.getAbsolutePath() + ".pdf";
+                            
+                            JasperExportManager.exportReportToPdfFile(jasperPrint, path); 
+                        }
+                        else
+                        {
+                           // throw new Exception();
+                        }
+                        
+                        JasperViewer.viewReport(jasperPrint, false);
+            
+          
+            
+            }
+        }
+        catch (Exception e) 
+        {
+             ModalWarningDialog m = new ModalWarningDialog(GuiPrototyp.getInstance().getStage(), "Fehler", e.toString());
+             e.printStackTrace();
         }
         
     }
@@ -208,51 +532,44 @@ public class InvoiceFrame implements Initializable
     {
         System.out.println("Grüner Pfeil");
         
-        
-        
-        
-        String nameArt = mainTable.getSelectionModel().getSelectedItem().getName();
-            System.out.println(nameArt);
-        String nrArt = mainTable.getSelectionModel().getSelectedItem().getNr().toString();
-            System.out.println(nrArt);
-        String price = txtInvoicePrice.getText().toString();
-            System.out.println(price);
-            
+        if(!mainTable.getSelectionModel().isEmpty() && !txtInvoicePrice.getText().equals("") && !txtInvoiceAmount.getText().equals(""))
+        {
+            String nameArt = mainTable.getSelectionModel().getSelectedItem().getName();
+                System.out.println(nameArt);
+            String nrArt = mainTable.getSelectionModel().getSelectedItem().getNr().toString();
+                System.out.println(nrArt);
+            String price = txtInvoicePrice.getText().toString();
+                System.out.println(price);
+
             String amount = "";
-            
-        if(Numbers.parseInt(txtInvoiceAmount.getText()) <= mainTable.getSelectionModel().getSelectedItem().getAmount())
-        {
-            amount = txtInvoiceAmount.getText();
-                System.out.println(amount);
+
+            if(Numbers.parseInt(txtInvoiceAmount.getText()) <= mainTable.getSelectionModel().getSelectedItem().getAmount())
+            {
+                amount = txtInvoiceAmount.getText();
+                    System.out.println(amount);
+            }
+            else
+            {
+                amount = Numbers.toString(mainTable.getSelectionModel().getSelectedItem().getAmount());
+            }
+
+            if(mainTable.getSelectionModel().getSelectedItem() != null && !txtInvoiceAmount.getText().equals("") && !txtInvoicePrice.getText().equals(""))
+            {
+                lstInvoice.getItems().add(nrArt + "; " + nameArt + "; " + amount + "; " + price);
+            }
+
+            double priceTemp = Numbers.parseDouble(price) * Numbers.parseInt(amount);
+
+            priceTotal = priceTotal + (priceTemp);
+            priceNoMwSt = priceNoMwSt + (priceTemp - (priceTemp * mwst));
+
+            txtInvoiceTotal.setText(Numbers.toString(Math.round(priceTotal*100)/100.0));
+            txtInvoicePriceNoMwSt.setText(Numbers.toString(Math.round(priceNoMwSt*100)/100.0));
+
+            txtInvoicePrice.clear();
+            txtInvoiceAmount.clear();
+
         }
-        else
-        {
-            amount = Numbers.toString(mainTable.getSelectionModel().getSelectedItem().getAmount());
-        }
-        
-        if(mainTable.getSelectionModel().getSelectedItem() != null && !txtInvoiceAmount.getText().equals("") && !txtInvoicePrice.getText().equals(""))
-        {
-            lstInvoice.getItems().add(nrArt + "; " + nameArt + "; " + amount + "; " + price);
-        }
-        
-        double priceTemp = Numbers.parseDouble(txtInvoicePrice.getText());
-        
-        priceTotal = priceTotal + (priceTemp * (Numbers.parseInt(txtInvoiceAmount.getText())));
-        priceNoMwSt = priceNoMwSt + (priceTemp * (Numbers.parseInt(txtInvoiceAmount.getText())));
-        
-        double priceTempTotal = priceTotal;
-        double priceTempNoMwSt = priceNoMwSt;
-        
-        priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
-        //priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
-                
-        txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
-        txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
-        
-        txtInvoicePrice.clear();
-        txtInvoiceAmount.clear();
-         
-             
     }
     
     @FXML
@@ -281,20 +598,15 @@ public class InvoiceFrame implements Initializable
         txtInvoicePrice.setText(stringList[3]);
         txtInvoiceAmount.setText(stringList[2]);
 
-        double priceTemp = Numbers.parseDouble(txtInvoicePrice.getText());
+        double priceTemp = Numbers.parseDouble(txtInvoicePrice.getText()) * Numbers.parseInt(txtInvoiceAmount.getText());
         
-        priceTotal = priceTotal - (priceTemp * (Numbers.parseInt(txtInvoiceAmount.getText())));
-        priceNoMwSt = priceNoMwSt - (priceTemp * (Numbers.parseInt(txtInvoiceAmount.getText())));
-        
-        double priceTempTotal = priceTotal;
-        double priceTempNoMwSt = priceNoMwSt;
-        
-        priceTempNoMwSt = priceTempNoMwSt - (priceTempNoMwSt * mwst);
-        
+        priceTotal = priceTotal - priceTemp;
+        priceNoMwSt = priceNoMwSt - (priceTemp - (priceTemp * mwst));
+                
         //priceTempNoMwSt = Math.round(priceTempNoMwSt*100)/100;
         
-        txtInvoiceTotal.setText(Numbers.toString(priceTempTotal));
-        txtInvoicePriceNoMwSt.setText(Numbers.toString(priceTempNoMwSt));
+        txtInvoiceTotal.setText(Numbers.toString(Math.round(priceTotal*100)/100.0));
+        txtInvoicePriceNoMwSt.setText(Numbers.toString(Math.round(priceNoMwSt*100)/100.0));
         
         
         }

@@ -1,0 +1,153 @@
+2012-07-20 02:53:56,446 DEBUG ArrayConverter: Setting default value: [Ljava.sql.Timestamp;@5b7024b7
+2012-07-20 02:53:56,446 DEBUG ArrayConverter: Converting 'java.sql.Timestamp[]' value '[Ljava.sql.Timestamp;@5b7024b7' to type 'java.sql.Timestamp[]'
+2012-07-20 02:53:56,446 DEBUG ArrayConverter:     No conversion required, value is already a java.sql.Timestamp[]
+2012-07-20 02:53:56,446 DEBUG ArrayConverter: Setting default value: [Ljava.net.URL;@29e51476
+2012-07-20 02:53:56,446 DEBUG ArrayConverter: Converting 'java.net.URL[]' value '[Ljava.net.URL;@29e51476' to type 'java.net.URL[]'
+2012-07-20 02:53:56,447 DEBUG ArrayConverter:     No conversion required, value is already a java.net.URL[]
+2012-07-20 02:53:56,457 DEBUG BeanUtils: BeanUtils.copyProperties(ar.com.fdvs.dj.domain.DynamicJasperDesign@63b867ae, net.sf.jasperreports.engine.design.JasperDesign@302665f)
+2012-07-20 02:53:56,472 DEBUG IntegerConverter: Converting 'Integer' value '20' to type 'Integer'
+2012-07-20 02:53:56,472 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,472 DEBUG IntegerConverter: Converting 'Integer' value '1' to type 'Integer'
+2012-07-20 02:53:56,472 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,472 DEBUG IntegerConverter: Converting 'Integer' value '0' to type 'Integer'
+2012-07-20 02:53:56,472 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,472 DEBUG IntegerConverter: Converting 'Integer' value '455' to type 'Integer'
+2012-07-20 02:53:56,473 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,473 DEBUG BooleanConverter: Converting 'Boolean' value 'false' to type 'Boolean'
+2012-07-20 02:53:56,473 DEBUG BooleanConverter:     No conversion required, value is already a Boolean
+2012-07-20 02:53:56,473 DEBUG StringConverter: Converting value 'null' to type 'String'
+2012-07-20 02:53:56,473 DEBUG StringConverter:     Using default value ''
+2012-07-20 02:53:56,473 DEBUG BooleanConverter: Converting 'Boolean' value 'false' to type 'Boolean'
+2012-07-20 02:53:56,474 DEBUG BooleanConverter:     No conversion required, value is already a Boolean
+2012-07-20 02:53:56,474 DEBUG StringConverter: Converting 'String' value 'java' to type 'String'
+2012-07-20 02:53:56,474 DEBUG IntegerConverter: Converting 'Integer' value '70' to type 'Integer'
+2012-07-20 02:53:56,474 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,474 DEBUG StringConverter: Converting 'String' value 'InvoiceRep' to type 'String'
+2012-07-20 02:53:56,474 DEBUG IntegerConverter: Converting 'Integer' value '842' to type 'Integer'
+2012-07-20 02:53:56,475 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,475 DEBUG IntegerConverter: Converting 'Integer' value '595' to type 'Integer'
+2012-07-20 02:53:56,475 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,475 DEBUG StringConverter: Converting value 'null' to type 'String'
+2012-07-20 02:53:56,475 DEBUG StringConverter:     Using default value ''
+2012-07-20 02:53:56,475 DEBUG IntegerConverter: Converting 'Integer' value '70' to type 'Integer'
+2012-07-20 02:53:56,475 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,475 DEBUG StringConverter: Converting value 'null' to type 'String'
+2012-07-20 02:53:56,475 DEBUG StringConverter:     Using default value ''
+2012-07-20 02:53:56,476 DEBUG BooleanConverter: Converting 'Boolean' value 'false' to type 'Boolean'
+2012-07-20 02:53:56,476 DEBUG BooleanConverter:     No conversion required, value is already a Boolean
+2012-07-20 02:53:56,476 DEBUG BooleanConverter: Converting 'Boolean' value 'false' to type 'Boolean'
+2012-07-20 02:53:56,476 DEBUG BooleanConverter:     No conversion required, value is already a Boolean
+2012-07-20 02:53:56,476 DEBUG BooleanConverter: Converting 'Boolean' value 'false' to type 'Boolean'
+2012-07-20 02:53:56,477 DEBUG BooleanConverter:     No conversion required, value is already a Boolean
+2012-07-20 02:53:56,477 DEBUG IntegerConverter: Converting 'Integer' value '190' to type 'Integer'
+2012-07-20 02:53:56,477 DEBUG IntegerConverter:     No conversion required, value is already a Integer
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_CONTEXT
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_PARAMETERS_MAP
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : JASPER_REPORT
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_CONNECTION
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_MAX_COUNT
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_DATA_SOURCE
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_SCRIPTLET
+2012-07-20 02:53:56,477 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_LOCALE
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_RESOURCE_BUNDLE
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_TIME_ZONE
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_FORMAT_FACTORY
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_CLASS_LOADER
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_URL_HANDLER_FACTORY
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_FILE_RESOLVER
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_TEMPLATES
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : SORT_FIELDS
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : FILTER
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : REPORT_VIRTUALIZER
+2012-07-20 02:53:56,478 WARN  DJJRDesignHelper: Duplicate declaration of parameter : IS_IGNORE_PAGINATION
+2012-07-20 02:53:56,482 DEBUG DynamicJasperHelper: The name for this report will be: InvoiceRep_6369
+2012-07-20 02:53:56,484 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_0 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_0, property: nr (java.lang.String) 
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_1 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_1, property: name (java.lang.String) 
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_2 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_2, property: ean (java.lang.String) 
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_3 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_3, property: amount (java.lang.String) 
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_4 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_4, property: category (java.lang.String) 
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_5 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_5, property: price (java.lang.String) 
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_6 (SimpleColumn)
+2012-07-20 02:53:56,485 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_6, property: stock (java.lang.String) 
+2012-07-20 02:53:56,486 DEBUG ColumnRegistrationManager: Registering column InvoiceRep_6369_COLUMN_7 (SimpleColumn)
+2012-07-20 02:53:56,486 DEBUG ColumnRegistrationManager: Transforming column: InvoiceRep_6369_COLUMN_7, property: state (java.lang.String) 
+2012-07-20 02:53:56,487 DEBUG DynamicJasperHelper: Requested Locale = de_DE, Locale to use: de_DE
+2012-07-20 02:53:56,488 DEBUG AbstractLayoutManager: Applying Layout...
+2012-07-20 02:53:56,488 DEBUG AbstractLayoutManager: Setting columns final width.
+2012-07-20 02:53:56,488 DEBUG AbstractLayoutManager: printableArea = 455, columnsWidth = 680, columnsWidth = 680, notRezisableWidth = 0, factor = 0.6691176
+2012-07-20 02:53:56,491 DEBUG ClassicLayoutManager: Generating title band...
+2012-07-20 02:53:56,494 DEBUG AbstractLayoutManager: Using existing style for style with name "dj_style_1_"
+2012-07-20 02:53:56,496 DEBUG AbstractLayoutManager: Using existing style for style with name "dj_style_2_"
+2012-07-20 02:53:56,496 DEBUG ClassicLayoutManager: Generating main report header band.
+2012-07-20 02:53:56,496 DEBUG AbstractLayoutManager: Adding column names in header band.
+2012-07-20 02:53:56,496 DEBUG AbstractLayoutManager: Using existing style for style with name "dj_style_3_"
+2012-07-20 02:53:56,497 DEBUG ClassicLayoutManager: Starting groups layout...
+2012-07-20 02:53:56,497 DEBUG AbstractLayoutManager: transforming Detail Band...
+2012-07-20 02:53:56,497 DEBUG AbstractLayoutManager: Using existing style for style with name "dj_style_4_"
+2012-07-20 02:53:56,499 DEBUG AbstractLayoutManager: Setting bands final height...
+2012-07-20 02:53:56,499 DEBUG AbstractLayoutManager: Setting bands final height...
+2012-07-20 02:53:56,499 DEBUG AbstractLayoutManager: setting up WHEN NO DATA band
+2012-07-20 02:53:56,499 DEBUG AbstractLayoutManager: Setting bands final height...
+2012-07-20 02:53:57,317 DEBUG JRBaseFiller: Fill 1: created for InvoiceRep_6369
+2012-07-20 02:53:57,342 DEBUG JRFillBand: Origin {reportName: null, groupName: null,bandType: BACKGROUND} for band 1892195253
+2012-07-20 02:53:57,352 DEBUG JRFillBand: Origin {reportName: null, groupName: null,bandType: TITLE} for band 291867658
+2012-07-20 02:53:57,352 DEBUG JRFillBand: Origin {reportName: null, groupName: null,bandType: COLUMN_HEADER} for band 418973629
+2012-07-20 02:53:57,352 DEBUG JRFillBand: Origin {reportName: null, groupName: null,bandType: DETAIL} for band 788824771
+2012-07-20 02:53:57,352 DEBUG JRFillBand: Origin {reportName: null, groupName: null,bandType: COLUMN_FOOTER} for band 530167118
+2012-07-20 02:53:57,353 DEBUG JRFillBand: Origin {reportName: null, groupName: null,bandType: PAGE_FOOTER} for band 1664704976
+2012-07-20 02:53:57,353 DEBUG JRBaseFiller: Fill 1: filling report
+2012-07-20 02:53:57,358 DEBUG JRFillDataset: Fill 1: Creating sql query executer
+2012-07-20 02:53:57,363 DEBUG JRJdbcQueryExecuter: SQL query string: select * from artiver.Article
+2012-07-20 02:53:57,538 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@7670ae15
+2012-07-20 02:53:57,538 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@6ca6f474
+2012-07-20 02:53:57,538 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@56c84715
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@599df474
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@111c19a3
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@4bd7251b
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@19c53683
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@627ddfac
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@35e7c7b8
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@3e91cae
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@3d59e583
+2012-07-20 02:53:57,539 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.base.JRBaseStyle@58eb1aec
+2012-07-20 02:53:57,547 DEBUG JRBaseFiller: Fill 1: adding page 1
+2012-07-20 02:53:57,547 DEBUG JRVerticalFiller: Fill 1: title
+2012-07-20 02:53:57,577 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateFrame@2b3bb4b6
+2012-07-20 02:53:57,579 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@820588c
+2012-07-20 02:53:57,580 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@409cb8af
+2012-07-20 02:53:57,580 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@71210a4c
+2012-07-20 02:53:57,580 DEBUG JRVerticalFiller: Fill 1: column header
+2012-07-20 02:53:57,582 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@66d9622a
+2012-07-20 02:53:57,582 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@49bbe826
+2012-07-20 02:53:57,582 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@4f863c9b
+2012-07-20 02:53:57,582 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@75f50ce6
+2012-07-20 02:53:57,582 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@2b220c8a
+2012-07-20 02:53:57,582 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@48654e25
+2012-07-20 02:53:57,583 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@72ed8444
+2012-07-20 02:53:57,583 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@4786c74e
+2012-07-20 02:53:57,583 DEBUG JRVerticalFiller: Fill 1: detail
+2012-07-20 02:53:57,584 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@6186f691
+2012-07-20 02:53:57,584 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@63a5db9c
+2012-07-20 02:53:57,585 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@1df511e0
+2012-07-20 02:53:57,585 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@4468987d
+2012-07-20 02:53:57,585 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@2ef359a1
+2012-07-20 02:53:57,585 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@6a81711b
+2012-07-20 02:53:57,585 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@5828da3d
+2012-07-20 02:53:57,585 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@62100802
+2012-07-20 02:53:57,586 DEBUG JRVerticalFiller: Fill 1: detail
+2012-07-20 02:53:57,599 DEBUG JRVerticalFiller: Fill 1: detail
+2012-07-20 02:53:57,601 DEBUG JRVerticalFiller: Fill 1: detail
+2012-07-20 02:53:57,603 DEBUG JRVerticalFiller: Fill 1: page footer
+2012-07-20 02:53:57,604 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@7a7e0592
+2012-07-20 02:53:57,604 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@679ff311
+2012-07-20 02:53:57,605 DEBUG JRBaseFiller: Adding evaluation of net.sf.jasperreports.engine.fill.JRTemplatePrintText@360f163d by net.sf.jasperreports.engine.fill.JRFillTextField@187d1a85 for evaluation {type: REPORT, group: null, band: 0}
+2012-07-20 02:53:57,605 DEBUG DeduplicableRegistry: Added object net.sf.jasperreports.engine.fill.JRTemplateText@4b7df02b
+2012-07-20 02:53:57,606 DEBUG ElementEvaluationAction: resolving element net.sf.jasperreports.engine.fill.JRTemplatePrintText@360f163d by net.sf.jasperreports.engine.fill.JRFillTextField@187d1a85 on {type: REPORT, group: null, band: 0}
+2012-07-20 02:53:57,606 DEBUG JRBaseFiller: Fill 1: ended
+2012-07-20 02:53:57,606 DEBUG JRFillDataset: Fill 1: closing query executer

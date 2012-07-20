@@ -136,11 +136,9 @@ public class GuiPrototyp extends Application
         
         stage.getIcons().add(logo);
         
-        
-        
+        stage.centerOnScreen();
+       
         stage.show();
-        
-        
         
         // TODO Exception handling for that method
         AppConfig.init();
@@ -246,11 +244,11 @@ public class GuiPrototyp extends Application
         // As already known from above...
         stage.setScene(scene);
         
-        // Center screen looked better
-        stage.centerOnScreen();
-
         // Stage set to fit the scene's size
         stage.sizeToScene();
+        
+        // Center screen looked better
+        stage.centerOnScreen();
         
         stage.setTitle("ArtiVer");
         

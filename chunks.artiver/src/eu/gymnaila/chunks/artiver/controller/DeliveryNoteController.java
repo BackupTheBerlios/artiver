@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import eu.gymnaila.chunks.artiver.exceptions.*;
+import java.util.ArrayList;
 import javax.persistence.Query;
 /**
  *
@@ -99,7 +100,7 @@ public class DeliveryNoteController
     * @return unique number of the delivery note
     * @throws DeliveryNoteNotFoundException thrown, if note's id was not found in DB
     */ 
-  public int getDeliveryNoteNumber(int noteID) throws DeliveryNoteNotFoundException
+  public String getDeliveryNoteNumber(int noteID) throws DeliveryNoteNotFoundException
   {
       
       List<DeliveryNote> noteList = update();
@@ -123,7 +124,7 @@ public class DeliveryNoteController
    * @param noteID PK 
    * @throws DeliveryNoteNotFoundException thrown, if id was not found in db 
    */
-  public void setDeliveryNoteNumber(int deliveryNoteNumber, int noteID) throws DeliveryNoteNotFoundException
+  public void setDeliveryNoteNumber(String deliveryNoteNumber, int noteID) throws DeliveryNoteNotFoundException
   {
       
      List<DeliveryNote> noteList = update();
@@ -357,7 +358,7 @@ public class DeliveryNoteController
    */
   
   //re-fixed :)
- public void addDeliveryNote(Customer customer, List<DepictionArticle> depArt) throws DeliveryNoteAlreadyExistsException
+ public int addDeliveryNote(Customer customer, List<DepictionArticle> depArt) throws DeliveryNoteAlreadyExistsException
   {
       
      List<DeliveryNote> noteList = update();
@@ -374,11 +375,46 @@ public class DeliveryNoteController
      }
      
      newID++;
-     noteList.add(new DeliveryNote(newID)); //don @ matze: customer und depArt nicht übergeben, wozu dann im constructor? 
+     DeliveryNote delNote = new DeliveryNote(newID, generateNoteNr(), "", "");
+     delNote.setArticles(this.normalizeList(depArt));
+     delNote.setCustomer(customer);
+     noteList.add(delNote); //don @ matze: customer und depArt nicht übergeben, wozu dann im constructor? 
+     
      persist(noteList);
+     
+     return newID;
   }
 
-  
+  private List<DepictionArticle> normalizeList(List<DepictionArticle> articles)
+    {
+        int newID = 0;
+
+        EntityManager em = AppConfig.createEntityManager();
+
+        Query articleQuery = em.createNamedQuery("DepictionArticle.findAll");
+        List<DepictionArticle> depArts = articleQuery.getResultList();
+        em.close();
+
+
+        for (DepictionArticle depArt : depArts) 
+        {
+            if (depArt.getIdDepictionArticle() >= newID) 
+            {
+                newID = depArt.getIdDepictionArticle();
+                newID++;
+            }
+        }
+
+        List<DepictionArticle> tempArts = new ArrayList<>();
+        
+        for (DepictionArticle tempArt : articles)
+        {
+            tempArt.setIdDepictionArticle(newID);
+            tempArts.add(tempArt);
+            newID++;
+        }
+        return tempArts;     
+    }
   
   /**
    * enables to delete a note from DB

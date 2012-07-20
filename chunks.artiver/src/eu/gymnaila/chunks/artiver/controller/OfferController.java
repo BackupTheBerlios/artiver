@@ -58,7 +58,7 @@ public class OfferController
   * @param articles the articles that the offer will contain
   * @param customer the customer who created the offer
   */
-   public void addOffer(double price, List<DepictionArticle> articles, Customer customer)
+   public int addOffer(double price, List<DepictionArticle> articles, Customer customer)
    {
      List <Offer> offers = update();
      int newID = -1;
@@ -70,11 +70,17 @@ public class OfferController
        }
       }
      newID++;
+     
      List<DepictionArticle> tempArts = this.normalizeList(articles);
-     offers.add(new Offer(newID, this.generateOfferNr(), price));
+     Offer addOffer = new Offer(newID, this.generateOfferNr(), price);
+     
+     addOffer.setArticles(tempArts);
+     addOffer.setCustomer(customer);
+     
+     offers.add(addOffer);
      persist(offers);
 
-    
+    return newID;
     
      
    }

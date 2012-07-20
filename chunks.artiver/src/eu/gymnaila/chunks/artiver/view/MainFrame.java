@@ -194,6 +194,7 @@ public class MainFrame implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        GuiPrototyp.getInstance().getStage().centerOnScreen();
         
         lblMainFrameTitleLabel.setText("Hauptmenü");
         
